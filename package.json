@@ -4,7 +4,9 @@
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc && node-gyp rebuild",
+    "build:node": "tsc",
+    "build:gyp": "node-gyp rebuild",
+    "build": "npm run build:node && npm run build:gyp",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

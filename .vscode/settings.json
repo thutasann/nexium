@@ -23,7 +23,8 @@
     "ncurses.h": "c",
     "node_api.h": "c",
     "malloc.h": "c",
-    "data_structures.h": "c"
+    "data_structures.h": "c",
+    "utils.h": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }
