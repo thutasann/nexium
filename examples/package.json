@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "benchmark": "node benchmark"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "nexium": "^1.0.9"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.4"
   }
 }

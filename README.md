@@ -19,8 +19,9 @@ Nexium is a cutting-edge Node.js package that brings advanced data structures an
 You can install **Nexium** via npm. Simply run the following command:
 
 ```bash
-npm install nexium
+npm install nexium@latest
 ```
 
-📜 Contributing
+## 📜 Contributing
+
 We welcome contributions! If you have suggestions or improvements, please fork the repository and submit a pull request.
