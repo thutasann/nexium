@@ -55,3 +55,6 @@ CMakeCache.txt
 
 # javascript
 node_modules
+yarn.*
+lib
+build
