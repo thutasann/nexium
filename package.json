@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
+  "types": "src/typescript/global.d.ts",
   "scripts": {
     "build:node": "tsc",
     "build:gyp": "node-gyp rebuild",
-    "build": "npm run build:node && npm run build:gyp",
-    "prepublishOnly": "npm run build"
+    "build": "npm run build:gyp && npm run build:node",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
   "keywords": [
     "node",
@@ -15,9 +17,10 @@
     "javascript",
     "data structures",
     "utils",
-    "c"
+    "c",
+    "typescript"
   ],
-  "author": "Your Name",
+  "author": "Thuta Sann",
   "license": "MIT",
   "dependencies": {
     "node-addon-api": "^5.0.0"
@@ -27,6 +30,11 @@
     "node-gyp": "^9.0.0",
     "typescript": "^5.0.0"
   },
+  "files": [
+    "build/Release/nexium.node",
+    "lib/**/*",
+    "src/typescript/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/thutasann/nexium.gitt"

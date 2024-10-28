@@ -11,6 +11,6 @@
     "typeRoots": ["./node_modules/@types", "./src/typescript"],
     "types": ["node"]
   },
-  "include": ["src/typescript/**/*", "global.d.ts"],
-  "exclude": ["node_modules", "lib"]
+  "include": ["src/typescript/**/*"],
+  "exclude": ["node_modules", "lib", "build"]
 }

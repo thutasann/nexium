@@ -1,8 +1,8 @@
 import { addNumbers } from './index'
 
 const testAdd = () => {
-  const result = addNumbers(4, 3)
-  console.log(`4 + 3 = ${result}`)
+  const result = addNumbers(6, 1)
+  console.log(`6 + 1 = ${result}`)
 }
 
 testAdd()
