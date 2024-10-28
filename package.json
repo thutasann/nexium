@@ -8,6 +8,7 @@
     "build:node": "tsc",
     "build:gyp": "node-gyp rebuild",
     "build": "npm run build:gyp && npm run build:node",
+    "prebuild": "tsc --declaration --emitDeclarationOnly",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build"
   },
