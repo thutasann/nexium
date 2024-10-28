@@ -1,5 +1,5 @@
 // @ts-check
-const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot } = require('../lib/maths')
+const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot } = require('../lib')
 
 describe('mathFunctions', () => {
   it('should add two positive numbers correctly', () => {

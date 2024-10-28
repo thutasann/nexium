@@ -1,1 +1,1 @@
-console.log('Hello From Nexium')
+export * from './maths'

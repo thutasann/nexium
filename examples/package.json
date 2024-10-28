@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nexium": "^1.0.7"
+    "nexium": "^1.0.8"
   }
 }
