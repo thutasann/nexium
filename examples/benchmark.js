@@ -1,6 +1,6 @@
 // @ts-check
 const Benchmark = require('benchmark')
-const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot } = require('nexium')
+const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot, trimStart } = require('nexium')
 
 const suite = new Benchmark.Suite()
 
@@ -13,6 +13,9 @@ suite
   })
   .add('Calculate nth root', () => {
     calculateNthRoot(27, 3)
+  })
+  .add('Trim start', () => {
+    trimStart('      Hello world')
   })
   .on('cycle', (event) => {
     console.log(String(event.target))
