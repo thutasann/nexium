@@ -1,4 +1,5 @@
 #include "../include/utils.h"
+#include <math.h>
 #include <node_api.h>
 
 /** Function to Add two Values */
@@ -43,4 +44,21 @@ napi_value Subtract(napi_env env, napi_callback_info info) {
     // Convert the result back to napi_value and return
     napi_create_double(env, difference, &result);
     return result;
+}
+
+/** Function to calculate the nth root of a number.  */
+napi_value NthRoot(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value argv[2];
+    napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
+
+    double base, n;
+    napi_get_value_double(env, argv[0], &base);
+    napi_get_value_double(env, argv[1], &n);
+
+    double result = pow(base, 1.0 / n);
+
+    napi_value jsResult;
+    napi_create_double(env, result, &jsResult);
+    return jsResult;
 }
