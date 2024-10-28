@@ -1,26 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2020", // Specify ECMAScript target version
-    "module": "commonjs", // Specify module code generation
-    "outDir": "./lib", // Redirect output structure to the 'lib' directory
-    "rootDir": "./src/ts", // Specify the root directory of input files
-    "strict": true, // Enable all strict type-checking options
-    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
-    "typeRoots": [
-      "./node_modules/@types", // Include @types folder for type definitions
-      "./src/ts" // Allow local type definitions in the ts folder
-    ],
-    "types": [
-      "node" // Include Node.js types
-    ]
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./lib",
+    "rootDir": "./src/typescript",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./src/typescript"],
+    "types": ["node"]
   },
-  "include": [
-    "src/ts/**/*" // Include all TypeScript files in the ts folder
-  ],
-  "exclude": [
-    "node_modules", // Exclude node_modules from compilation
-    "lib" // Exclude the output directory
-  ]
+  "include": ["src/typescript/**/*", "global.d.ts"],
+  "exclude": ["node_modules", "lib"]
 }
