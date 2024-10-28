@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
-  "types": "src/typescript/global.d.ts",
+  "types": "src/typescript/nexium.d.ts",
   "scripts": {
     "build:node": "tsc",
     "build:gyp": "node-gyp rebuild",
