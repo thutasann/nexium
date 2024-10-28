@@ -1,0 +1,12 @@
+# .clang-format
+
+BasedOnStyle: LLVM # change this to Google, Microsoft, etc., based on your preference
+IndentWidth: 4 # Number of spaces for indentation
+ColumnLimit: 0 # Disable column limit
+AllowShortBlocksOnASingleLine: Empty # Prevent short blocks from being formatted on a single line
+AllowShortCaseLabelsOnASingleLine: true # Allow short case labels on a single line
+BreakBeforeBraces: Attach # Place braces on the same line for functions and control statements
+SpaceBeforeParens: ControlStatements # Space before parentheses in control statements
+SpacesInParentheses: false # No spaces in parentheses
+
+# You may add other options as needed

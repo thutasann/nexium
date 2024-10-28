@@ -1,0 +1,36 @@
+{
+  "name": "nexium",
+  "version": "1.0.0",
+  "description": "A Node.js package providing advanced data structures and utility functions using native C.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc && node-gyp rebuild",
+    "test": "echo \"No tests specified\" && exit 0",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "node",
+    "native",
+    "javascript",
+    "data structures",
+    "utils",
+    "c"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "node-addon-api": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "node-gyp": "^9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/nexium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/nexium/issues"
+  },
+  "homepage": "https://github.com/yourusername/nexium#readme"
+}
