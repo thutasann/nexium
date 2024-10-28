@@ -3,14 +3,21 @@
 
 /** Module Initialization */
 napi_value Init(napi_env env, napi_value exports) {
-    napi_value addFunction, subtractFunction;
 
-    // ----- Math functions
-    napi_create_function(env, NULL, 0, Add, NULL, &addFunction);
-    napi_set_named_property(env, exports, "add", addFunction);
+    // -- Add Function
+    napi_value addFn;
+    napi_create_function(env, NULL, 0, Add, NULL, &addFn);
+    napi_set_named_property(env, exports, "add", addFn);
 
-    napi_create_function(env, NULL, 0, Subtract, NULL, &subtractFunction);
-    napi_set_named_property(env, exports, "subtract", subtractFunction);
+    // -- Subtract Function
+    napi_value subtractFn;
+    napi_create_function(env, NULL, 0, Subtract, NULL, &subtractFn);
+    napi_set_named_property(env, exports, "subtract", subtractFn);
+
+    // -- nth root of a number Function
+    napi_value nthRootFn;
+    napi_create_function(env, NULL, 0, NthRoot, NULL, &nthRootFn);
+    napi_set_named_property(env, exports, "nthRoot", nthRootFn);
 
     return exports;
 }
