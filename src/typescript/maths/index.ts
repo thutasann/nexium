@@ -1,4 +1,4 @@
-import { add, subtract, nthRoot } from '../build/Release/nexium.node'
+import { add, subtract, nthRoot } from '../../build/Release/nexium.node'
 
 /** Add Two Numbers */
 export const addTwoNumbers = (a: number, b: number): number => {
