@@ -1,6 +1,6 @@
 {
   "name": "nexium",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
   "types": "src/typescript/nexium.d.ts",
