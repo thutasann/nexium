@@ -1,9 +1,9 @@
 {
   "name": "nexium",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
-  "types": "src/lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build:node": "tsc",
     "build:gyp": "node-gyp rebuild",
