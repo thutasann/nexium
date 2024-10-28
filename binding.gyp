@@ -4,7 +4,7 @@
       "target_name": "nexium",
       "sources": [
         "src/addon/addon.c",
-        "src/addon/utils.c",
+        "src/addon/utils/math.c",
       ],
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"
