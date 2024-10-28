@@ -1,5 +1,5 @@
 // @ts-check
-const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot } = require('nexium/lib/maths')
+const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot } = require('nexium')
 
 const result = addTwoNumbers(4, 3)
 console.log(`The sum is: ${result}`)
