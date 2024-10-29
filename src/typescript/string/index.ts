@@ -3,6 +3,7 @@ import {
   trimEnd as trimEndFn,
   isEmpty as isEmptyFn,
   toTitleCase as toTitleCaseFn,
+  isPalindrome as isPalindromeFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -29,5 +30,15 @@ export class NString {
    */
   static toTitleCase(str: string): string {
     return toTitleCaseFn(str)
+  }
+
+  /**
+   * Function to check if the string is a palindrome
+   * @example
+   * console.log(isPalindrome("madam")); // true
+   * console.log(isPalindrome("hello")); // false
+   */
+  static isPalindrome(str: string): boolean {
+    return isPalindromeFn(str)
   }
 }

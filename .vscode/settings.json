@@ -24,7 +24,15 @@
     "node_api.h": "c",
     "malloc.h": "c",
     "data_structures.h": "c",
-    "utils.h": "c"
+    "utils.h": "c",
+    "__bit_reference": "c",
+    "__hash_table": "c",
+    "__split_buffer": "c",
+    "array": "c",
+    "initializer_list": "c",
+    "ios": "c",
+    "unordered_map": "c",
+    "vector": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

@@ -35,6 +35,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, ToTitleCase, NULL, &toTitleCaseFn);
     napi_set_named_property(env, exports, "toTitleCase", toTitleCaseFn);
 
+    napi_value isPalindromeFn;
+    napi_create_function(env, NULL, 0, IsPalindrome, NULL, &isPalindromeFn);
+    napi_set_named_property(env, exports, "isPalindrome", isPalindromeFn);
+
     return exports;
 }
 
