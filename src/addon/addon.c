@@ -23,6 +23,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, TrimStart, NULL, &trimStartFn);
     napi_set_named_property(env, exports, "trimStart", trimStartFn);
 
+    napi_value trimEndFn;
+    napi_create_function(env, NULL, 0, TrimEnd, NULL, &trimEndFn);
+    napi_set_named_property(env, exports, "trimEnd", trimEndFn);
+
     return exports;
 }
 

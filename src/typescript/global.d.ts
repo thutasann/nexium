@@ -3,4 +3,5 @@ declare module '*.node' {
   export function subtract(a: number, b: number): number
   export function nthRoot(base: number, n: number): number
   export function trimStart(str: string): string
+  export function trimEnd(str: string): string
 }

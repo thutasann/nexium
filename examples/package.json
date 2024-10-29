@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nexium": "^1.0.11"
+    "nexium": "^1.0.12"
   },
   "devDependencies": {
     "benchmark": "^2.1.4"
