@@ -10,6 +10,9 @@ function stringExamples() {
 
   const trimedEnd = NString.trimEnd('Hello World    ')
   console.log(trimedEnd)
+
+  console.log('isPalindrome true -> ', NString.isPalindrome('madam')) // true
+  console.log('isPalindrome false ->', NString.isPalindrome('hello')) // false
 }
 
 module.exports = { stringExamples }
