@@ -41,6 +41,11 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, IsPalindrome, NULL, &isPalindromeFn);
     napi_set_named_property(env, exports, "isPalindrome", isPalindromeFn);
 
+    napi_value countOccurrencesFn;
+    napi_create_function(env, NULL, 0, CountOccurrences, NULL, &countOccurrencesFn);
+    napi_set_named_property(env, exports, "countOccurrences", countOccurrencesFn);
+    return exports;
+
     return exports;
 }
 

@@ -11,4 +11,5 @@ declare module '*.node' {
   export function isEmpty(str: string): string
   export function toTitleCase(str: string): string
   export function isPalindrome(str: string): boolean
+  export function countOccurrences(str: string, word: string): number
 }

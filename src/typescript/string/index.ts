@@ -4,6 +4,7 @@ import {
   isEmpty as isEmptyFn,
   toTitleCase as toTitleCaseFn,
   isPalindrome as isPalindromeFn,
+  countOccurrences as countOccurrencesFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -40,5 +41,15 @@ export class NString {
    */
   static isPalindrome(str: string): boolean {
     return isPalindromeFn(str)
+  }
+
+  /**
+   * Function to count Occurrences of a word from a string
+   * @example
+   * countOccurrences('hello world hello', 'hello') // 2
+   * countOccurrences('', 'hello') // 0
+   */
+  static countOccurrences(str: string, word: string): number {
+    return countOccurrencesFn(str, word)
   }
 }

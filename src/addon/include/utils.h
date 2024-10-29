@@ -17,5 +17,6 @@ napi_value TrimEnd(napi_env env, napi_callback_info info);
 napi_value IsEmpty(napi_env env, napi_callback_info info);
 napi_value ToTitleCase(napi_env env, napi_callback_info info);
 napi_value IsPalindrome(napi_env env, napi_callback_info info);
+napi_value CountOccurrences(napi_env env, napi_callback_info info);
 
 #endif

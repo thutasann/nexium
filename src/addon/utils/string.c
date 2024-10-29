@@ -135,3 +135,37 @@ napi_value IsPalindrome(napi_env env, napi_callback_info info) {
 
     return result;
 }
+
+/** Function to check occurrences of a word from a string */
+napi_value CountOccurrences(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // Get the input string
+    size_t str_length;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_length);
+    char *input_str = (char *)malloc(str_length + 1);
+    napi_get_value_string_utf8(env, args[0], input_str, str_length + 1, NULL);
+
+    // Get the word to search
+    size_t word_length;
+    napi_get_value_string_utf8(env, args[1], NULL, 0, &word_length);
+    char *word = (char *)malloc(word_length + 1);
+    napi_get_value_string_utf8(env, args[1], word, word_length + 1, NULL);
+
+    int count = 0;
+    char *ptr = input_str;
+
+    while ((ptr = strstr(ptr, word)) != NULL) {
+        count++;
+        ptr += word_length;
+    }
+
+    free(input_str);
+    free(word);
+
+    napi_value result;
+    napi_create_int32(env, count, &result);
+    return result;
+}

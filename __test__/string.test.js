@@ -38,4 +38,12 @@ describe('String Functions', () => {
   test('returns false for a string with different cases', () => {
     expect(NString.isPalindrome('Madam')).toBe(false)
   })
+
+  test('counts occurrences of a word in a string', () => {
+    expect(NString.countOccurrences('hello world hello', 'hello')).toBe(2)
+    expect(NString.countOccurrences('test test test', 'test')).toBe(3)
+    expect(NString.countOccurrences('no match here', 'xyz')).toBe(0)
+    expect(NString.countOccurrences('repeat repeat repeat repeat', 'repeat')).toBe(4)
+    expect(NString.countOccurrences('', 'hello')).toBe(0)
+  })
 })
