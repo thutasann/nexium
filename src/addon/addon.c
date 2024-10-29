@@ -31,6 +31,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, IsEmpty, NULL, &isEmptyFn);
     napi_set_named_property(env, exports, "isEmpty", isEmptyFn);
 
+    napi_value toTitleCaseFn;
+    napi_create_function(env, NULL, 0, ToTitleCase, NULL, &toTitleCaseFn);
+    napi_set_named_property(env, exports, "toTitleCase", toTitleCaseFn);
+
     return exports;
 }
 

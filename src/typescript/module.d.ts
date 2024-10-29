@@ -8,4 +8,5 @@ declare module '*.node' {
   export function trimStart(str: string): string
   export function trimEnd(str: string): string
   export function isEmpty(str: string): string
+  export function toTitleCase(str: string): string
 }

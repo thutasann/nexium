@@ -60,3 +60,26 @@ napi_value IsEmpty(napi_env env, napi_callback_info info) {
     napi_get_boolean(env, strLength == 0, &result);
     return result;
 }
+
+/** Function to convert to Title Case */
+napi_value ToTitleCase(napi_env env, napi_callback_info info) {
+    napi_value input;
+    size_t argc = 1;
+    napi_get_cb_info(env, info, &argc, &input, NULL, NULL);
+
+    size_t strLength;
+    napi_get_value_string_utf8(env, input, NULL, 0, &strLength);
+    char *str = malloc(strLength + 1);
+    napi_get_value_string_utf8(env, input, str, strLength + 1, NULL);
+
+    for (size_t i = 0; i < strLength; i++) {
+        if (i == 0 || str[i - 1] == ' ') {
+            str[i] = toupper((unsigned char)str[i]);
+        }
+    }
+
+    napi_value result;
+    napi_create_string_utf8(env, str, strLength, &result);
+    free(str);
+    return result;
+}

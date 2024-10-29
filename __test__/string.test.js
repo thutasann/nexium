@@ -14,4 +14,8 @@ describe('String Functions', () => {
     expect(NString.isEmpty('')).toBe(true)
     expect(NString.isEmpty('not empty')).toBe(false)
   })
+
+  test('converts string to title case', () => {
+    expect(NString.toTitleCase('hello world')).toBe('Hello World')
+  })
 })
