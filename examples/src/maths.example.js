@@ -13,6 +13,18 @@ function mathsExamples() {
 
   const squareRootOf4 = NMaths.calculateNthRoot(4, 2)
   console.log('squareRootOf4', squareRootOf4)
+
+  const matrixA = [
+    [1, 2, 3],
+    [4, 5, 6],
+  ]
+  const matrixB = [
+    [7, 8],
+    [9, 10],
+    [11, 12],
+  ]
+  const matrixResult = NMaths.matrixMultiply(matrixA, matrixB)
+  console.log('matrixResult', matrixResult)
 }
 
 module.exports = { mathsExamples }

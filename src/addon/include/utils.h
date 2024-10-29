@@ -8,6 +8,7 @@
 napi_value Add(napi_env env, napi_callback_info info);
 napi_value Subtract(napi_env env, napi_callback_info info);
 napi_value NthRoot(napi_env env, napi_callback_info info);
+napi_value MatrixMultiply(napi_env env, napi_callback_info info);
 
 // ------ String Functions
 
