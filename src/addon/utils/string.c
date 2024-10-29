@@ -46,3 +46,17 @@ napi_value TrimEnd(napi_env env, napi_callback_info info) {
     free(str);
     return result;
 }
+
+/** Function to check string is empty or not */
+napi_value IsEmpty(napi_env env, napi_callback_info info) {
+    napi_value input;
+    size_t argc = 1;
+    napi_get_cb_info(env, info, &argc, &input, NULL, NULL);
+
+    size_t strLength;
+    napi_get_value_string_utf8(env, input, NULL, 0, &strLength);
+
+    napi_value result;
+    napi_get_boolean(env, strLength == 0, &result);
+    return result;
+}
