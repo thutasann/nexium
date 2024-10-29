@@ -10,7 +10,7 @@ Nexium is a cutting-edge Node.js package that brings advanced data structures an
 
 - **High-Performance Utilities**: Leverage fast utility functions built in C, ensuring your applications run smoother and faster.
 - **Seamless TypeScript Support**: Enjoy full TypeScript support, allowing for type-safe code and improved developer experience.
-- **Advanced Data Structures**: Experience data structures that JavaScript doesn’t natively provide, enhancing your coding capabilities.
+- **Advanced Data Structures**: Experience data structures that JavaScript doesn’t natively provide, enhancing your coding capabilities. (Coming Soon..🔜)
 
 ---
 
@@ -20,6 +20,12 @@ You can install **Nexium** via npm. Simply run the following command:
 
 ```bash
 npm install nexium@latest
+```
+
+```js
+const { NString } = require('nexium')
+
+const trimedStart = NString.trimStart('    Hello World')
 ```
 
 ## 🤝 Contributing

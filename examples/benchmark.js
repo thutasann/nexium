@@ -1,21 +1,21 @@
 // @ts-check
 const Benchmark = require('benchmark')
-const { addTwoNumbers, subtractTwoNumbers, calculateNthRoot, trimStart } = require('nexium')
+const { NMaths, NString } = require('nexium')
 
 const suite = new Benchmark.Suite()
 
 suite
   .add('Add two numbers', () => {
-    addTwoNumbers(10, 20)
+    NMaths.addTwoNumbers(10, 20)
   })
   .add('Subtract two numbers', () => {
-    subtractTwoNumbers(20, 10)
+    NMaths.subtractTwoNumbers(20, 10)
   })
   .add('Calculate nth root', () => {
-    calculateNthRoot(27, 3)
+    NMaths.calculateNthRoot(27, 3)
   })
   .add('Trim start', () => {
-    trimStart('      Hello world')
+    NString.trimStart('      Hello world')
   })
   .on('cycle', (event) => {
     console.log(String(event.target))
