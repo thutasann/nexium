@@ -1,4 +1,4 @@
-name: Build CI
+name: Build Examles CI
 
 on:
   push:
@@ -9,11 +9,11 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
@@ -21,14 +21,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install libuuid development headers
-        run: sudo apt-get update && sudo apt-get install -y uuid-dev
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Change to examples directory
+        run: |
+          cd examples
+          npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Run Nexium Examples
+        run: |
+          cd examples
+          node index.js
