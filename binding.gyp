@@ -9,7 +9,6 @@
         "src/addon/utils/uuid.c",
         "src/addon/shared/helpers.c",
       ],
-      "libraries": ["-luuid"], 
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"
       ],
