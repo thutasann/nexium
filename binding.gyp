@@ -6,6 +6,7 @@
         "src/addon/addon.c",
         "src/addon/utils/math.c",
         "src/addon/utils/string.c",
+        "src/addon/utils/uuid.c",
         "src/addon/shared/helpers.c",
       ],
       "include_dirs": [

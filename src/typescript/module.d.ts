@@ -12,4 +12,7 @@ declare module '*.node' {
   export function toTitleCase(str: string): string
   export function isPalindrome(str: string): boolean
   export function countOccurrences(str: string, word: string): number
+
+  // ----------- UUID Functions
+  export function generateUUID(): string
 }
