@@ -1,4 +1,4 @@
-name: Build Examles CI
+name: Build Example CI
 
 on:
   push:
@@ -13,16 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
 
       - name: Change to examples directory
         run: |
