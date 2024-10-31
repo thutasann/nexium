@@ -23,5 +23,6 @@ napi_value CountOccurrences(napi_env env, napi_callback_info info);
 
 napi_value GenerateUUID(napi_env env, napi_callback_info info);
 napi_value ParseUUID(napi_env env, napi_callback_info info);
+napi_value IsValidUUID(napi_env env, napi_callback_info info);
 
 #endif

@@ -4,7 +4,6 @@ const { NUUId } = require('../lib')
 describe('UUID Generation', () => {
   test('should generate a valid UUID', () => {
     const uuid = NUUId.generate()
-    console.log('uuid', uuid)
     expect(uuid).toMatch(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/)
   })
 })
@@ -27,5 +26,37 @@ describe('ParseUUID', () => {
     const invalidUUID = 'invalid-uuid-string'
 
     expect(() => NUUId.parse(invalidUUID)).toThrow('Invalid UUID length')
+  })
+})
+
+describe('IsValidUUID', () => {
+  it('should return true for a valid UUID', () => {
+    const validUUID = 'e82faf28-b22b-44fe-a55b-0e9ead917d79'
+    const result = NUUId.isValid(validUUID)
+    expect(result).toBe(true)
+  })
+
+  it('should return false for an invalid UUID with wrong characters', () => {
+    const invalidUUID = 'e82faf28-b22b-44fe-a55b-0e9ead9ZZZ79' // Contains invalid 'Z' characters
+    const result = NUUId.isValid(invalidUUID)
+    expect(result).toBe(false)
+  })
+
+  it('should return false for an invalid UUID with incorrect dashes', () => {
+    const invalidUUID = 'e82faf28-b22b44fe-a55b-0e9ead917d79' // Missing a dash
+    const result = NUUId.isValid(invalidUUID)
+    expect(result).toBe(false)
+  })
+
+  it('should return false for an invalid UUID with incorrect length', () => {
+    const invalidUUID = 'e82faf28-b22b-44fe-a55b-0e9ead917d7' // Shorter than expected
+    const result = NUUId.isValid(invalidUUID)
+    expect(result).toBe(false)
+  })
+
+  it('should return false for an empty string', () => {
+    const invalidUUID = ''
+    const result = NUUId.isValid(invalidUUID)
+    expect(result).toBe(false)
   })
 })

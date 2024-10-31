@@ -32,7 +32,7 @@ napi_value GenerateUUID(napi_env env, napi_callback_info info) {
     return result;
 }
 
-/** Parse FUnction to convert UUID string to array of bytes */
+/** Parse Function to convert UUID string to array of bytes */
 napi_value ParseUUID(napi_env env, napi_callback_info info) {
     napi_value input;
     size_t argc = 1;
@@ -73,5 +73,45 @@ napi_value ParseUUID(napi_env env, napi_callback_info info) {
         napi_set_element(env, result, i, byte);
     }
 
+    return result;
+}
+
+/** Function to validate if a string is a UUID */
+napi_value IsValidUUID(napi_env env, napi_callback_info info) {
+    napi_value input;
+    size_t argc = 1;
+    napi_get_cb_info(env, info, &argc, &input, NULL, NULL);
+
+    // get uuid string
+    size_t str_length;
+    napi_get_value_string_utf8(env, input, NULL, 0, &str_length);
+
+    // uuids are 36 characters long (32 hex + 4 dashes)
+    if (str_length != 36) {
+        napi_value result;
+        napi_get_boolean(env, false, &result);
+        return result;
+    }
+
+    char uuid_str[37];
+    napi_get_value_string_utf8(env, input, uuid_str, sizeof(uuid_str), NULL);
+
+    // Check format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    for (int i = 0; i < 36; i++) {
+        if ((i == 8 || i == 13 || i == 18 || i == 23) && uuid_str[i] != '-') {
+            napi_value result;
+            napi_get_boolean(env, false, &result);
+            return result;
+        } else if (i != 8 && i != 13 && i != 18 && i != 23) {
+            if (!isxdigit(uuid_str[i])) { // Check if character is hex
+                napi_value result;
+                napi_get_boolean(env, false, &result);
+                return result;
+            }
+        }
+    }
+
+    napi_value result;
+    napi_get_boolean(env, true, &result);
     return result;
 }
