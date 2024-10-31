@@ -169,3 +169,89 @@ napi_value CountOccurrences(napi_env env, napi_callback_info info) {
     napi_create_int32(env, count, &result);
     return result;
 }
+
+/** Function to reverse string */
+napi_value ReverseString(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+
+    char str[str_len + 1];
+    napi_get_value_string_utf8(env, args[0], str, str_len + 1, NULL);
+
+    for (size_t i = 0; i < str_len / 2; i++) {
+        char temp = str[i];
+        str[i] = str[str_len - 1 - i];
+        str[str_len - 1 - i] = temp;
+    }
+
+    napi_value result;
+    napi_create_string_utf8(env, str, str_len, &result);
+    return result;
+}
+
+/** Function to strip HTML Tags */
+napi_value StripHTMLTags(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+
+    char input[str_len + 1];
+    napi_get_value_string_utf8(env, args[0], input, str_len + 1, NULL);
+
+    char result[str_len + 1];
+    size_t res_index = 0;
+    bool in_tag = false;
+
+    for (size_t i = 0; i < str_len; i++) {
+        if (input[i] == '<') {
+            in_tag = true;
+        } else if (input[i] == '>') {
+            in_tag = false;
+        } else if (!in_tag) {
+            result[res_index++] = input[i];
+        }
+    }
+
+    result[res_index] = '\0';
+
+    napi_value output_result;
+    napi_create_string_utf8(env, result, res_index, &output_result);
+    return output_result;
+}
+
+/** Remove Duplicated characters from a string  */
+napi_value RemoveDuplicates(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+
+    char input[str_len + 1];
+    napi_get_value_string_utf8(env, args[0], input, str_len + 1, NULL);
+
+    bool seen[256] = {false};
+    char result[str_len + 1];
+    size_t res_index = 0;
+
+    for (size_t i = 0; i < str_len; i++) {
+        if (!seen[(unsigned char)input[i]]) {
+            seen[(unsigned char)input[i]] = true;
+            result[res_index++] = input[i];
+        }
+    }
+
+    result[res_index] = '\0';
+
+    napi_value output_result;
+    napi_create_string_utf8(env, result, res_index, &output_result);
+    return output_result;
+}

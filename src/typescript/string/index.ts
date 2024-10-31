@@ -5,6 +5,9 @@ import {
   toTitleCase as toTitleCaseFn,
   isPalindrome as isPalindromeFn,
   countOccurrences as countOccurrencesFn,
+  reverse as reverseFn,
+  stripHTML as stripHTMLFn,
+  removeDuplicates as removeDuplicatesFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -51,5 +54,20 @@ export class NString {
    */
   static countOccurrences(str: string, word: string): number {
     return countOccurrencesFn(str, word)
+  }
+
+  /** Function to reverse a given string */
+  static reverse(s: string): string {
+    return reverseFn(s)
+  }
+
+  /** Function to strip HTML tags from a given html string */
+  static stripHTML(html: string): string {
+    return stripHTMLFn(html)
+  }
+
+  /** Function to remove duplicate characters from a given string */
+  static removeDuplicates(str: string): string {
+    return removeDuplicatesFn(str)
   }
 }

@@ -46,4 +46,30 @@ describe('String Functions', () => {
     expect(NString.countOccurrences('repeat repeat repeat repeat', 'repeat')).toBe(4)
     expect(NString.countOccurrences('', 'hello')).toBe(0)
   })
+
+  test('reverses a given string', () => {
+    expect(NString.reverse('hello')).toBe('olleh')
+    expect(NString.reverse('world')).toBe('dlrow')
+    expect(NString.reverse('')).toBe('')
+    expect(NString.reverse('a')).toBe('a')
+    expect(NString.reverse('racecar')).toBe('racecar')
+  })
+
+  test('removes HTML tags from a string', () => {
+    expect(NString.stripHTML('<p>Hello, <b>world</b>!</p>')).toBe('Hello, world!')
+    expect(NString.stripHTML('<div><span>Text</span></div>')).toBe('Text')
+    expect(NString.stripHTML('No tags')).toBe('No tags')
+    expect(NString.stripHTML("<a href='#'>Link</a>")).toBe('Link')
+    expect(NString.stripHTML('')).toBe('')
+    expect(NString.stripHTML('<br><br>')).toBe('')
+  })
+
+  test('removes duplicate characters from a string', () => {
+    expect(NString.removeDuplicates('aabbcc')).toBe('abc')
+    expect(NString.removeDuplicates('hello world')).toBe('helo wrd')
+    expect(NString.removeDuplicates('abc')).toBe('abc')
+    expect(NString.removeDuplicates('')).toBe('')
+    expect(NString.removeDuplicates('112233')).toBe('123')
+    expect(NString.removeDuplicates('AaBbCc')).toBe('AaBbCc') // case-sensitive
+  })
 })

@@ -45,6 +45,18 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, CountOccurrences, NULL, &countOccurrencesFn);
     napi_set_named_property(env, exports, "countOccurrences", countOccurrencesFn);
 
+    napi_value reverseFn;
+    napi_create_function(env, NULL, 0, ReverseString, NULL, &reverseFn);
+    napi_set_named_property(env, exports, "reverse", reverseFn);
+
+    napi_value stripHTMLFn;
+    napi_create_function(env, NULL, 0, StripHTMLTags, NULL, &stripHTMLFn);
+    napi_set_named_property(env, exports, "stripHTML", stripHTMLFn);
+
+    napi_value removeDuplicatesFn;
+    napi_create_function(env, NULL, 0, RemoveDuplicates, NULL, &removeDuplicatesFn);
+    napi_set_named_property(env, exports, "removeDuplicates", removeDuplicatesFn);
+
     // -- UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);
