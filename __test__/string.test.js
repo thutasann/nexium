@@ -137,4 +137,16 @@ describe('String Functions', () => {
     const expected = 'trailing-dash-test'
     expect(NString.slugify(input, true)).toBe(expected)
   })
+
+  test('CamelToSnake converts CamelCase to snake_case', () => {
+    expect(NString.toCase('camelCaseTest', 'camel-to-snake')).toBe('camel_case_test')
+    expect(NString.toCase('CamelCase', 'camel-to-snake')).toBe('camel_case')
+    expect(NString.toCase('testFunctionExample', 'camel-to-snake')).toBe('test_function_example')
+  })
+
+  test('SnakeToCamel converts snake_case to CamelCase', () => {
+    expect(NString.toCase('snake_case_test', 'snake-to-camel')).toBe('snakeCaseTest')
+    expect(NString.toCase('example_test_function', 'snake-to-camel')).toBe('exampleTestFunction')
+    expect(NString.toCase('singleword', 'snake-to-camel')).toBe('singleword')
+  })
 })

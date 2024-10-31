@@ -19,6 +19,8 @@ declare module '*.node' {
   export function insertStringAt(str: string, subStr: string, index: number): string
   export function getWordsArray(str: string): string[]
   export function slugify(str: string, isLower: boolean): string
+  export function camelToSnake(str: string): string
+  export function snakeToCamel(str: string): string
 
   // ----------- UUID Functions
   export function generateUUID(): string

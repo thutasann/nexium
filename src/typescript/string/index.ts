@@ -11,6 +11,8 @@ import {
   insertStringAt as insertStringAtFn,
   getWordsArray as getWordsArrayFn,
   slugify as slugifyFn,
+  camelToSnake,
+  snakeToCamel,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -97,5 +99,14 @@ export class NString {
   /** Function to slugify a given string */
   static slugify(str: string, isLower: boolean): string {
     return slugifyFn(str, isLower)
+  }
+
+  /** Function to convert case (camel-to-snake or snake-to-camel) */
+  static toCase(str: string, to: 'camel-to-snake' | 'snake-to-camel'): string {
+    if (to === 'camel-to-snake') {
+      return camelToSnake(str)
+    } else {
+      return snakeToCamel(str)
+    }
   }
 }

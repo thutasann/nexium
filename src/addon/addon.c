@@ -69,6 +69,14 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, Slugify, NULL, &slugifyFn);
     napi_set_named_property(env, exports, "slugify", slugifyFn);
 
+    napi_value camelToSnakeFn;
+    napi_create_function(env, NULL, 0, CamelToSnake, NULL, &camelToSnakeFn);
+    napi_set_named_property(env, exports, "camelToSnake", camelToSnakeFn);
+
+    napi_value snakeToCamelFn;
+    napi_create_function(env, NULL, 0, SnakeToCamel, NULL, &snakeToCamelFn);
+    napi_set_named_property(env, exports, "snakeToCamel", snakeToCamelFn);
+
     // -- UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);

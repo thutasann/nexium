@@ -96,3 +96,34 @@ void slugify_helper(const char *input, char *output, int to_lowercase) {
     }
     output[j] = '\0';
 }
+
+/** Helper function to convert CamelCase to snake_case */
+void camel_to_snake(const char *input, char *output) {
+    int j = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (isupper(input[i])) {
+            if (i > 0) {
+                output[j++] = '_';
+            }
+            output[j++] = tolower(input[i]);
+        } else {
+            output[j++] = input[i];
+        }
+    }
+    output[j] = '\0';
+}
+
+/** Helper function to convert snake_case to CamelCase */
+void snake_to_camel(const char *input, char *output) {
+    int j = 0;
+    int capitalize = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] == '_') {
+            capitalize = 1;
+        } else {
+            output[j++] = capitalize ? toupper(input[i]) : input[i];
+            capitalize = 0;
+        }
+    }
+    output[j] = '\0';
+}
