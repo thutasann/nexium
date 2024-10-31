@@ -50,6 +50,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);
     napi_set_named_property(env, exports, "generateUUID", generateUUIDFn);
 
+    napi_value parseUUIDFn;
+    napi_create_function(env, NULL, 0, ParseUUID, NULL, &parseUUIDFn);
+    napi_set_named_property(env, exports, "parseUUID", parseUUIDFn);
+
     return exports;
 }
 

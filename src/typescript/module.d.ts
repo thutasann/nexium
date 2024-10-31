@@ -15,4 +15,5 @@ declare module '*.node' {
 
   // ----------- UUID Functions
   export function generateUUID(): string
+  export function parseUUID(uuid: string): Uint8Array
 }

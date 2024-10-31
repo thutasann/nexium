@@ -18,6 +18,10 @@ napi_value IsEmpty(napi_env env, napi_callback_info info);
 napi_value ToTitleCase(napi_env env, napi_callback_info info);
 napi_value IsPalindrome(napi_env env, napi_callback_info info);
 napi_value CountOccurrences(napi_env env, napi_callback_info info);
+
+// ------ UUID Functions
+
 napi_value GenerateUUID(napi_env env, napi_callback_info info);
+napi_value ParseUUID(napi_env env, napi_callback_info info);
 
 #endif
