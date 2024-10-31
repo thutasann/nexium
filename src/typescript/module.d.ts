@@ -1,3 +1,4 @@
+/** nexium.node module type declarations */
 declare module '*.node' {
   // ----------- Maths Functions
   export function add(a: number, b: number): number
@@ -16,6 +17,7 @@ declare module '*.node' {
   export function stripHTML(html: string): string
   export function removeDuplicates(str: string): string
   export function insertStringAt(str: string, subStr: string, index: number): string
+  export function getWordsArray(str: string): string[]
 
   // ----------- UUID Functions
   export function generateUUID(): string

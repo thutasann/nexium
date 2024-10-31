@@ -81,4 +81,36 @@ describe('String Functions', () => {
     expect(NString.insertStringAt('abcdef', '123', 100)).toBe('abcdef123') // Out of bounds
     expect(NString.insertStringAt('abcdef', '123', -5)).toBe('123abcdef') // Negative index
   })
+
+  test('GetWordsArray splits a string into an array of words', () => {
+    const input = 'This is a test string'
+    const expected = ['This', 'is', 'a', 'test', 'string']
+
+    const result = NString.getWordsArray(input)
+    expect(result).toEqual(expected)
+  })
+
+  test('GetWordsArray handles empty string', () => {
+    const input = ''
+    const expected = []
+
+    const result = NString.getWordsArray(input)
+    expect(result).toEqual(expected)
+  })
+
+  test('GetWordsArray handles single word', () => {
+    const input = 'hello'
+    const expected = ['hello']
+
+    const result = NString.getWordsArray(input)
+    expect(result).toEqual(expected)
+  })
+
+  test('GetWordsArray handles multiple spaces', () => {
+    const input = '   Multiple    spaces   here '
+    const expected = ['Multiple', 'spaces', 'here']
+
+    const result = NString.getWordsArray(input)
+    expect(result).toEqual(expected)
+  })
 })

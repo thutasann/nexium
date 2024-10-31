@@ -5,6 +5,7 @@
 
 // ---------- Helpers
 bool is_palindrome(const char *str, size_t length);
+char **getWordArray(const char *input, int *word_count);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -298,4 +299,33 @@ napi_value InsertStringAt(napi_env env, napi_callback_info info) {
     napi_value output;
     napi_create_string_utf8(env, result, new_len, &output);
     return output;
+}
+
+/** Function to get words array from a given string */
+napi_value GetWordsArray(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    char *input = (char *)malloc(str_len + 1);
+    napi_get_value_string_utf8(env, args[0], input, str_len + 1, NULL);
+
+    int word_count;
+    char **words = getWordArray(input, &word_count);
+
+    napi_value result;
+    napi_create_array_with_length(env, word_count, &result);
+
+    for (int i = 0; i < word_count; i++) {
+        napi_value word;
+        napi_create_string_utf8(env, words[i], NAPI_AUTO_LENGTH, &word);
+        napi_set_element(env, result, i, word);
+        free(words[i]);
+    }
+
+    free(words);
+    free(input);
+    return result;
 }

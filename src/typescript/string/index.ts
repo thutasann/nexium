@@ -9,6 +9,7 @@ import {
   stripHTML as stripHTMLFn,
   removeDuplicates as removeDuplicatesFn,
   insertStringAt as insertStringAtFn,
+  getWordsArray as getWordsArrayFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -81,5 +82,14 @@ export class NString {
    */
   static insertStringAt(str: string, subStr: string, index: number): string {
     return insertStringAtFn(str, subStr, index)
+  }
+
+  /**
+   * Get Words array from a given string
+   * @example
+   * getWordsArray("hello, world"); // ["hello", "world"]
+   */
+  static getWordsArray(str: string): string[] {
+    return getWordsArrayFn(str)
   }
 }

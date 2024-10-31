@@ -61,6 +61,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, InsertStringAt, NULL, &insertStringAtFn);
     napi_set_named_property(env, exports, "insertStringAt", insertStringAtFn);
 
+    napi_value getWordsArrayFn;
+    napi_create_function(env, NULL, 0, GetWordsArray, NULL, &getWordsArrayFn);
+    napi_set_named_property(env, exports, "getWordsArray", getWordsArrayFn);
+
     // -- UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);

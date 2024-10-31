@@ -22,6 +22,7 @@ napi_value ReverseString(napi_env env, napi_callback_info info);
 napi_value StripHTMLTags(napi_env env, napi_callback_info info);
 napi_value RemoveDuplicates(napi_env env, napi_callback_info info);
 napi_value InsertStringAt(napi_env env, napi_callback_info info);
+napi_value GetWordsArray(napi_env env, napi_callback_info info);
 
 // ------ UUID Functions
 

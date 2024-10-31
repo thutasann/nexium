@@ -1,7 +1,5 @@
 # **Nexium**
 
-66.5 kB
-
 ## 🌌 **Unleash the Power of Native C in JavaScript!**
 
 Nexium is a cutting-edge Node.js package that brings advanced data structures and powerful utility functions to your JavaScript applications, all powered by native C for optimal performance.
