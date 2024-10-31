@@ -115,3 +115,45 @@ napi_value IsValidUUID(napi_env env, napi_callback_info info) {
     napi_get_boolean(env, true, &result);
     return result;
 }
+
+/* Function to convert an array of 16 bytes to UUID string format */
+napi_value BytesToUUID(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // Check if input is an array of exactly 16 bytes
+    bool isArray;
+    napi_is_array(env, args[0], &isArray);
+    if (!isArray)
+        return NULL;
+
+    uint32_t arrayLength;
+    napi_get_array_length(env, args[0], &arrayLength);
+    if (arrayLength != 16)
+        return NULL;
+
+    // Retrieve bytes from the array
+    unsigned char bytes[16];
+    for (uint32_t i = 0; i < arrayLength; i++) {
+        napi_value byte;
+        napi_get_element(env, args[0], i, &byte);
+
+        int32_t value;
+        napi_get_value_int32(env, byte, &value);
+        bytes[i] = (unsigned char)value;
+    }
+
+    // Format bytes into UUID string
+    char uuid_str[37];
+    snprintf(uuid_str, sizeof(uuid_str),
+             "%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x",
+             bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5], bytes[6],
+             bytes[7], bytes[8], bytes[9], bytes[10], bytes[11], bytes[12],
+             bytes[13], bytes[14], bytes[15]);
+
+    // Create N-API string result
+    napi_value result;
+    napi_create_string_utf8(env, uuid_str, NAPI_AUTO_LENGTH, &result);
+    return result;
+}

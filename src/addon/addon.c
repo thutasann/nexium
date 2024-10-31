@@ -58,6 +58,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, IsValidUUID, NULL, &isValidUUIDFn);
     napi_set_named_property(env, exports, "isValidUUID", isValidUUIDFn);
 
+    napi_value bytesToUUIDFn;
+    napi_create_function(env, NULL, 0, BytesToUUID, NULL, &bytesToUUIDFn);
+    napi_set_named_property(env, exports, "bytesToUUID", bytesToUUIDFn);
+
     return exports;
 }
 

@@ -60,3 +60,13 @@ describe('IsValidUUID', () => {
     expect(result).toBe(false)
   })
 })
+
+describe('BytesToUUIDString', () => {
+  it('should correctly convert a byte array to a UUID string', () => {
+    const bytes = [0xe8, 0x2f, 0xaf, 0x28, 0xb2, 0x2b, 0x44, 0xfe, 0xa5, 0x5b, 0x0e, 0x9e, 0xad, 0x91, 0x7d, 0x79]
+
+    const expectedUUID = 'e82faf28-b22b-44fe-a55b-0e9ead917d79'
+    const result = NUUId.bytesToUUID(bytes)
+    expect(result).toBe(expectedUUID)
+  })
+})
