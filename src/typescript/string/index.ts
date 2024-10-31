@@ -8,6 +8,7 @@ import {
   reverse as reverseFn,
   stripHTML as stripHTMLFn,
   removeDuplicates as removeDuplicatesFn,
+  insertStringAt as insertStringAtFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -69,5 +70,16 @@ export class NString {
   /** Function to remove duplicate characters from a given string */
   static removeDuplicates(str: string): string {
     return removeDuplicatesFn(str)
+  }
+
+  /**
+   * Function to insert substring at a specified index
+   * @param str - given string
+   * @param subStr - new string to be inserted
+   * @param index - index to be inserted
+   * @returns new string
+   */
+  static insertStringAt(str: string, subStr: string, index: number): string {
+    return insertStringAtFn(str, subStr, index)
   }
 }

@@ -57,6 +57,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, RemoveDuplicates, NULL, &removeDuplicatesFn);
     napi_set_named_property(env, exports, "removeDuplicates", removeDuplicatesFn);
 
+    napi_value insertStringAtFn;
+    napi_create_function(env, NULL, 0, InsertStringAt, NULL, &insertStringAtFn);
+    napi_set_named_property(env, exports, "insertStringAt", insertStringAtFn);
+
     // -- UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);

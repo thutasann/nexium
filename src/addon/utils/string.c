@@ -255,3 +255,47 @@ napi_value RemoveDuplicates(napi_env env, napi_callback_info info) {
     napi_create_string_utf8(env, result, res_index, &output_result);
     return output_result;
 }
+
+/* Function to insert string at a specified index */
+napi_value InsertStringAt(napi_env env, napi_callback_info info) {
+    size_t argc = 3;
+    napi_value args[3];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // Get input string
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    char str[str_len + 1];
+    napi_get_value_string_utf8(env, args[0], str, str_len + 1, NULL);
+
+    // Get substring to insert
+    size_t substr_len;
+    napi_get_value_string_utf8(env, args[1], NULL, 0, &substr_len);
+    char substr[substr_len + 1];
+    napi_get_value_string_utf8(env, args[1], substr, substr_len + 1, NULL);
+
+    // Get index
+    int32_t index;
+    napi_get_value_int32(env, args[2], &index);
+
+    // Handle out-of-bounds index
+    if (index < 0)
+        index = 0;
+    if (index > str_len)
+        index = str_len;
+
+    // Calculate new string length and create result string
+    size_t new_len = str_len + substr_len;
+    char result[new_len + 1];
+
+    // Copy parts into result using strncpy for length safety
+    strncpy(result, str, index);                                        // Copy up to the index
+    strncpy(result + index, substr, substr_len);                        // Copy the substring
+    strncpy(result + index + substr_len, str + index, str_len - index); // Copy remainder of the original string
+
+    result[new_len] = '\0'; // Null-terminate
+
+    napi_value output;
+    napi_create_string_utf8(env, result, new_len, &output);
+    return output;
+}

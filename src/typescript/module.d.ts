@@ -15,6 +15,7 @@ declare module '*.node' {
   export function reverse(str: string): string
   export function stripHTML(html: string): string
   export function removeDuplicates(str: string): string
+  export function insertStringAt(str: string, subStr: string, index: number): string
 
   // ----------- UUID Functions
   export function generateUUID(): string

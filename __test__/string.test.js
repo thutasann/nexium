@@ -72,4 +72,13 @@ describe('String Functions', () => {
     expect(NString.removeDuplicates('112233')).toBe('123')
     expect(NString.removeDuplicates('AaBbCc')).toBe('AaBbCc') // case-sensitive
   })
+
+  test('inserts substring at specified index', () => {
+    expect(NString.insertStringAt('hello world', 'beautiful ', 6)).toBe('hello beautiful world')
+    expect(NString.insertStringAt('abcdef', '123', 3)).toBe('abc123def')
+    expect(NString.insertStringAt('abcdef', '123', 0)).toBe('123abcdef')
+    expect(NString.insertStringAt('abcdef', '123', 6)).toBe('abcdef123')
+    expect(NString.insertStringAt('abcdef', '123', 100)).toBe('abcdef123') // Out of bounds
+    expect(NString.insertStringAt('abcdef', '123', -5)).toBe('123abcdef') // Negative index
+  })
 })
