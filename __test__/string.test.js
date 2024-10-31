@@ -149,4 +149,13 @@ describe('String Functions', () => {
     expect(NString.toCase('example_test_function', 'snake-to-camel')).toBe('exampleTestFunction')
     expect(NString.toCase('singleword', 'snake-to-camel')).toBe('singleword')
   })
+
+  test('EndsWith correctly checks if a string ends with a given target string', () => {
+    expect(NString.endsWith('hello world', 'world')).toBe(true)
+    expect(NString.endsWith('hello world', 'hello')).toBe(false)
+    expect(NString.endsWith('abcdef', 'def')).toBe(true)
+    expect(NString.endsWith('abcdef', 'xyz')).toBe(false)
+    expect(NString.endsWith('testing', '')).toBe(true) // Edge case: empty target
+    expect(NString.endsWith('', 'world')).toBe(false) // Edge case: empty string
+  })
 })

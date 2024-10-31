@@ -3,7 +3,7 @@
 
 /** Module Initialization 🚀 */
 napi_value Init(napi_env env, napi_value exports) {
-    // -- Maths functions 🚀
+    // ------------------------ Maths functions 🚀
     napi_value addFn;
     napi_create_function(env, NULL, 0, Add, NULL, &addFn);
     napi_set_named_property(env, exports, "add", addFn);
@@ -20,7 +20,7 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, MatrixMultiply, NULL, &matrixMultiplyFn);
     napi_set_named_property(env, exports, "matrixMultiply", matrixMultiplyFn);
 
-    // -- String functions 🚀
+    // ------------------------ String functions 🚀
     napi_value trimStartFn;
     napi_create_function(env, NULL, 0, TrimStart, NULL, &trimStartFn);
     napi_set_named_property(env, exports, "trimStart", trimStartFn);
@@ -77,7 +77,11 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, SnakeToCamel, NULL, &snakeToCamelFn);
     napi_set_named_property(env, exports, "snakeToCamel", snakeToCamelFn);
 
-    // -- UUID functions 🚀
+    napi_value endWidthFn;
+    napi_create_function(env, NULL, 0, EndsWith, NULL, &endWidthFn);
+    napi_set_named_property(env, exports, "endsWith", endWidthFn);
+
+    // ------------------------ UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);
     napi_set_named_property(env, exports, "generateUUID", generateUUIDFn);

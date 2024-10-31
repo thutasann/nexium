@@ -21,6 +21,7 @@ declare module '*.node' {
   export function slugify(str: string, isLower: boolean): string
   export function camelToSnake(str: string): string
   export function snakeToCamel(str: string): string
+  export function endsWith(str: string, target: string): boolean
 
   // ----------- UUID Functions
   export function generateUUID(): string

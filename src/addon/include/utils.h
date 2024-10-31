@@ -26,6 +26,7 @@ napi_value GetWordsArray(napi_env env, napi_callback_info info);
 napi_value Slugify(napi_env env, napi_callback_info info);
 napi_value CamelToSnake(napi_env env, napi_callback_info info);
 napi_value SnakeToCamel(napi_env env, napi_callback_info info);
+napi_value EndsWith(napi_env env, napi_callback_info info);
 
 // ------ UUID Functions
 

@@ -127,3 +127,15 @@ void snake_to_camel(const char *input, char *output) {
     }
     output[j] = '\0';
 }
+
+/** Helper function to check if a str ends with target */
+bool ends_with(const char *str, const char *target) {
+    size_t str_len = strlen(str);
+    size_t target_len = strlen(target);
+
+    if (target_len > str_len) {
+        return false;
+    }
+
+    return strcmp(str + str_len - target_len, target) == 0;
+}

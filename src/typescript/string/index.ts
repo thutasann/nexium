@@ -13,6 +13,7 @@ import {
   slugify as slugifyFn,
   camelToSnake,
   snakeToCamel,
+  endsWith as endsWithFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -108,5 +109,10 @@ export class NString {
     } else {
       return snakeToCamel(str)
     }
+  }
+
+  /** Function to check the given string ends with target */
+  static endsWith(str: string, target: string): boolean {
+    return endsWithFn(str, target)
   }
 }
