@@ -13,8 +13,17 @@
         "<!@(node -e \"require('node-addon-api').include\")"
       ],
       "cflags!": [ "-fno-exceptions" ],
-      "cflags": [ "-std=c11" ],
-      "cflags!": [ "-Wno-implicit-fallthrough" ]
+      "cflags!": [ "-Wno-implicit-fallthrough" ],
+      "cflags": [
+        "-std=c11",
+        "-O3",
+        "-ffunction-sections",
+        "-fdata-sections"
+      ],
+      "ldflags": [
+        "-Wl,--gc-sections",
+        "-s"
+      ]
     }
   ]
 }
