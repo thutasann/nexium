@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Helper function to check if a string a palindrome
+/** Helper function to check if a string a palindrome */
 bool is_palindrome(const char *str, size_t length) {
     size_t start = 0;
     size_t end = length - 1;
@@ -20,7 +20,7 @@ bool is_palindrome(const char *str, size_t length) {
     return true;
 }
 
-// Helper function to convert two hex characters to a byte
+/** Helper function to convert two hex characters to a byte */
 uint8_t hex_to_byte(char high, char low) {
     high = tolower(high);
     low = tolower(low);
@@ -76,4 +76,23 @@ char **getWordArray(const char *input, int *word_count) {
     }
 
     return words;
+}
+
+/** Helper function to slugify a string */
+void slugify_helper(const char *input, char *output, int to_lowercase) {
+    int j = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (isalnum(input[i])) {
+            output[j++] = to_lowercase ? tolower(input[i]) : input[i];
+        } else if (isspace(input[i]) || input[i] == '-') {
+            if (j > 0 && output[j - 1] != '-') {
+                output[j++] = '-';
+            }
+        }
+    }
+    // Remove trailing dash if present
+    if (j > 0 && output[j - 1] == '-') {
+        j--;
+    }
+    output[j] = '\0';
 }

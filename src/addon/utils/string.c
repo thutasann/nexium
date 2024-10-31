@@ -6,6 +6,7 @@
 // ---------- Helpers
 bool is_palindrome(const char *str, size_t length);
 char **getWordArray(const char *input, int *word_count);
+void slugify_helper(const char *input, char *output, int to_lowercase);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -327,5 +328,31 @@ napi_value GetWordsArray(napi_env env, napi_callback_info info) {
 
     free(words);
     free(input);
+    return result;
+}
+
+/** Function to slugify a string */
+napi_value Slugify(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    char *input = (char *)malloc(str_len + 1);
+    napi_get_value_string_utf8(env, args[0], input, str_len + 1, NULL);
+
+    bool to_lowercase;
+    napi_get_value_bool(env, args[1], &to_lowercase);
+
+    char *output = (char *)malloc(str_len * 2 + 1); // Allocating enough space for worst case
+
+    slugify_helper(input, output, to_lowercase);
+
+    napi_value result;
+    napi_create_string_utf8(env, output, NAPI_AUTO_LENGTH, &result);
+
+    free(input);
+    free(output);
     return result;
 }

@@ -10,6 +10,7 @@ import {
   removeDuplicates as removeDuplicatesFn,
   insertStringAt as insertStringAtFn,
   getWordsArray as getWordsArrayFn,
+  slugify as slugifyFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -59,8 +60,8 @@ export class NString {
   }
 
   /** Function to reverse a given string */
-  static reverse(s: string): string {
-    return reverseFn(s)
+  static reverse(str: string): string {
+    return reverseFn(str)
   }
 
   /** Function to strip HTML tags from a given html string */
@@ -91,5 +92,10 @@ export class NString {
    */
   static getWordsArray(str: string): string[] {
     return getWordsArrayFn(str)
+  }
+
+  /** Function to slugify a given string */
+  static slugify(str: string, isLower: boolean): string {
+    return slugifyFn(str, isLower)
   }
 }

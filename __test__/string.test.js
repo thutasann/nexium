@@ -113,4 +113,28 @@ describe('String Functions', () => {
     const result = NString.getWordsArray(input)
     expect(result).toEqual(expected)
   })
+
+  test('Slugify converts string to lowercase slug with spaces replaced by dashes', () => {
+    const input = 'This is a Test String!'
+    const expected = 'this-is-a-test-string'
+    expect(NString.slugify(input, true)).toBe(expected)
+  })
+
+  test('Slugify keeps original case when lowercase option is false', () => {
+    const input = 'This is a Test String!'
+    const expected = 'This-is-a-Test-String'
+    expect(NString.slugify(input, false)).toBe(expected)
+  })
+
+  test('Slugify removes special characters and handles multiple spaces', () => {
+    const input = 'Special!!  Characters---and Spaces'
+    const expected = 'special-characters-and-spaces'
+    expect(NString.slugify(input, true)).toBe(expected)
+  })
+
+  test('Slugify removes trailing dashes', () => {
+    const input = 'Trailing dash test '
+    const expected = 'trailing-dash-test'
+    expect(NString.slugify(input, true)).toBe(expected)
+  })
 })

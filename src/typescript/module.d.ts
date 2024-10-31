@@ -18,6 +18,7 @@ declare module '*.node' {
   export function removeDuplicates(str: string): string
   export function insertStringAt(str: string, subStr: string, index: number): string
   export function getWordsArray(str: string): string[]
+  export function slugify(str: string, isLower: boolean): string
 
   // ----------- UUID Functions
   export function generateUUID(): string
