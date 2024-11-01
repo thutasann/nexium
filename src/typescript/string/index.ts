@@ -17,6 +17,7 @@ import {
   toKebabCase,
   replaceString as replaceStringFn,
   replaceDiacritics as replaceDiacriticsFn,
+  generateRandomString as generateRandomStringFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -140,5 +141,15 @@ export class NString {
    */
   static replaceDiacritics(str: string): string {
     return replaceDiacriticsFn(str)
+  }
+
+  /** Generate Random String
+   * @example
+   * const length = 10;
+   * const pattern = "abc123";
+   * const randomString = NString.generateRandomString(length, pattern);
+   */
+  static generateRandomString(length: number, pattern: string): string {
+    return generateRandomStringFn(length, pattern)
   }
 }

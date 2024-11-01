@@ -93,6 +93,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, ReplaceDiacritics, NULL, &replaceDiacriticsFn);
     napi_set_named_property(env, exports, "replaceDiacritics", replaceDiacriticsFn);
 
+    napi_value generateRandomStringFn;
+    napi_create_function(env, NULL, 0, GenerateRandomString, NULL, &generateRandomStringFn);
+    napi_set_named_property(env, exports, "generateRandomString", generateRandomStringFn);
+
     // ------------------------ UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);

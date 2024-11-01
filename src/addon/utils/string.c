@@ -13,6 +13,7 @@ bool ends_with(const char *str, const char *target);
 void to_kebab_case(const char *input, char *output);
 char *replace_string(const char *str, const char *pattern, const char *replacement);
 char *replace_diacritics(const char *str);
+char *generate_random_string(int length, const char *pattern);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -514,5 +515,27 @@ napi_value ReplaceDiacritics(napi_env env, napi_callback_info info) {
 
     free(str);
     free(result_str);
+    return result;
+}
+
+/** Function to generate a random string */
+napi_value GenerateRandomString(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    int32_t length;
+    char pattern[256] = {0}; // assuming max pattern length of 255
+
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+    napi_get_value_int32(env, args[0], &length);
+
+    size_t pattern_length;
+    napi_get_value_string_utf8(env, args[1], pattern, sizeof(pattern), &pattern_length);
+
+    char *result_str = generate_random_string(length, pattern);
+
+    napi_value result;
+    napi_create_string_utf8(env, result_str, NAPI_AUTO_LENGTH, &result);
+    free(result_str);
+
     return result;
 }

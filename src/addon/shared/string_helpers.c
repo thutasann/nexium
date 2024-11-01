@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /** Helper function to check if a string a palindrome */
 bool is_palindrome(const char *str, size_t length) {
@@ -258,5 +259,23 @@ char *replace_diacritics(const char *str) {
     }
 
     result[j] = '\0';
+    return result;
+}
+
+/** Helper function to generate randome string */
+char *generate_random_string(int length, const char *pattern) {
+    const char *default_pattern = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const char *charset = pattern && *pattern ? pattern : default_pattern;
+    size_t charset_size = strlen(charset);
+
+    char *result = (char *)malloc(length + 1);
+    if (!result)
+        return NULL;
+
+    srand((unsigned int)time(NULL));
+    for (int i = 0; i < length; i++) {
+        result[i] = charset[rand() % charset_size];
+    }
+    result[length] = '\0';
     return result;
 }

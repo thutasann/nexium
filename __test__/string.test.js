@@ -181,4 +181,27 @@ describe('String Functions', () => {
     expect(NString.replaceDiacritics('Testing123')).toBe('Testing123')
     expect(NString.replaceDiacritics('')).toBe('')
   })
+
+  test('Generates a random string of specified length and pattern', () => {
+    const length = 10
+    const pattern = 'abc123'
+    const randomString = NString.generateRandomString(length, pattern)
+
+    expect(randomString.length).toBe(length)
+
+    for (let char of randomString) {
+      expect(pattern.includes(char)).toBe(true)
+    }
+  })
+
+  test('Generates a random string of specified length with default pattern', () => {
+    const length = 15
+    const randomString = NString.generateRandomString(length, '')
+
+    expect(randomString.length).toBe(length)
+
+    // Check if contains only alphanumeric characters (default pattern)
+    const alphanumeric = /^[a-zA-Z0-9]+$/
+    expect(alphanumeric.test(randomString)).toBe(true)
+  })
 })
