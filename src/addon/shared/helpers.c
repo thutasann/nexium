@@ -158,3 +158,30 @@ bool ends_with(const char *str, const char *target) {
 
     return strcmp(str + str_len - target_len, target) == 0;
 }
+
+/** Helper function to replace a substring with another string */
+char *replace_string(const char *str, const char *pattern, const char *replacement) {
+    size_t str_len = strlen(str);
+    size_t pattern_len = strlen(pattern);
+    size_t replacement_len = strlen(replacement);
+
+    // Estimate the maximum size needed for the result
+    size_t max_len = str_len + (replacement_len - pattern_len) * 10;
+    char *result = (char *)malloc(max_len);
+    if (!result)
+        return NULL;
+
+    size_t i = 0, j = 0;
+    while (i < str_len) {
+        // Check if the pattern matches at the current position
+        if (strstr(&str[i], pattern) == &str[i]) {
+            memcpy(&result[j], replacement, replacement_len);
+            j += replacement_len;
+            i += pattern_len;
+        } else {
+            result[j++] = str[i++];
+        }
+    }
+    result[j] = '\0';
+    return result;
+}

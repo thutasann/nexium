@@ -85,6 +85,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, EndsWith, NULL, &endWidthFn);
     napi_set_named_property(env, exports, "endsWith", endWidthFn);
 
+    napi_value replaceStringFn;
+    napi_create_function(env, NULL, 0, ReplaceString, NULL, &replaceStringFn);
+    napi_set_named_property(env, exports, "replaceString", replaceStringFn);
+
     // ------------------------ UUID functions 🚀
     napi_value generateUUIDFn;
     napi_create_function(env, NULL, 0, GenerateUUID, NULL, &generateUUIDFn);

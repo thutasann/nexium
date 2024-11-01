@@ -15,6 +15,7 @@ import {
   snakeToCamel,
   endsWith as endsWithFn,
   toKebabCase,
+  replaceString as replaceStringFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -114,8 +115,21 @@ export class NString {
     }
   }
 
-  /** Function to check the given string ends with target */
+  /** Function to check the given string ends with target
+   * @example
+   * endsWith('hello world', 'world') // true
+   * endsWith('hello world', 'hello') // false
+   */
   static endsWith(str: string, target: string): boolean {
     return endsWithFn(str, target)
+  }
+
+  /**
+   * Function to replace a substring with another string
+   * @example
+   * replaceString('hello world', 'world', 'universe') // 'hello universe'
+   */
+  static replaceString(str: string, target: string, replacement: string): string {
+    return replaceStringFn(str, target, replacement)
   }
 }

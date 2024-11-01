@@ -166,4 +166,10 @@ describe('String Functions', () => {
     expect(NString.endsWith('testing', '')).toBe(true) // Edge case: empty target
     expect(NString.endsWith('', 'world')).toBe(false) // Edge case: empty string
   })
+
+  test('ReplaceString correctly replaces patterns in strings', () => {
+    expect(NString.replaceString('hello world', 'world', 'there')).toBe('hello there')
+    expect(NString.replaceString('foo bar foo', 'foo', 'baz')).toBe('baz bar baz')
+    expect(NString.replaceString('no match here', 'xyz', 'test')).toBe('no match here')
+  })
 })

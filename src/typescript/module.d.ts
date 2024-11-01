@@ -23,6 +23,7 @@ declare module '*.node' {
   export function snakeToCamel(str: string): string
   export function endsWith(str: string, target: string): boolean
   export function toKebabCase(str: string): string
+  export function replaceString(str: string, target: string, replacement: string): string
 
   // ----------- UUID Functions
   export function generateUUID(): string

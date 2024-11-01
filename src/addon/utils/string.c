@@ -11,6 +11,7 @@ void camel_to_snake(const char *input, char *output);
 void snake_to_camel(const char *input, char *output);
 bool ends_with(const char *str, const char *target);
 void to_kebab_case(const char *input, char *output);
+char *replace_string(const char *str, const char *pattern, const char *replacement);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -455,4 +456,39 @@ napi_value EndsWith(napi_env env, napi_callback_info info) {
     free(target);
 
     return output_result;
+}
+
+/** Function to replace a substring with another string */
+napi_value ReplaceString(napi_env env, napi_callback_info info) {
+    size_t argc = 3;
+    napi_value args[3];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // Get the input values
+    size_t str_len, pattern_len, replacement_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    napi_get_value_string_utf8(env, args[1], NULL, 0, &pattern_len);
+    napi_get_value_string_utf8(env, args[2], NULL, 0, &replacement_len);
+
+    char *str = (char *)malloc(str_len + 1);
+    char *pattern = (char *)malloc(pattern_len + 1);
+    char *replacement = (char *)malloc(replacement_len + 1);
+
+    napi_get_value_string_utf8(env, args[0], str, str_len + 1, NULL);
+    napi_get_value_string_utf8(env, args[1], pattern, pattern_len + 1, NULL);
+    napi_get_value_string_utf8(env, args[2], replacement, replacement_len + 1, NULL);
+
+    // Call ReplaceString
+    char *result_str = replace_string(str, pattern, replacement);
+
+    napi_value result;
+    napi_create_string_utf8(env, result_str, NAPI_AUTO_LENGTH, &result);
+
+    // Cleanup
+    free(str);
+    free(pattern);
+    free(replacement);
+    free(result_str);
+
+    return result;
 }
