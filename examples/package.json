@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js --watch",
     "benchmark": "node benchmark"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nexium": "^1.0.19"
+    "nexium": "^1.0.20"
   }
 }

@@ -13,6 +13,10 @@ function stringExamples() {
 
   console.log('isPalindrome true -> ', NString.isPalindrome('madam')) // true
   console.log('isPalindrome false ->', NString.isPalindrome('hello')) // false
+
+  const length = 15
+  const randomString = NString.generateRandomString(length, '')
+  console.log('randomString -> ', randomString)
 }
 
 module.exports = { stringExamples }
