@@ -128,6 +128,25 @@ void snake_to_camel(const char *input, char *output) {
     output[j] = '\0';
 }
 
+/** Helper function to convert a string to kebab-case */
+void to_kebab_case(const char *input, char *output) {
+    int j = 0;
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (isspace(input[i]) || input[i] == '_' || input[i] == '-') {
+            if (j > 0 && output[j - 1] != '-') {
+                output[j++] = '-';
+            }
+        } else {
+            output[j++] = tolower(input[i]);
+        }
+    }
+    // Remove trailing dash if present
+    if (j > 0 && output[j - 1] == '-') {
+        j--;
+    }
+    output[j] = '\0';
+}
+
 /** Helper function to check if a str ends with target */
 bool ends_with(const char *str, const char *target) {
     size_t str_len = strlen(str);

@@ -14,6 +14,7 @@ import {
   camelToSnake,
   snakeToCamel,
   endsWith as endsWithFn,
+  toKebabCase,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -103,9 +104,11 @@ export class NString {
   }
 
   /** Function to convert case (camel-to-snake or snake-to-camel) */
-  static toCase(str: string, to: 'camel-to-snake' | 'snake-to-camel'): string {
+  static toCase(str: string, to: 'camel-to-snake' | 'snake-to-camel' | 'kebab-case'): string {
     if (to === 'camel-to-snake') {
       return camelToSnake(str)
+    } else if (to === 'kebab-case') {
+      return toKebabCase(str)
     } else {
       return snakeToCamel(str)
     }

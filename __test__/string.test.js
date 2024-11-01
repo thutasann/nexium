@@ -150,6 +150,14 @@ describe('String Functions', () => {
     expect(NString.toCase('singleword', 'snake-to-camel')).toBe('singleword')
   })
 
+  test('ToKebabCase correctly converts strings to kebab case', () => {
+    expect(NString.toCase('hello world', 'kebab-case')).toBe('hello-world')
+    expect(NString.toCase('hello_world', 'kebab-case')).toBe('hello-world')
+    expect(NString.toCase('Hello-World', 'kebab-case')).toBe('hello-world')
+    expect(NString.toCase('  Multiple   spaces   ', 'kebab-case')).toBe('multiple-spaces')
+    expect(NString.toCase('', 'kebab-case')).toBe('')
+  })
+
   test('EndsWith correctly checks if a string ends with a given target string', () => {
     expect(NString.endsWith('hello world', 'world')).toBe(true)
     expect(NString.endsWith('hello world', 'hello')).toBe(false)

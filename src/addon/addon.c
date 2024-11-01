@@ -77,6 +77,10 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, SnakeToCamel, NULL, &snakeToCamelFn);
     napi_set_named_property(env, exports, "snakeToCamel", snakeToCamelFn);
 
+    napi_value kebabFn;
+    napi_create_function(env, NULL, 0, ToKebabCase, NULL, &kebabFn);
+    napi_set_named_property(env, exports, "toKebabCase", kebabFn);
+
     napi_value endWidthFn;
     napi_create_function(env, NULL, 0, EndsWith, NULL, &endWidthFn);
     napi_set_named_property(env, exports, "endsWith", endWidthFn);
