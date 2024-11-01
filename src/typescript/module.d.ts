@@ -24,6 +24,7 @@ declare module '*.node' {
   export function endsWith(str: string, target: string): boolean
   export function toKebabCase(str: string): string
   export function replaceString(str: string, target: string, replacement: string): string
+  export function replaceDiacritics(str: string): string
 
   // ----------- UUID Functions
   export function generateUUID(): string

@@ -29,6 +29,7 @@ napi_value SnakeToCamel(napi_env env, napi_callback_info info);
 napi_value ToKebabCase(napi_env env, napi_callback_info info);
 napi_value EndsWith(napi_env env, napi_callback_info info);
 napi_value ReplaceString(napi_env env, napi_callback_info info);
+napi_value ReplaceDiacritics(napi_env env, napi_callback_info info);
 
 // ------ UUID Functions
 

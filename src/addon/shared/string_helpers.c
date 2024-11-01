@@ -185,3 +185,78 @@ char *replace_string(const char *str, const char *pattern, const char *replaceme
     result[j] = '\0';
     return result;
 }
+
+/** Helper function to replace diacritics with their base characters */
+char *replace_diacritics(const char *str) {
+    size_t len = strlen(str);
+    char *result = (char *)malloc(len + 1);
+    if (!result)
+        return NULL;
+
+    size_t j = 0;
+    for (size_t i = 0; i < len; i++) {
+        // Check for UTF-8 encoded diacritics and replace with equivalent ASCII character
+        if (!strncmp(&str[i], "á", 2) || !strncmp(&str[i], "à", 2) ||
+            !strncmp(&str[i], "â", 2) || !strncmp(&str[i], "ä", 2) ||
+            !strncmp(&str[i], "ã", 2) || !strncmp(&str[i], "å", 2)) {
+            result[j++] = 'a';
+            i++; // Skip extra byte of multibyte character
+        } else if (!strncmp(&str[i], "Á", 2) || !strncmp(&str[i], "À", 2) ||
+                   !strncmp(&str[i], "Â", 2) || !strncmp(&str[i], "Ä", 2) ||
+                   !strncmp(&str[i], "Ã", 2) || !strncmp(&str[i], "Å", 2)) {
+            result[j++] = 'A';
+            i++;
+        } else if (!strncmp(&str[i], "é", 2) || !strncmp(&str[i], "è", 2) ||
+                   !strncmp(&str[i], "ê", 2) || !strncmp(&str[i], "ë", 2)) {
+            result[j++] = 'e';
+            i++;
+        } else if (!strncmp(&str[i], "É", 2) || !strncmp(&str[i], "È", 2) ||
+                   !strncmp(&str[i], "Ê", 2) || !strncmp(&str[i], "Ë", 2)) {
+            result[j++] = 'E';
+            i++;
+        } else if (!strncmp(&str[i], "í", 2) || !strncmp(&str[i], "ì", 2) ||
+                   !strncmp(&str[i], "î", 2) || !strncmp(&str[i], "ï", 2)) {
+            result[j++] = 'i';
+            i++;
+        } else if (!strncmp(&str[i], "Í", 2) || !strncmp(&str[i], "Ì", 2) ||
+                   !strncmp(&str[i], "Î", 2) || !strncmp(&str[i], "Ï", 2)) {
+            result[j++] = 'I';
+            i++;
+        } else if (!strncmp(&str[i], "ó", 2) || !strncmp(&str[i], "ò", 2) ||
+                   !strncmp(&str[i], "ô", 2) || !strncmp(&str[i], "ö", 2) ||
+                   !strncmp(&str[i], "õ", 2)) {
+            result[j++] = 'o';
+            i++;
+        } else if (!strncmp(&str[i], "Ó", 2) || !strncmp(&str[i], "Ò", 2) ||
+                   !strncmp(&str[i], "Ô", 2) || !strncmp(&str[i], "Ö", 2) ||
+                   !strncmp(&str[i], "Õ", 2)) {
+            result[j++] = 'O';
+            i++;
+        } else if (!strncmp(&str[i], "ú", 2) || !strncmp(&str[i], "ù", 2) ||
+                   !strncmp(&str[i], "û", 2) || !strncmp(&str[i], "ü", 2)) {
+            result[j++] = 'u';
+            i++;
+        } else if (!strncmp(&str[i], "Ú", 2) || !strncmp(&str[i], "Ù", 2) ||
+                   !strncmp(&str[i], "Û", 2) || !strncmp(&str[i], "Ü", 2)) {
+            result[j++] = 'U';
+            i++;
+        } else if (!strncmp(&str[i], "ç", 2)) {
+            result[j++] = 'c';
+            i++;
+        } else if (!strncmp(&str[i], "Ç", 2)) {
+            result[j++] = 'C';
+            i++;
+        } else if (!strncmp(&str[i], "ñ", 2)) {
+            result[j++] = 'n';
+            i++;
+        } else if (!strncmp(&str[i], "Ñ", 2)) {
+            result[j++] = 'N';
+            i++;
+        } else {
+            result[j++] = str[i];
+        }
+    }
+
+    result[j] = '\0';
+    return result;
+}

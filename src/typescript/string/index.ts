@@ -16,6 +16,7 @@ import {
   endsWith as endsWithFn,
   toKebabCase,
   replaceString as replaceStringFn,
+  replaceDiacritics as replaceDiacriticsFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -131,5 +132,13 @@ export class NString {
    */
   static replaceString(str: string, target: string, replacement: string): string {
     return replaceStringFn(str, target, replacement)
+  }
+
+  /** Function to replace diacritics with their base characters
+   * @example
+   * replaceDiacritics('áéíóúÁÉÍÓÚ') // 'aeiouAEIOU'
+   */
+  static replaceDiacritics(str: string): string {
+    return replaceDiacriticsFn(str)
   }
 }

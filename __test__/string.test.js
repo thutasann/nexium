@@ -172,4 +172,13 @@ describe('String Functions', () => {
     expect(NString.replaceString('foo bar foo', 'foo', 'baz')).toBe('baz bar baz')
     expect(NString.replaceString('no match here', 'xyz', 'test')).toBe('no match here')
   })
+
+  test('replaces diacritics with ASCII equivalents', () => {
+    expect(NString.replaceDiacritics('Café')).toBe('Cafe')
+    expect(NString.replaceDiacritics('Français')).toBe('Francais')
+    expect(NString.replaceDiacritics('àáäâãå')).toBe('aaaaaa')
+    expect(NString.replaceDiacritics('Hello World')).toBe('Hello World')
+    expect(NString.replaceDiacritics('Testing123')).toBe('Testing123')
+    expect(NString.replaceDiacritics('')).toBe('')
+  })
 })

@@ -12,6 +12,7 @@ void snake_to_camel(const char *input, char *output);
 bool ends_with(const char *str, const char *target);
 void to_kebab_case(const char *input, char *output);
 char *replace_string(const char *str, const char *pattern, const char *replacement);
+char *replace_diacritics(const char *str);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -490,5 +491,28 @@ napi_value ReplaceString(napi_env env, napi_callback_info info) {
     free(replacement);
     free(result_str);
 
+    return result;
+}
+
+/** Function to replace diacritics with their base characters */
+napi_value ReplaceDiacritics(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // retrieve the input string
+    size_t str_len;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    const char *str = (char *)malloc(str_len + 1);
+    napi_get_value_string_utf8(env, args[0], str, str_len + 1, NULL);
+
+    // replace diacritics
+    char *result_str = replace_diacritics(str);
+
+    napi_value result;
+    napi_create_string_utf8(env, result_str, NAPI_AUTO_LENGTH, &result);
+
+    free(str);
+    free(result_str);
     return result;
 }
