@@ -1,7 +1,7 @@
 // @ts-check
 const { NArray } = require('../../lib')
 const { chunkArrayJs, random_users, benchmark_args } = require('./utils')
-const { updateReadme } = require('./update_readme')
+const { updateResult } = require('./update_readme')
 
 /** Array Benchmark Test */
 function array_benchmark_test() {
@@ -15,12 +15,8 @@ function array_benchmark_test() {
   const jsTime = benchmark_args(() => chunkArrayJs(random_users, 100), [], 100)
   results.push({ Method: 'Nexium chunkArray', Time: nApiTime.toFixed(3) })
   results.push({ Method: 'JavaScript chunkArray', Time: jsTime.toFixed(3) })
-  results.push([])
 
-  console.table(results)
-  updateReadme(results, './results/array.md')
-    .then(() => {})
-    .catch(() => {})
+  updateResult(results, './results/array.md', 'Array Benchmark').then(() => {})
 }
 
 module.exports = { array_benchmark_test }

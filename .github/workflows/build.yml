@@ -35,8 +35,5 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Create results folder
-        run: mkdir -p __test__/results
-
       - name: Run Benchmark
         run: npm run benchmark
