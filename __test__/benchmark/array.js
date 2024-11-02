@@ -6,6 +6,11 @@ const { updateResult } = require('./update_readme')
 /** iterations */
 const iterations = 100
 const num_arr = [1, 2, 3, 4, 3, 2, 1]
+const obj_arr = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+  { id: 1, name: 'Alice' },
+]
 
 /** Array Benchmark Test */
 async function array_benchmark_test() {
@@ -24,8 +29,15 @@ async function array_benchmark_test() {
   // ----------- Unique Array (Number) Benchmarks
   const nApiUniqueArrNumberTime = benchmark_args(() => NArray.uniqueArray(num_arr), [], iterations)
   const jsUniqueArrayNumberTime = benchmark_args(() => uniqueArray(num_arr), [], iterations)
-  results.push({ Method: 'Nexium uniqueArray', Time: nApiUniqueArrNumberTime.toFixed(3) })
-  results.push({ Method: 'JavaScript uniqueArray', Time: jsUniqueArrayNumberTime.toFixed(3) })
+  results.push({ Method: 'Nexium uniqueArray Number', Time: nApiUniqueArrNumberTime.toFixed(3) })
+  results.push({ Method: 'JavaScript uniqueArray Number', Time: jsUniqueArrayNumberTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Unique Array (Arr Object) Benchmarks
+  const nApiUniqueArrObjTime = benchmark_args(() => NArray.uniqueArray(obj_arr), [], iterations)
+  const jsUniqueArrayObjTime = benchmark_args(() => uniqueArray(obj_arr), [], iterations)
+  results.push({ Method: 'Nexium uniqueArray ArrObj', Time: nApiUniqueArrObjTime.toFixed(3) })
+  results.push({ Method: 'JavaScript uniqueArray ArrObj', Time: jsUniqueArrayObjTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/array.md', 'Array Benchmark')

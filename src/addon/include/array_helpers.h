@@ -21,5 +21,6 @@ void freeChunks(Chunk *chunks, int chunkCount);
  */
 typedef bool (*compare_func)(const void *, const void *);
 void **create_unique_array(void **arr, size_t size, size_t *new_size, compare_func cmp);
+napi_status remove_duplicates(napi_env env, napi_value input_array, napi_value *output_array);
 
 #endif

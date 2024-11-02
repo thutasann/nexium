@@ -49,9 +49,15 @@ describe('Array Functions', () => {
     expect(result).toEqual([1, 2, 3, 4, 5])
   })
 
-  // test('removes duplicates from string array', () => {
-  //   const arr = ['apple', 'banana', 'apple', 'orange', 'banana']
-  //   const result = NArray.uniqueArray(arr)
-  //   expect(result).toEqual(['apple', 'banana', 'orange'])
-  // })
+  test('removes duplicates from string array', () => {
+    const arr = ['apple', 'banana', 'apple', 'orange', 'banana']
+    const result = NArray.uniqueArray(arr)
+    expect(result).toEqual(['apple', 'banana', 'orange'])
+  })
+
+  test('removes duplicates from an array of objects', () => {
+    const array = [{ id: 1 }, { id: 2 }, { id: 1 }]
+    const result = NArray.uniqueArray(array)
+    expect(result).toEqual([{ id: 1 }, { id: 2 }])
+  })
 })
