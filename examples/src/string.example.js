@@ -9,7 +9,7 @@ function stringExamples() {
   const trimedStart = NString.trimStart('    Hello World')
   console.log(trimedStart)
 
-  /** trim ed */
+  /** trim end */
   const trimedEnd = NString.trimEnd('Hello World    ')
   console.log(trimedEnd)
 
