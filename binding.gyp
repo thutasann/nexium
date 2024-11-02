@@ -4,6 +4,10 @@
       "target_name": "nexium",
       "sources": [
         "src/addon/addon.c",
+        "src/addon/math_functions.c",
+        "src/addon/string_functions.c",
+        "src/addon/array_functions.c",
+        "src/addon/uuid_functions.c",
         "src/addon/utils/math.c",
         "src/addon/utils/string.c",
         "src/addon/utils/uuid.c",
