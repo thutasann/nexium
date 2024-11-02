@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+      - feat/array
   pull_request:
     branches:
       - master
+      - feat/array
 
 jobs:
   build:
