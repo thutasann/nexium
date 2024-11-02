@@ -5,10 +5,12 @@ on:
     branches:
       - master
       - feat/array
+      - feat/number
   pull_request:
     branches:
       - master
       - feat/array
+      - feat/number
 
 jobs:
   build:
