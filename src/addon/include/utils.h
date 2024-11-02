@@ -42,6 +42,7 @@ napi_value BytesToUUID(napi_env env, napi_callback_info info);
 // ------ Number Functions
 
 napi_value ClampFunction(napi_env env, napi_callback_info args);
+napi_value InRangeRunction(napi_env env, napi_callback_info args);
 
 // ------ Array Functions
 

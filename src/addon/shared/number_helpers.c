@@ -1,6 +1,5 @@
 #include "../include/number_helpers.h"
-#include <ctype.h>
-#include <stdint.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,4 +12,14 @@ int clamp(int number, int min, int max) {
     } else {
         return number;
     }
+}
+
+/** Helper function for inRange */
+bool inRange(int number, int start, int end) {
+    if (start > end) {
+        int temp = start;
+        start = end;
+        end = temp;
+    }
+    return (number >= start && number <= end);
 }
