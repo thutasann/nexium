@@ -36,6 +36,4 @@ jobs:
         run: npm test
 
       - name: Run Benchmark
-        run: |
-          cd __test__/benchmark
-          node index.js
+        run: npm run benchmark

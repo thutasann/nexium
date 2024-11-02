@@ -16,12 +16,12 @@ napi_value GenerateUUID(napi_env env, napi_callback_info info) {
     srand((unsigned int)time(NULL));
     snprintf(
         uuid, sizeof(uuid),
-        "%08x-%04x-%04x-%04x-%012x",
-        rand() & 0xffffffff,
-        rand() & 0xffff,
-        (rand() & 0x0fff) | 0x4000, // UUID version 4
-        (rand() & 0x3fff) | 0x8000, // UUID variant 1
-        rand() & 0xffffffffffff);
+        "%08x-%04x-%04x-%04x-%012llx",
+        (unsigned int)(rand() & 0xffffffff),
+        (unsigned int)(rand() & 0xffff),
+        (unsigned int)((rand() & 0x0fff) | 0x4000), // UUID version 4
+        (unsigned int)((rand() & 0x3fff) | 0x8000), // UUID variant 1
+        (unsigned long long)(rand() & 0xffffffffffff));
 
     // Convert to lowercase
     for (int i = 0; i < 36; i++) {
