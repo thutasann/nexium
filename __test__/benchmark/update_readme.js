@@ -27,7 +27,7 @@ async function updateResult(results = [], readmePath, topic = 'Benchmark') {
     const directory = path.dirname(readmePath)
     await fs.mkdir(directory, { recursive: true }) // Create the directory if it doesn't exist
 
-    await unlinkFilePath(readmePath)
+    await unlinkFilePath(readmePath, topic)
 
     // Prepare the table header
     const header = `# ${topic} Results\n\n| Method                | Time (seconds) |\n| --------------------- | -------------- |\n`
@@ -59,11 +59,12 @@ async function updateResult(results = [], readmePath, topic = 'Benchmark') {
 
 /** Unlink file path
  * @param { string } readmePath - markdown result file path
+ * @param { string } topic - the benchmark topic
  */
-async function unlinkFilePath(readmePath) {
+async function unlinkFilePath(readmePath, topic) {
   try {
     await fs.unlink(readmePath)
-    console.log('Existing README unlinked 🗑️.\n')
+    console.log(`Existing ${topic} unlinked 🗑️.\n`)
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
   }

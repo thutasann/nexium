@@ -77,6 +77,11 @@ function isPalindrome(str) {
   return cleanedStr === reversedStr
 }
 
+/** function to create unique array @param{ any[] } arr */
+function uniqueArray(arr) {
+  return arr.filter((item, index, self) => index === self.findIndex((t) => JSON.stringify(t) === JSON.stringify(item)))
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -87,4 +92,5 @@ module.exports = {
   benchmark,
   benchmark_args,
   isPalindrome,
+  uniqueArray,
 }

@@ -1,15 +1,7 @@
 // @ts-check
 const { NUUId, NString } = require('../../lib')
 const { updateResult } = require('./update_readme')
-const {
-  generateUUIDVanilla,
-  slugify,
-  endLog,
-  reverseString,
-  benchmark,
-  benchmark_args,
-  isPalindrome,
-} = require('./utils')
+const { generateUUIDVanilla, slugify, reverseString, benchmark, benchmark_args, isPalindrome } = require('./utils')
 
 /** iterations */
 const iterations = 100000
