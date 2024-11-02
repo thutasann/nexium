@@ -3,15 +3,31 @@ const fs = require('fs').promises
 const path = require('path')
 const prettier = require('prettier')
 
-/** update readme whenever there are changes in the result */
-async function updateResult(results, readmePath, topic = 'Benchmark') {
-  console.table(results) // Log results to the console
+/**
+ * @typedef {Object} BenchmarkResult
+ * @property {string} [Method] - The name of the benchmarked method (optional).
+ * @property {string} [Time] - The time taken by the method in seconds (optional).
+ */
+
+/**
+ * @typedef {Array<BenchmarkResult>} BenchmarkResultsArray
+ */
+
+/**
+ * Updates the README.md file with the given benchmark results.
+ * This function appends to existing benchmark results without duplicating the header.
+ * @param {Array<{ Method?: string, Time?: string }>} results - The benchmark results array.
+ * @param {string} readmePath - The path to the README file (default: './README.md').
+ * @param {string} topic - The benchmark topic to be updated
+ */
+async function updateResult(results = [], readmePath, topic = 'Benchmark') {
+  console.table(results)
 
   try {
     const directory = path.dirname(readmePath)
     await fs.mkdir(directory, { recursive: true }) // Create the directory if it doesn't exist
 
-    await unlinkFilePath(readmePath) // Delete existing file if it exists
+    await unlinkFilePath(readmePath)
 
     // Prepare the table header
     const header = `# ${topic} Results\n\n| Method                | Time (seconds) |\n| --------------------- | -------------- |\n`
@@ -31,18 +47,19 @@ async function updateResult(results, readmePath, topic = 'Benchmark') {
 
     // Write the new content to README
     await fs.writeFile(readmePath, content, 'utf8') // Specify encoding
-    console.log(`README updated successfully with new ${topic} results. ✅\n`)
 
     // Format the file with Prettier
     const formatted = await prettier.format(content, { parser: 'markdown' })
-    await fs.writeFile(readmePath, formatted, 'utf8') // Overwrite with formatted content
-    console.log('README formatted with Prettier. 💅\n')
+    await fs.writeFile(readmePath, formatted, 'utf8')
+    console.log(`README updated and formatted with Prettier successfully with new ${topic} results. ✅\n`)
   } catch (error) {
     console.error('Error updating README:', error)
   }
 }
 
-/** Unlink file path @private */
+/** Unlink file path
+ * @param { string } readmePath - markdown result file path
+ */
 async function unlinkFilePath(readmePath) {
   try {
     await fs.unlink(readmePath)

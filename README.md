@@ -40,6 +40,12 @@ yarn build
 yarn test
 ```
 
+**Benchmark**
+
+```bash
+yarn benchmark
+```
+
 ---
 
 ## 📦 **Installation**
