@@ -1,38 +1,23 @@
 // @ts-check
 const { NArray } = require('../../lib')
-const { benchmark_args } = require('./benchmark_fn')
-
-// Generate an array of 800 user objects
-const users = Array.from({ length: 800 }, (_, i) => ({
-  id: i + 1,
-  name: `User${i + 1}`,
-}))
-const chunkSize = 100
+const { chunkArrayJs, random_users, benchmark_args } = require('./utils')
 
 /** Array Benchmark Test */
 function array_benchmark_test() {
   console.log('\nArray Benchmark Test ==> ')
 
-  // N-API chunkArray benchmark
-  const nApiTime = benchmark_args(() => NArray.chunkArray(users, chunkSize), [], 100)
-  console.log(`N-API chunkArray: ${nApiTime.toFixed(3)} ms`)
+  // Prepare the data for the table
+  const results = []
 
-  // JavaScript chunkArray benchmark
-  function chunkArrayJs(arr, chunkSize) {
-    const result = []
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      result.push(arr.slice(i, i + chunkSize))
-    }
-    return result
-  }
+  // ----------- Chunk Array Benchmarks
+  const nApiTime = benchmark_args(() => NArray.chunkArray(random_users, 100), [], 100)
+  const jsTime = benchmark_args(() => chunkArrayJs(random_users, 100), [], 100)
+  results.push({ Method: 'N-API chunkArray', Time: nApiTime.toFixed(3) })
+  results.push({ Method: 'JavaScript chunkArray', Time: jsTime.toFixed(3) })
+  results.push([])
 
-  const jsTime = benchmark_args(() => chunkArrayJs(users, chunkSize), [], 100)
-  console.log(`JavaScript chunkArray: ${jsTime.toFixed(3)} ms`)
-
-  // Ensure all methods produce identical results
-  const nApiResult = NArray.chunkArray(users, chunkSize)
-  const jsResult = chunkArrayJs(users, chunkSize)
-  console.log('Results match:', JSON.stringify(nApiResult) === JSON.stringify(jsResult))
+  // Display the results in a table format
+  console.table(results)
 }
 
 module.exports = { array_benchmark_test }
