@@ -33,6 +33,9 @@ declare module '*.node' {
   export function isValidUUID(uuid: string): boolean
   export function bytesToUUID(bytes: number[]): string
 
+  // ----------- Number Functions
+  export function clamp(num: number, min: number, max: number): number
+
   // ----------- Array Functions
   export function chunkArray<T>(arr: T[], chunkLength: number): T[][]
   export function uniqueArray<T>(arr: T[]): T[]
