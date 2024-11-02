@@ -1,12 +1,12 @@
 {
   "name": "nexium",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A Node.js package providing advanced data structures and utility functions using native C.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "benchmark": "cd __test__/benchmark && node index",
+    "node": "cd __test__/benchmark && node index",
     "build:node": "tsc && npm run minify",
     "minify": "find lib -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
     "build:gyp": "node-gyp rebuild",
