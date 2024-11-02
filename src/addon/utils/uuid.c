@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 
+// ---------- Helpers
 uint8_t hex_to_byte(char high, char low);
 
 /** Function to Generate UUID */
