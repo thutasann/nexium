@@ -2,5 +2,5 @@
 
 | Method                | Time (seconds) |
 | --------------------- | -------------- |
-| Nexium chunkArray      | 0.070      |
-| JavaScript chunkArray      | 0.003      |
+| Nexium chunkArray     | 0.069          |
+| JavaScript chunkArray | 0.001          |
