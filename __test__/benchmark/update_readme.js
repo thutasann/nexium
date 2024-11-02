@@ -4,19 +4,9 @@ const path = require('path')
 const prettier = require('prettier')
 
 /**
- * @typedef {Object} BenchmarkResult
- * @property {string} [Method] - The name of the benchmarked method (optional).
- * @property {string} [Time] - The time taken by the method in seconds (optional).
- */
-
-/**
- * @typedef {Array<BenchmarkResult>} BenchmarkResultsArray
- */
-
-/**
  * Updates the README.md file with the given benchmark results.
  * This function appends to existing benchmark results without duplicating the header.
- * @param {Array<{ Method?: string, Time?: string }>} results - The benchmark results array.
+ * @param {BenchmarkResultsArray} results - The benchmark results array.
  * @param {string} readmePath - The path to the README file (default: './README.md').
  * @param {string} topic - The benchmark topic to be updated
  */
