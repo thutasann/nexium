@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "node": "cd __test__/benchmark && node index",
+    "benchmark": "cd __test__/benchmark && node index",
     "build:node": "tsc && npm run minify",
     "minify": "find lib -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
     "build:gyp": "node-gyp rebuild",
