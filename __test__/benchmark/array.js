@@ -2,6 +2,7 @@
 const { NArray } = require('../../lib')
 const { chunkArrayJs, random_users, benchmark_args, uniqueArray } = require('./utils')
 const { updateResult } = require('./update_readme')
+const { bigNestedArray } = require('./constants')
 
 /** iterations */
 const iterations = 100
@@ -34,8 +35,8 @@ async function array_benchmark_test() {
   results.push({})
 
   // ----------- Unique Array (Arr Object) Benchmarks
-  const nApiUniqueArrObjTime = benchmark_args(() => NArray.uniqueArray(obj_arr), [], iterations)
-  const jsUniqueArrayObjTime = benchmark_args(() => uniqueArray(obj_arr), [], iterations)
+  const nApiUniqueArrObjTime = benchmark_args(() => NArray.uniqueArray(bigNestedArray), [], iterations)
+  const jsUniqueArrayObjTime = benchmark_args(() => uniqueArray(bigNestedArray), [], iterations)
   results.push({ Method: 'Nexium uniqueArray ArrObj', Time: nApiUniqueArrObjTime.toFixed(3) })
   results.push({ Method: 'JavaScript uniqueArray ArrObj', Time: jsUniqueArrayObjTime.toFixed(3) })
   results.push({})
