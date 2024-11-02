@@ -67,6 +67,16 @@ function reverseString(str) {
   return str.split('').reverse().join('')
 }
 
+/**
+ * check if string is palindrome
+ * @param {string} str
+ */
+function isPalindrome(str) {
+  const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+  const reversedStr = cleanedStr.split('').reverse().join('')
+  return cleanedStr === reversedStr
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -76,4 +86,5 @@ module.exports = {
   reverseString,
   benchmark,
   benchmark_args,
+  isPalindrome,
 }

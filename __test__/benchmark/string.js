@@ -1,6 +1,14 @@
 // @ts-check
 const { NUUId, NString } = require('../../lib')
-const { generateUUIDVanilla, slugify, endLog, reverseString, benchmark, benchmark_args } = require('./utils')
+const {
+  generateUUIDVanilla,
+  slugify,
+  endLog,
+  reverseString,
+  benchmark,
+  benchmark_args,
+  isPalindrome,
+} = require('./utils')
 
 /** iterations */
 const iterations = 100000
@@ -31,6 +39,13 @@ function string_benchmark_test() {
   const jsReverseStringTime = benchmark_args(() => reverseString('Hello World'), [], iterations)
   results.push({ Method: 'N-API Reverse', Time: nReverseStringTime.toFixed(6) })
   results.push({ Method: 'JavaScript Reverse', Time: jsReverseStringTime.toFixed(6) })
+  results.push([])
+
+  // ----------- Palindrome String Benchmarks
+  const nPalindromTime = benchmark_args(() => NString.isPalindrome('madam'), [], iterations)
+  const jsPalindromeTime = benchmark_args(() => isPalindrome('madam'), [], iterations)
+  results.push({ Method: 'N-API Palindrome', Time: nPalindromTime.toFixed(6) })
+  results.push({ Method: 'JavaScript Palindrome', Time: jsPalindromeTime.toFixed(6) })
   results.push([])
 
   console.table(results)
