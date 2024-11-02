@@ -20,7 +20,7 @@ async function number_benchmark_test() {
   results.push({ Method: 'JavaScript clampNumber', Time: jsClampTime.toFixed(3) })
   results.push({})
 
-  await updateResult(results, './results/array.md', 'Array Benchmark')
+  await updateResult(results, './results/number.md', 'Number Benchmark')
 }
 
 module.exports = { number_benchmark_test }
