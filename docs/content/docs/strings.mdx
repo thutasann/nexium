@@ -1,0 +1,137 @@
+---
+title: Strings
+description: Here is the Strings Methods from Nexium
+---
+
+## Import the `NString`
+
+```js
+const { NString } = require('nexium')
+```
+
+---
+
+## trimStart
+
+```js
+const trimedStart = NString.trimStart('    Hello World')
+```
+
+---
+
+## trimEnd
+
+```js
+const trimedEnd = NString.trimEnd('Hello World    ')
+```
+
+---
+
+## isPalindrome
+
+```js
+const isPalindrome = NString.isPalindrome('madam') // true
+```
+
+---
+
+## generate random string
+
+```js
+const length = 15
+const randomString = NString.generateRandomString(length, '')
+console.log('randomString -> ', randomString)
+```
+
+---
+
+## remove diacritics
+
+```js
+const removedDiacritics = NString.replaceDiacritics('Café')
+console.log('removedDiacritics -> ', removedDiacritics)
+```
+
+---
+
+## replace string
+
+```js
+const replacedString = NString.replaceString('hello world', 'world', 'there')
+```
+
+---
+
+## endsWith
+
+```js
+const endsWith = NString.endsWith('hello world', 'world')
+```
+
+---
+
+## case convertors
+
+```js
+const kebab = NString.toCase('hello world', 'kebab-case')
+
+const snakeToCamel = NString.toCase('snake_case_test', 'snake-to-camel')
+
+const camelToSnake = NString.toCase('camelCaseTest', 'camel-to-snake')
+```
+
+---
+
+## slugify
+
+```js
+const slugified = NString.slugify('Special!!  Characters---and Spaces', true)
+```
+
+---
+
+## wordsArray
+
+```js
+const wordsArray = NString.getWordsArray('   Multiple    spaces   here ')
+```
+
+---
+
+## insertedStringAt
+
+```js
+const insertedStringAt = NString.insertStringAt('abcdef', '123', 3)
+```
+
+---
+
+## removeDuplicates
+
+```js
+const removeDuplicates = NString.removeDuplicates('aabbcc')
+```
+
+---
+
+## stripHTML
+
+```js
+const stripedHTML = NString.stripHTML('<p>Hello, <b>world</b>!</p>')
+```
+
+---
+
+## reverse
+
+```js
+const reversedString = NString.reverse('hello')
+```
+
+---
+
+## countOccurrences
+
+```js
+const countOccurrences = NString.countOccurrences('hello world hello', 'hello')
+```
