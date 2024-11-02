@@ -18,7 +18,7 @@ const iterations = 100000
 function string_benchmark_test() {
   console.log('\nString Benchmark Test ==> ')
 
-  /** Prepare the results array for table @type { BenchmarkResultsArray } */
+  /** Prepare the results array for table @type { any } */
   const results = []
 
   // ----------- NUUID Benchmarks

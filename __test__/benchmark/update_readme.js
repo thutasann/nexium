@@ -4,6 +4,16 @@ const path = require('path')
 const prettier = require('prettier')
 
 /**
+ * @typedef {Object} BenchmarkResult
+ * @property {string} [Method] - The name of the benchmarked method (optional).
+ * @property {string} [Time] - The time taken by the method in seconds (optional).
+ */
+
+/**
+ * @typedef {Array<BenchmarkResult>} BenchmarkResultsArray - Benchmark Results Array
+ */
+
+/**
  * Updates the README.md file with the given benchmark results.
  * This function appends to existing benchmark results without duplicating the header.
  * @param {BenchmarkResultsArray} results - The benchmark results array.

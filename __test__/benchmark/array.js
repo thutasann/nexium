@@ -10,7 +10,7 @@ const iterations = 100
 function array_benchmark_test() {
   console.log('\nArray Benchmark Test ==> ')
 
-  /** Prepare the results array for table @type { BenchmarkResultsArray } */
+  /** Prepare the results array for table @type { any } */
   const results = []
 
   // ----------- Chunk Array Benchmarks
