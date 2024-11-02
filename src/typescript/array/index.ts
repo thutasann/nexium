@@ -7,7 +7,7 @@ export class NArray {
    * @example
    * chunkArray([1, 2, 3, 4, 5, 6, 7], 3)
    */
-  static chunkArray(arr: number[], chunkLength: number): number[][] {
+  static chunkArray<T>(arr: T[], chunkLength: number): T[][] {
     return chunkArrayFn(arr, chunkLength)
   }
 }

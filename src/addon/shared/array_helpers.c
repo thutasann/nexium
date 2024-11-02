@@ -1,40 +1,28 @@
-#include <stdio.h>
+#include "../include/array_helpers.h"
 #include <stdlib.h>
 #include <string.h>
 
-/** Helper function to chunk array */
-int **chunk_helper(const int *array, size_t array_length, size_t chunk_length, size_t *num_chunks) {
-    if (chunk_length == 0 || array_length == 0) {
-        *num_chunks = 0;
-        return NULL; // Return NULL if no chunks can be created
+// Helper Function to chunk an array into smaller arrays (chunks) of specified size
+Chunk *chunkArray(void *array, int elementSize, int totalElements, int chunkSize, int *chunkCount) {
+    *chunkCount = (totalElements + chunkSize - 1) / chunkSize; // Calculate chunk count
+    Chunk *chunks = (Chunk *)malloc(*chunkCount * sizeof(Chunk));
+
+    for (int i = 0; i < *chunkCount; ++i) {
+        int start = i * chunkSize;
+        int currentChunkSize = (start + chunkSize > totalElements) ? (totalElements - start) : chunkSize;
+
+        chunks[i].elements = malloc(currentChunkSize * elementSize);
+        chunks[i].size = currentChunkSize;
+        memcpy(chunks[i].elements, (char *)array + start * elementSize, currentChunkSize * elementSize);
     }
 
-    // Calculate the number of chunks required
-    *num_chunks = (array_length + chunk_length - 1) / chunk_length;
-
-    // Allocate memory for the array of chunk pointers
-    int **chunks = (int **)malloc(*num_chunks * sizeof(int *));
-
-    // Populate each chunk with elements
-    for (size_t i = 0; i < *num_chunks; i++) {
-        // Determine the number of elements in the current chunk
-        size_t current_chunk_length = ((i + 1) * chunk_length <= array_length) ? chunk_length : (array_length - i * chunk_length);
-
-        // Allocate memory for the current chunk
-        chunks[i] = (int *)malloc(current_chunk_length * sizeof(int));
-
-        // Copy elements into the current chunk
-        for (size_t j = 0; j < current_chunk_length; j++) {
-            chunks[i][j] = array[i * chunk_length + j];
-        }
-    }
     return chunks;
 }
 
-// Helper function to Free memory allocated by chunks
-void free_chunks(int **chunks, size_t num_chunks) {
-    for (size_t i = 0; i < num_chunks; i++) {
-        free(chunks[i]);
+// Helper Function to Free the memory allocated for chunks
+void freeChunks(Chunk *chunks, int chunkCount) {
+    for (int i = 0; i < chunkCount; ++i) {
+        free(chunks[i].elements);
     }
     free(chunks);
 }

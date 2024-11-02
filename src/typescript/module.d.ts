@@ -34,5 +34,5 @@ declare module '*.node' {
   export function bytesToUUID(bytes: number[]): string
 
   // ----------- Array Functions
-  export function chunkArray(arr: number[], chunkLength: number): number[][]
+  export function chunkArray<T>(arr: T[], chunkLength: number): T[][]
 }

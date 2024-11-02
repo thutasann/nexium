@@ -1,64 +1,58 @@
-#include "../include/utils.h"
-#include <ctype.h>
-#include <stdio.h>
+#include "../include/array_helpers.h"
+#include <node_api.h>
 #include <stdlib.h>
 #include <string.h>
 
-// ---------- Helpers
-int **chunk_helper(const int *array, size_t array_length, size_t chunk_length, size_t *num_chunks);
-void free_chunks(int **chunks, size_t num_chunks);
-
-/** Function to chunk array */
+// Function to chunk the Generic array
 napi_value ChunkArray(napi_env env, napi_callback_info info) {
+    // Parse arguments
     size_t argc = 2;
     napi_value args[2];
     napi_get_cb_info(env, info, &argc, args, NULL, NULL);
 
-    // Input validation
-    bool is_array;
-    napi_is_array(env, args[0], &is_array);
-    if (!is_array)
+    // Verify if first argument is an array
+    bool isArray;
+    napi_is_array(env, args[0], &isArray);
+    if (!isArray)
         return NULL;
 
-    uint32_t array_length;
-    napi_get_array_length(env, args[0], &array_length);
+    uint32_t arrayLength;
+    napi_get_array_length(env, args[0], &arrayLength);
 
-    int chunk_length;
-    napi_get_value_int32(env, args[1], &chunk_length);
+    // Get the chunk size
+    int32_t chunkSize;
+    napi_get_value_int32(env, args[1], &chunkSize);
 
-    // Convert input JS array to C array
-    int *array = (int *)malloc(array_length * sizeof(int));
-    for (uint32_t i = 0; i < array_length; i++) {
-        napi_value element;
+    // Allocate space for the array elements to handle generic data
+    void *arrayElements = malloc(arrayLength * sizeof(napi_value));
+    napi_value element;
+
+    for (uint32_t i = 0; i < arrayLength; ++i) {
         napi_get_element(env, args[0], i, &element);
-        napi_get_value_int32(env, element, &array[i]);
+        memcpy((napi_value *)arrayElements + i, &element, sizeof(napi_value));
     }
 
-    // Chunk the array using helper
-    size_t num_chunks;
-    int **chunks = chunk_helper(array, array_length, chunk_length, &num_chunks);
+    // Perform chunking
+    int chunkCount;
+    Chunk *chunks = chunkArray(arrayElements, sizeof(napi_value), arrayLength, chunkSize, &chunkCount);
 
-    // Convert the chunks back to a JS array of arrays
+    // Convert C chunks to JavaScript arrays
     napi_value result;
-    napi_create_array_with_length(env, num_chunks, &result);
+    napi_create_array_with_length(env, chunkCount, &result);
 
-    for (size_t i = 0; i < num_chunks; i++) {
-        size_t current_chunk_length = (i + 1) * chunk_length <= array_length ? chunk_length : array_length - i * chunk_length;
-        napi_value chunk_array;
-        napi_create_array_with_length(env, current_chunk_length, &chunk_array);
+    for (int i = 0; i < chunkCount; ++i) {
+        napi_value chunkArray;
+        napi_create_array_with_length(env, chunks[i].size, &chunkArray);
 
-        for (size_t j = 0; j < current_chunk_length; j++) {
-            napi_value element;
-            napi_create_int32(env, chunks[i][j], &element);
-            napi_set_element(env, chunk_array, j, element);
+        for (int j = 0; j < chunks[i].size; ++j) {
+            napi_set_element(env, chunkArray, j, ((napi_value *)chunks[i].elements)[j]);
         }
-
-        napi_set_element(env, result, i, chunk_array);
+        napi_set_element(env, result, i, chunkArray);
     }
 
-    // Free allocated memory
-    free(array);
-    free_chunks(chunks, num_chunks);
+    // Clean up
+    freeChunks(chunks, chunkCount);
+    free(arrayElements);
 
     return result;
 }
