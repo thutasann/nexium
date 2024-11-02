@@ -8,12 +8,15 @@
         "src/addon/string_functions.c",
         "src/addon/array_functions.c",
         "src/addon/uuid_functions.c",
+        "src/addon/number_functions.c",
         "src/addon/utils/math.c",
         "src/addon/utils/string.c",
         "src/addon/utils/uuid.c",
         "src/addon/utils/array.c",
+        "src/addon/utils/number.c",
         "src/addon/shared/string_helpers.c",
         "src/addon/shared/array_helpers.c",
+        "src/addon/shared/number_helpers.c",
       ],
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"

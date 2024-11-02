@@ -5,6 +5,7 @@ void InitMathFunctions(napi_env env, napi_value exports);
 void InitStringFunctions(napi_env env, napi_value exports);
 void InitUUIDFunctions(napi_env env, napi_value exports);
 void InitArrayFunctions(napi_env env, napi_value exports);
+void InitNumberFunctions(napi_env env, napi_value exports);
 
 /** Module Initialization 🚀 */
 napi_value Init(napi_env env, napi_value exports) {
@@ -12,6 +13,7 @@ napi_value Init(napi_env env, napi_value exports) {
     InitStringFunctions(env, exports);
     InitUUIDFunctions(env, exports);
     InitArrayFunctions(env, exports);
+    InitNumberFunctions(env, exports);
     return exports;
 }
 
