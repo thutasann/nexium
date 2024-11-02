@@ -76,4 +76,4 @@ Supercharge your Node.js applications with high-performance, native C utilities 
 
 ## Authors
 
-- Thuta Sann
+- [Thuta Sann](https://github.com/thutasann)

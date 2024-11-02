@@ -3,7 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Function to chunk the Generic array
+/** Integer comparition function */
+bool int_cmp(const void *a, const void *b) {
+    return *(int *)a == *(int *)b;
+}
+
+/** String comparision function */
+bool str_cmp(const void *a, const void *b) {
+    return strcmp((char *)a, (char *)b) == 0;
+}
+
+/** Function to chunk the Generic array */
 napi_value ChunkArray(napi_env env, napi_callback_info info) {
     // Parse arguments
     size_t argc = 2;
@@ -55,4 +65,16 @@ napi_value ChunkArray(napi_env env, napi_callback_info info) {
     free(arrayElements);
 
     return result;
+}
+
+/** Function to create a unique array */
+napi_value CreateUniqueArray(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    napi_value result_array;
+    remove_duplicates(env, args[0], &result_array);
+
+    return result_array;
 }
