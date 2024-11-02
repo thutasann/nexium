@@ -14,6 +14,34 @@ Nexium is a cutting-edge Node.js package that brings advanced data structures an
 
 ---
 
+## ✅ Scripts
+
+**Clone the repo**
+
+```bash
+git clone https://github.com/thutasann/nexium.git
+```
+
+**Install Packages**
+
+```bash
+yarn
+```
+
+**Compile and build the lib**
+
+```bash
+yarn build
+```
+
+**Test**
+
+```bash
+yarn test
+```
+
+---
+
 ## 📦 **Installation**
 
 You can install **Nexium** via npm. Simply run the following command:

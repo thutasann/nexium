@@ -290,7 +290,7 @@ napi_value InsertStringAt(napi_env env, napi_callback_info info) {
     // Handle out-of-bounds index
     if (index < 0)
         index = 0;
-    if (index > str_len)
+    if (index > (int32_t)str_len)
         index = str_len;
 
     // Calculate new string length and create result string
@@ -505,7 +505,7 @@ napi_value ReplaceDiacritics(napi_env env, napi_callback_info info) {
     size_t str_len;
     napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
     const char *str = (char *)malloc(str_len + 1);
-    napi_get_value_string_utf8(env, args[0], str, str_len + 1, NULL);
+    napi_get_value_string_utf8(env, args[0], (char *)str, str_len + 1, NULL);
 
     // replace diacritics
     char *result_str = replace_diacritics(str);
@@ -513,7 +513,7 @@ napi_value ReplaceDiacritics(napi_env env, napi_callback_info info) {
     napi_value result;
     napi_create_string_utf8(env, result_str, NAPI_AUTO_LENGTH, &result);
 
-    free(str);
+    free((char *)str);
     free(result_str);
     return result;
 }
