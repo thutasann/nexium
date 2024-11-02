@@ -15,7 +15,7 @@ const {
 const iterations = 100000
 
 /** String Benchmark Test */
-function string_benchmark_test() {
+async function string_benchmark_test() {
   console.log('\nString Benchmark Test ==> ')
 
   /** Prepare the results array for table @type { any } */
@@ -49,7 +49,7 @@ function string_benchmark_test() {
   results.push({ Method: 'JavaScript Palindrome', Time: jsPalindromeTime.toFixed(6) })
   results.push({})
 
-  updateResult(results, './results/string.md', 'String Benchmark').then(() => {})
+  await updateResult(results, './results/string.md', 'String Benchmark')
 }
 
 module.exports = { string_benchmark_test }

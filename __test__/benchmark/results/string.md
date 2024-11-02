@@ -2,15 +2,15 @@
 
 | Method                     | Time (seconds) |
 | -------------------------- | -------------- |
-| Nexium UUID generation     | 0.000360       |
-| JavaScript UUID generation | 0.001540       |
+| Nexium UUID generation     | 0.000370       |
+| JavaScript UUID generation | 0.001521       |
 | -                          | -              |
-| Nexium Slugify             | 0.000186       |
+| Nexium Slugify             | 0.000184       |
 | JavaScript Slugify         | 0.000179       |
 | -                          | -              |
-| Nexium Reverse             | 0.000100       |
-| JavaScript Reverse         | 0.000225       |
+| Nexium Reverse             | 0.000099       |
+| JavaScript Reverse         | 0.000221       |
 | -                          | -              |
-| Nexium Palindrome          | 0.000084       |
-| JavaScript Palindrome      | 0.000220       |
+| Nexium Palindrome          | 0.000083       |
+| JavaScript Palindrome      | 0.000206       |
 | -                          | -              |

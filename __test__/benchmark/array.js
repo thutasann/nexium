@@ -7,7 +7,7 @@ const { updateResult } = require('./update_readme')
 const iterations = 100
 
 /** Array Benchmark Test */
-function array_benchmark_test() {
+async function array_benchmark_test() {
   console.log('\nArray Benchmark Test ==> ')
 
   /** Prepare the results array for table @type { any } */
@@ -20,7 +20,7 @@ function array_benchmark_test() {
   results.push({ Method: 'JavaScript chunkArray', Time: jsTime.toFixed(3) })
   results.push({})
 
-  updateResult(results, './results/array.md', 'Array Benchmark').then(() => {})
+  await updateResult(results, './results/array.md', 'Array Benchmark').then(() => {})
 }
 
 module.exports = { array_benchmark_test }
