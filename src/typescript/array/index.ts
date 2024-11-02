@@ -1,4 +1,4 @@
-import { chunkArray as chunkArrayFn } from '../../build/Release/nexium.node'
+import { chunkArray as chunkArrayFn, uniqueArray as uniqueArrayFn } from '../../build/Release/nexium.node'
 
 /** Array Methods */
 export class NArray {
@@ -9,5 +9,12 @@ export class NArray {
    */
   static chunkArray<T>(arr: T[], chunkLength: number): T[][] {
     return chunkArrayFn(arr, chunkLength)
+  }
+
+  /**
+   * Function to create a unique array
+   */
+  static uniqueArray<T>(arr: T[]): T[] {
+    return uniqueArrayFn(arr)
   }
 }

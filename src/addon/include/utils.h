@@ -42,5 +42,6 @@ napi_value BytesToUUID(napi_env env, napi_callback_info info);
 // ------ Array Functions
 
 napi_value ChunkArray(napi_env env, napi_callback_info info);
+napi_value CreateUniqueArray(napi_env env, napi_callback_info info);
 
 #endif

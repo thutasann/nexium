@@ -3,7 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Function to chunk the Generic array
+/** Integer comparition function */
+bool int_cmp(const void *a, const void *b) {
+    return *(int *)a == *(int *)b;
+}
+
+/** String comparision function */
+bool str_cmp(const void *a, const void *b) {
+    return strcmp((char *)a, (char *)b) == 0;
+}
+
+/** Function to chunk the Generic array */
 napi_value ChunkArray(napi_env env, napi_callback_info info) {
     // Parse arguments
     size_t argc = 2;
@@ -53,6 +63,45 @@ napi_value ChunkArray(napi_env env, napi_callback_info info) {
     // Clean up
     freeChunks(chunks, chunkCount);
     free(arrayElements);
+
+    return result;
+}
+
+/** Function to create a unique array */
+napi_value CreateUniqueArray(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // retrieve the input array from JavaScript
+    uint32_t input_length;
+    napi_get_array_length(env, args[0], &input_length);
+    void **input_array = malloc(input_length * sizeof(void *));
+
+    for (size_t i = 0; i < input_length; i++) {
+        napi_value elem;
+        napi_get_element(env, args[0], i, &elem);
+        // assuming input is an array of integers for this example
+        int *value = malloc(sizeof(int));
+        napi_get_value_int32(env, elem, value);
+        input_array[i] = value;
+    }
+
+    size_t new_size;
+    void **unique_array = create_unique_array(input_array, input_length, &new_size, int_cmp);
+
+    // create a JavaScript array to hold the results
+    napi_value result;
+    napi_create_array_with_length(env, new_size, &result);
+    for (size_t i = 0; i < new_size; i++) {
+        napi_value elem;
+        napi_create_int32(env, *(int *)unique_array[i], &elem);
+        napi_set_element(env, result, i, elem);
+        free(unique_array[i]); // Free the duplicated values
+    }
+
+    free(unique_array);
+    free(input_array);
 
     return result;
 }

@@ -76,7 +76,4 @@ Supercharge your Node.js applications with high-performance, native C utilities 
 
 ## Authors
 
-- Thuta Sann
-
-| Nexium UUID generation | 0.000360 |
-| JavaScript UUID generation | 0.001540 |
+- [Thuta Sann](https://github.com/thutasann)
