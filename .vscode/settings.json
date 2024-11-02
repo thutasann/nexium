@@ -35,7 +35,8 @@
     "unordered_map": "c",
     "vector": "c",
     "cstring": "c",
-    "array_helpers.h": "c"
+    "array_helpers.h": "c",
+    "number_helpers.h": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

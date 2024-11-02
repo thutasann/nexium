@@ -82,6 +82,17 @@ function uniqueArray(arr) {
   return arr.filter((item, index, self) => index === self.findIndex((t) => JSON.stringify(t) === JSON.stringify(item)))
 }
 
+/**
+ * Clamps a number within the inclusive range [min, max].
+ * @param {number} value - The number to be clamped.
+ * @param {number} min - The minimum value.
+ * @param {number} max - The maximum value.
+ * @returns {number} - The clamped number.
+ */
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max)
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -93,4 +104,5 @@ module.exports = {
   benchmark_args,
   isPalindrome,
   uniqueArray,
+  clamp,
 }
