@@ -56,6 +56,10 @@ const { NString } = require('nexium')
 const trimedStart = NString.trimStart('    Hello World')
 ```
 
+## 📈 Benchmark
+
+Benchmark Results can be found at [Here](./__test__/benchmark/results/).
+
 ## 🤝 Contributing
 
 We welcome contributions! If you have suggestions or improvements, please fork the repository and submit a pull request.
