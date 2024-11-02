@@ -7,7 +7,9 @@
         "src/addon/utils/math.c",
         "src/addon/utils/string.c",
         "src/addon/utils/uuid.c",
+        "src/addon/utils/array.c",
         "src/addon/shared/string_helpers.c",
+        "src/addon/shared/array_helpers.c",
       ],
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"

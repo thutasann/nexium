@@ -114,6 +114,11 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, BytesToUUID, NULL, &bytesToUUIDFn);
     napi_set_named_property(env, exports, "bytesToUUID", bytesToUUIDFn);
 
+    // ------------------------ Array functions 🚀
+    napi_value chunk_array_fn;
+    napi_create_function(env, NULL, 0, ChunkArray, NULL, &chunk_array_fn);
+    napi_set_named_property(env, exports, "chunkArray", chunk_array_fn);
+
     return exports;
 }
 

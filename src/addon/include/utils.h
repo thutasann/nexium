@@ -39,4 +39,8 @@ napi_value ParseUUID(napi_env env, napi_callback_info info);
 napi_value IsValidUUID(napi_env env, napi_callback_info info);
 napi_value BytesToUUID(napi_env env, napi_callback_info info);
 
+// ------ Array Functions
+
+napi_value ChunkArray(napi_env env, napi_callback_info info);
+
 #endif

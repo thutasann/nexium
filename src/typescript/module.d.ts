@@ -32,4 +32,7 @@ declare module '*.node' {
   export function parseUUID(uuid: string): Uint8Array
   export function isValidUUID(uuid: string): boolean
   export function bytesToUUID(bytes: number[]): string
+
+  // ----------- Array Functions
+  export function chunkArray(arr: number[], chunkLength: number): number[][]
 }
