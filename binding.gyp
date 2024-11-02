@@ -14,17 +14,19 @@
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"
       ],
-      "cflags!": [ "-fno-exceptions" ],
-      "cflags!": [ "-Wno-implicit-fallthrough" ],
+      "cflags!": ["-fno-exceptions"],
       "cflags": [
         "-std=c11",
-        "-O3",
+        "-Os",
         "-ffunction-sections",
-        "-fdata-sections"
+        "-fdata-sections",
+        "-flto"
       ],
       "ldflags": [
         "-Wl,--gc-sections",
-        "-s"
+        "-Wl,--strip-all",
+        "-s",
+        "-flto"
       ]
     }
   ]
