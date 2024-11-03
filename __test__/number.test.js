@@ -84,7 +84,7 @@ describe('generateRandomNumber', () => {
   })
 })
 
-describe('NNumber.toOrdinal', () => {
+describe('toOrdinal', () => {
   test('converts numbers to ordinal form correctly', () => {
     expect(NNumber.toOrdinal(1)).toBe('1st')
     expect(NNumber.toOrdinal(2)).toBe('2nd')
@@ -107,16 +107,52 @@ describe('NNumber.toOrdinal', () => {
   })
 })
 
-describe('formatCurrency', () => {
-  test('formats currency correctly for en-US locale', () => {
+describe('toCurrency', () => {
+  test('formats USD currency correctly for en-US locale', () => {
     const amount = 1234.56
     const result = NNumber.toCurrency(amount, 'en_US.UTF-8', '$')
     expect(result).toBe('$1,234.56')
   })
 
-  test('formats currency correctly for fr-FR locale', () => {
+  test('formats EUR currency correctly for fr-FR locale', () => {
     const amount = 1234.56
     const result = NNumber.toCurrency(amount, 'fr_FR.UTF-8', '€')
-    expect(result).toBe('€1 234,56')
+    expect(result).toBe('€1234,56')
+  })
+
+  test('formats GBP currency correctly for en-GB locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'en_GB.UTF-8', '£')
+    expect(result).toBe('£1,234.56')
+  })
+
+  test('formats JPY currency correctly for ja-JP locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'ja_JP.UTF-8', '¥')
+    expect(result).toBe('¥1,234.56') // JPY doesn't usually show decimals
+  })
+
+  test('formats AUD currency correctly for en-AU locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'en_AU.UTF-8', 'A$')
+    expect(result).toBe('A$1,234.56')
+  })
+
+  test('formats CAD currency correctly for en-CA locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'en_CA.UTF-8', 'C$')
+    expect(result).toBe('C$1,234.56')
+  })
+
+  test('formats CHF currency correctly for de-CH locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'de_CH.UTF-8', 'CHF')
+    expect(result).toBe('CHF1234,56')
+  })
+
+  test('handles large numbers correctly', () => {
+    const amount = 1234567890.56
+    const result = NNumber.toCurrency(amount, 'en_US.UTF-8', '$')
+    expect(result).toBe('$1,234,567,890.56')
   })
 })

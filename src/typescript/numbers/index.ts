@@ -65,9 +65,16 @@ export class NNumber {
 
   /**
    * Function to convert number to currency string
+   * @todo
+   * its still under maintenance
    * @example
    * const amount = 1234.56;
-   * const result = convertToCurrency(amount, 'en_US.UTF-8');
+   * const result = NNumber.toCurrency(amount, 'en_US.UTF-8', '$')
+   *
+   * // instead pls use this js function
+   * function toCurrency(amount, locale = 'en-US', currency = 'USD') {
+   *   return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount)
+   * }
    * @returns
    */
   static toCurrency(amount: number, locale: string, currency: string): string {
