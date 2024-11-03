@@ -6,6 +6,18 @@ Nexium is a cutting-edge Node.js package that brings advanced data structures an
 
 ---
 
+## 🔗 Quick Links
+
+[![NPM Version](https://img.shields.io/npm/v/nexium.svg)](https://www.npmjs.com/package/nexium)
+[![Documentation](https://img.shields.io/badge/docs-nexium-blue.svg)](https://nexium-docs.vercel.app)
+[![License](https://img.shields.io/npm/l/nexium.svg)](https://github.com/thutasann/nexium/blob/main/LICENSE)
+
+- 📚 [Official Documentation](https://nexium-docs.vercel.app)
+- 📦 [NPM Registry](https://www.npmjs.com/package/nexium)
+- 💻 [GitHub Repository](https://github.com/thutasann/nexium)
+
+---
+
 ## 🚀 **Features**
 
 - **High-Performance Utilities**: Leverage fast utility functions built in C, ensuring your applications run smoother and faster.
