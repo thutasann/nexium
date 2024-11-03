@@ -99,3 +99,20 @@ char *formatCurrency(double amount, const char *locale, const char *currency) {
     free(buffer);
     return result;
 }
+
+/* Helper function for `fibonacci` */
+uint64_t fibonacci(int n) {
+    if (n <= 0)
+        return 0;
+    if (n == 1)
+        return 1;
+
+    uint64_t a = 0, b = 1, next = 0;
+    for (int i = 2; i <= n; i++) {
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return next;
+}

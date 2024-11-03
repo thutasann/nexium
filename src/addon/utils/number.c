@@ -121,3 +121,23 @@ napi_value ConvertToCurrency(napi_env env, napi_callback_info info) {
     free(result);
     return jsResult;
 }
+
+/** Function to generate the `nth` Fibonacci number  */
+napi_value Fibonacci(napi_env env, napi_callback_info args) {
+    size_t argc = 1;
+    napi_value argv[1];
+    int32_t n;
+
+    napi_get_cb_info(env, args, &argc, argv, NULL, NULL);
+    napi_get_value_int32(env, argv[0], &n);
+
+    uint64_t result = fibonacci(n);
+
+    napi_value output_result;
+    if (result <= UINT32_MAX) {
+        napi_create_uint32(env, (uint32_t)result, &output_result); // For smaller values
+    } else {
+        napi_create_bigint_uint64(env, result, &output_result); // For larger values
+    }
+    return output_result;
+}

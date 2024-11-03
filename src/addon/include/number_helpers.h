@@ -10,5 +10,6 @@ double roundTo(double number, int decimalPlaces);
 int generateRandom(int min, int max);
 char *convertToOrdinal(int number);
 char *formatCurrency(double amount, const char *locale, const char *currency);
+uint64_t fibonacci(int n);
 
 #endif

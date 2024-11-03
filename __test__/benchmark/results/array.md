@@ -2,7 +2,7 @@
 
 | Method                        | Time (seconds) |
 | ----------------------------- | -------------- |
-| Nexium chunkArray             | 0.072          |
+| Nexium chunkArray             | 0.071          |
 | JavaScript chunkArray         | 0.001          |
 | -                             | -              |
 | Nexium uniqueArray Number     | 0.006          |

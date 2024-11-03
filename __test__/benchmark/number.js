@@ -4,7 +4,7 @@ const { updateResult } = require('./update_readme')
 const { benchmark_args, clamp, getRandomInt, toOrdinal } = require('./utils')
 
 /** iterations */
-const iterations = 100
+const iterations = 1000
 
 /** Number Benchmark Test */
 async function number_benchmark_test() {
@@ -27,11 +27,18 @@ async function number_benchmark_test() {
   results.push({ Method: 'JavaScript Random Genrate Number', Time: jsRandomGenerateTime.toFixed(3) })
   results.push({})
 
-  // ---------- Convert to Ordinal String
+  // ---------- Convert to Ordinal String Benchmark
   const nApiOrdinalTime = benchmark_args(() => NNumber.toOrdinal(101), [], iterations)
   const jsOrdinalTime = benchmark_args(() => toOrdinal(101), [], iterations)
   results.push({ Method: 'Nexium Ordinal String', Time: nApiOrdinalTime.toFixed(3) })
   results.push({ Method: 'JavaScript Ordinal String', Time: jsOrdinalTime.toFixed(3) })
+  results.push({})
+
+  // ---------- Fibonacci Benchmark
+  const nApiFiboTime = benchmark_args(() => NNumber.fibonacci(50), [], iterations)
+  const jsFiboTime = benchmark_args(() => toOrdinal(50), [], iterations)
+  results.push({ Method: 'Nexium Fibonacci', Time: nApiFiboTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Fibonacci', Time: jsFiboTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/number.md', 'Number Benchmark')

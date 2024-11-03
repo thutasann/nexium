@@ -133,6 +133,27 @@ function formatCurrency(amount, locale = 'en-US', currency = 'USD') {
   return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount)
 }
 
+/**
+ * Fibonacci
+ * @param {number} n - number
+ * @returns {number} - fibonacci number
+ */
+function fibonacci(n) {
+  if (n <= 1) return n
+
+  let a = 0,
+    b = 1,
+    result = 0
+
+  for (let i = 2; i <= n; i++) {
+    result = a + b
+    a = b
+    b = result
+  }
+
+  return result
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -148,4 +169,5 @@ module.exports = {
   getRandomInt,
   toOrdinal,
   formatCurrency,
+  fibonacci,
 }

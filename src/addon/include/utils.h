@@ -46,6 +46,7 @@ napi_value InRangeRunction(napi_env env, napi_callback_info args);
 napi_value GenerateRandomNumber(napi_env env, napi_callback_info info);
 napi_value ConvertToOrdinal(napi_env env, napi_callback_info info);
 napi_value ConvertToCurrency(napi_env env, napi_callback_info info);
+napi_value Fibonacci(napi_env env, napi_callback_info args);
 
 // ------ Array Functions
 

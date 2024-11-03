@@ -156,3 +156,25 @@ describe('toOrdinal', () => {
 //     expect(result).toBe('$1,234,567,890.56')
 //   })
 // })
+
+describe('Fibonacci Sequence', () => {
+  test('calculates the 0th Fibonacci number', () => {
+    expect(NNumber.fibonacci(0)).toBe(0)
+  })
+
+  test('calculates the 1st Fibonacci number', () => {
+    expect(NNumber.fibonacci(1)).toBe(1)
+  })
+
+  test('calculates the 10th Fibonacci number', () => {
+    expect(NNumber.fibonacci(10)).toBe(55)
+  })
+
+  test('calculates the 20th Fibonacci number', () => {
+    expect(NNumber.fibonacci(20)).toBe(6765)
+  })
+
+  test('calculates the 50th Fibonacci number', () => {
+    expect(NNumber.fibonacci(50)).toBe(12586269025n) // Use BigInt for large numbers
+  })
+})
