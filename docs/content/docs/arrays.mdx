@@ -1,0 +1,35 @@
+---
+title: Arrays
+description: Unlock the Power of Arrays with Nexium's Essential Methods
+---
+
+## Import the `NArray`
+
+```js
+const { NArray } = require('nexium')
+```
+
+---
+
+## chunkArray
+
+splits array into chunks of specified length
+
+```js
+const arr = [1, 2, 3, 4, 5, 6, 7]
+const chunkLength = 3
+const result = NArray.chunkArray(arr, chunkLength) // [[1, 2, 3], [4, 5, 6], [7]]
+```
+
+---
+
+## uniqueArray
+
+remove duplicates from the given array.
+
+```js
+const array = [{ id: 1 }, { id: 2 }, { id: 1 }]
+const result = NArray.uniqueArray(array) // [{ id: 1 }, { id: 2 }]
+```
+
+---

@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
+import { ImGithub } from 'react-icons/im'
 
 /**
  * Shared layout configurations
@@ -13,9 +14,15 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
-      text: 'Documentation',
+      text: 'Docs',
       url: '/docs',
       active: 'nested-url',
+    },
+    {
+      text: 'Github',
+      url: 'github.com/thutasann/nexium',
+      external: true,
+      icon: <ImGithub />,
     },
   ],
 }
