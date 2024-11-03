@@ -20,9 +20,10 @@ export const baseOptions: BaseLayoutProps = {
     },
     {
       text: 'Github',
-      url: 'github.com/thutasann/nexium',
-      external: true,
+      url: 'https://github.com/thutasann/nexium',
+      on: 'all',
       icon: <ImGithub />,
+      type: 'icon',
     },
   ],
 }
