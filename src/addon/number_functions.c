@@ -18,4 +18,8 @@ void InitNumberFunctions(napi_env env, napi_value exports) {
     napi_value generate_random_fn;
     napi_create_function(env, NULL, 0, GenerateRandomNumber, NULL, &generate_random_fn);
     napi_set_named_property(env, exports, "generateRandom", generate_random_fn);
+
+    napi_value convert_ordinal_fn;
+    napi_create_function(env, NULL, 0, ConvertToOrdinal, NULL, &convert_ordinal_fn);
+    napi_set_named_property(env, exports, "toOrdinal", convert_ordinal_fn);
 }

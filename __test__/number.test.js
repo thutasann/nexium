@@ -83,3 +83,26 @@ describe('generateRandomNumber', () => {
     expect(result).toBeLessThanOrEqual(max)
   })
 })
+
+describe('NNumber.toOrdinal', () => {
+  test('converts numbers to ordinal form correctly', () => {
+    expect(NNumber.toOrdinal(1)).toBe('1st')
+    expect(NNumber.toOrdinal(2)).toBe('2nd')
+    expect(NNumber.toOrdinal(3)).toBe('3rd')
+    expect(NNumber.toOrdinal(4)).toBe('4th')
+    expect(NNumber.toOrdinal(11)).toBe('11th')
+    expect(NNumber.toOrdinal(12)).toBe('12th')
+    expect(NNumber.toOrdinal(13)).toBe('13th')
+    expect(NNumber.toOrdinal(21)).toBe('21st')
+    expect(NNumber.toOrdinal(22)).toBe('22nd')
+    expect(NNumber.toOrdinal(23)).toBe('23rd')
+    expect(NNumber.toOrdinal(100)).toBe('100th')
+  })
+
+  test('converts large numbers to ordinal form correctly', () => {
+    expect(NNumber.toOrdinal(101)).toBe('101st')
+    expect(NNumber.toOrdinal(111)).toBe('111th')
+    expect(NNumber.toOrdinal(222)).toBe('222nd')
+    expect(NNumber.toOrdinal(303)).toBe('303rd')
+  })
+})

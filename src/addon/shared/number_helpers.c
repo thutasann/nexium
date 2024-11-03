@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 /** Helper function for clamp */
@@ -35,4 +36,31 @@ double roundTo(double number, int decimalPlaces) {
 /** Helper function to generate a random integer between min and max */
 int generateRandom(int min, int max) {
     return min + rand() % (max - min + 1);
+}
+
+/** Helper function to generate ordinal suffix @private */
+const char *getOrdinalSuffix(int number) {
+    int lastTwoDigits = number % 100;
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+        return "th";
+    }
+
+    int lastDigit = number % 10;
+    switch (lastDigit) {
+    case 1: return "st";
+    case 2: return "nd";
+    case 3: return "rd";
+    default: return "th";
+    }
+}
+
+/** Helper function to generate ordinal string */
+char *convertToOrdinal(int number) {
+    const char *suffix = getOrdinalSuffix(number);
+
+    size_t bufferSize = snprintf(NULL, 0, "%d%s", number, suffix) + 1;
+    char *result = malloc(bufferSize);
+    snprintf(result, bufferSize, "%d%s", number, suffix);
+
+    return result;
 }

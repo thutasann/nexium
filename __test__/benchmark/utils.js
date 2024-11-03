@@ -105,6 +105,17 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+/**
+ * Converts a number to its ordinal form (e.g., 1 to 1st, 2 to 2nd, etc.)
+ * @param {number} number - The number to convert.
+ * @returns {string} - The ordinal form of the number.
+ */
+function toOrdinal(number) {
+  const suffixes = ['th', 'st', 'nd', 'rd']
+  const value = number % 100
+  return number + (suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0])
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -118,4 +129,5 @@ module.exports = {
   uniqueArray,
   clamp,
   getRandomInt,
+  toOrdinal,
 }

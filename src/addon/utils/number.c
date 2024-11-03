@@ -2,6 +2,7 @@
 #include "../include/utils.h"
 #include <math.h>
 #include <node_api.h>
+#include <stdlib.h>
 
 /** Function to restrict a number to be within a specified range */
 napi_value ClampFunction(napi_env env, napi_callback_info args) {
@@ -74,4 +75,22 @@ napi_value GenerateRandomNumber(napi_env env, napi_callback_info info) {
     napi_value output_result;
     napi_create_int32(env, result, &output_result);
     return output_result;
+}
+
+/** Function to convert number to ordinal */
+napi_value ConvertToOrdinal(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    int number;
+    napi_get_value_int32(env, args[0], &number);
+
+    char *ordinalResult = convertToOrdinal(number);
+
+    napi_value napiResult;
+    napi_create_string_utf8(env, ordinalResult, NAPI_AUTO_LENGTH, &napiResult);
+
+    free(ordinalResult);
+    return napiResult;
 }

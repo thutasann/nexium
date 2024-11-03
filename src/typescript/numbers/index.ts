@@ -3,6 +3,7 @@ import {
   inRange as inRangeFn,
   roundTo as roundToFn,
   generateRandom as generateRandomFn,
+  toOrdinal as toOrdinalFn,
 } from '../../build/Release/nexium.node'
 
 /** Number Methods */
@@ -41,12 +42,23 @@ export class NNumber {
   }
 
   /**
-   *  Function to generate random number between min and max (inclusive)
+   * Function to generate random number between min and max (inclusive)
    * @param min - min number
    * @param max - max number
    * @returns random number
    */
   static generateRandom(min: number, max: number): number {
     return generateRandomFn(min, max)
+  }
+
+  /**
+   * Function to generate ordinal string from a given number
+   * @example
+   * NNumber.toOrdinal(1) // '1st'
+   * @param num - given number
+   * @returns {string} - ordinal string
+   */
+  static toOrdinal(num: number): string {
+    return toOrdinalFn(num)
   }
 }

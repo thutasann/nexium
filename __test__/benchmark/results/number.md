@@ -8,3 +8,6 @@
 | Nexium Random Genrate Number     | 0.000          |
 | JavaScript Random Genrate Number | 0.001          |
 | -                                | -              |
+| Nexium Ordinal String            | 0.000          |
+| JavaScript Ordinal String        | 0.000          |
+| -                                | -              |
