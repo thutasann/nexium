@@ -1,6 +1,6 @@
 ---
 title: Strings
-description: Here is the Strings Methods from Nexium
+description: Unlock the Power of Strings with Nexium's Essential Methods
 ---
 
 ## Import the `NString`
@@ -13,6 +13,8 @@ const { NString } = require('nexium')
 
 ## trimStart
 
+Removes whitespace from the beginning of a string.
+
 ```js
 const trimedStart = NString.trimStart('    Hello World')
 ```
@@ -20,6 +22,8 @@ const trimedStart = NString.trimStart('    Hello World')
 ---
 
 ## trimEnd
+
+Removes whitespace from the end of a string.
 
 ```js
 const trimedEnd = NString.trimEnd('Hello World    ')
@@ -29,6 +33,8 @@ const trimedEnd = NString.trimEnd('Hello World    ')
 
 ## isPalindrome
 
+Checks if a string reads the same forwards and backwards.
+
 ```js
 const isPalindrome = NString.isPalindrome('madam') // true
 ```
@@ -37,15 +43,19 @@ const isPalindrome = NString.isPalindrome('madam') // true
 
 ## generate random string
 
+Generates a random string of specified length using given pattern characters.
+
 ```js
 const length = 15
-const randomString = NString.generateRandomString(length, '')
-console.log('randomString -> ', randomString)
+const pattern = 'abc123'
+const randomString = NString.generateRandomString(length, pattern)
 ```
 
 ---
 
 ## remove diacritics
+
+Removes accent marks and diacritical signs from characters.
 
 ```js
 const removedDiacritics = NString.replaceDiacritics('Café')
@@ -56,6 +66,8 @@ console.log('removedDiacritics -> ', removedDiacritics)
 
 ## replace string
 
+Replaces all occurrences of a substring with another string.
+
 ```js
 const replacedString = NString.replaceString('hello world', 'world', 'there')
 ```
@@ -64,6 +76,8 @@ const replacedString = NString.replaceString('hello world', 'world', 'there')
 
 ## endsWith
 
+Checks if a string ends with the specified substring.
+
 ```js
 const endsWith = NString.endsWith('hello world', 'world')
 ```
@@ -71,6 +85,8 @@ const endsWith = NString.endsWith('hello world', 'world')
 ---
 
 ## case convertors
+
+Converts strings between different case formats (kebab, snake, camel).
 
 ```js
 const kebab = NString.toCase('hello world', 'kebab-case')
@@ -84,6 +100,8 @@ const camelToSnake = NString.toCase('camelCaseTest', 'camel-to-snake')
 
 ## slugify
 
+Converts a string into a URL-friendly slug format.
+
 ```js
 const slugified = NString.slugify('Special!!  Characters---and Spaces', true)
 ```
@@ -91,6 +109,8 @@ const slugified = NString.slugify('Special!!  Characters---and Spaces', true)
 ---
 
 ## wordsArray
+
+Splits a string into an array of words, removing extra spaces.
 
 ```js
 const wordsArray = NString.getWordsArray('   Multiple    spaces   here ')
@@ -100,6 +120,8 @@ const wordsArray = NString.getWordsArray('   Multiple    spaces   here ')
 
 ## insertedStringAt
 
+Inserts a string at a specified position within another string.
+
 ```js
 const insertedStringAt = NString.insertStringAt('abcdef', '123', 3)
 ```
@@ -107,6 +129,8 @@ const insertedStringAt = NString.insertStringAt('abcdef', '123', 3)
 ---
 
 ## removeDuplicates
+
+Removes consecutive duplicate characters from a string.
 
 ```js
 const removeDuplicates = NString.removeDuplicates('aabbcc')
@@ -116,6 +140,8 @@ const removeDuplicates = NString.removeDuplicates('aabbcc')
 
 ## stripHTML
 
+Removes HTML tags from a string, leaving only the text content.
+
 ```js
 const stripedHTML = NString.stripHTML('<p>Hello, <b>world</b>!</p>')
 ```
@@ -124,6 +150,8 @@ const stripedHTML = NString.stripHTML('<p>Hello, <b>world</b>!</p>')
 
 ## reverse
 
+Reverses the characters in a string.
+
 ```js
 const reversedString = NString.reverse('hello')
 ```
@@ -131,6 +159,8 @@ const reversedString = NString.reverse('hello')
 ---
 
 ## countOccurrences
+
+Counts how many times a substring appears in a string.
 
 ```js
 const countOccurrences = NString.countOccurrences('hello world hello', 'hello')
