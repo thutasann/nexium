@@ -94,3 +94,30 @@ napi_value ConvertToOrdinal(napi_env env, napi_callback_info info) {
     free(ordinalResult);
     return napiResult;
 }
+
+/** Function to convert number to currency string */
+napi_value ConvertToCurrency(napi_env env, napi_callback_info info) {
+    size_t argc = 3;
+    napi_value args[3];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    double amount;
+    char locale[50];
+    char currency[10];
+
+    napi_get_value_double(env, args[0], &amount);
+    napi_get_value_string_utf8(env, args[1], locale, sizeof(locale), NULL);
+    napi_get_value_string_utf8(env, args[2], currency, sizeof(currency), NULL);
+
+    char *result = formatCurrency(amount, locale, currency);
+    if (result == NULL) {
+        napi_throw_error(env, NULL, "Failed to format currency");
+        return NULL;
+    }
+
+    napi_value jsResult;
+    napi_create_string_utf8(env, result, NAPI_AUTO_LENGTH, &jsResult);
+
+    free(result);
+    return jsResult;
+}

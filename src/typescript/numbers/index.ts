@@ -4,6 +4,7 @@ import {
   roundTo as roundToFn,
   generateRandom as generateRandomFn,
   toOrdinal as toOrdinalFn,
+  toCurrency as toCurrencyFn,
 } from '../../build/Release/nexium.node'
 
 /** Number Methods */
@@ -60,5 +61,16 @@ export class NNumber {
    */
   static toOrdinal(num: number): string {
     return toOrdinalFn(num)
+  }
+
+  /**
+   * Function to convert number to currency string
+   * @example
+   * const amount = 1234.56;
+   * const result = convertToCurrency(amount, 'en_US.UTF-8');
+   * @returns
+   */
+  static toCurrency(amount: number, locale: string, currency: string): string {
+    return toCurrencyFn(amount, locale, currency)
   }
 }

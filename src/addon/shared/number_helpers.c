@@ -1,10 +1,9 @@
 #include "../include/number_helpers.h"
+#include <locale.h>
 #include <math.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 /** Helper function for clamp */
 int clamp(int number, int min, int max) {
@@ -62,5 +61,41 @@ char *convertToOrdinal(int number) {
     char *result = malloc(bufferSize);
     snprintf(result, bufferSize, "%d%s", number, suffix);
 
+    return result;
+}
+
+/** Helper function to convert number to currency string */
+char *formatCurrency(double amount, const char *locale, const char *currency) {
+    // Set the locale for currency formatting
+    if (setlocale(LC_ALL, locale) == NULL) {
+        perror("Locale not supported\n");
+        return NULL; // Return NULL on failure
+    }
+
+    // Allocate a buffer for the formatted currency string
+    char *buffer = (char *)malloc(100 * sizeof(char));
+    if (!buffer) {
+        return NULL; // Return NULL on allocation failure
+    }
+
+    // Round the amount to two decimal places
+    amount = round(amount * 100) / 100;
+
+    // Create a format string for the currency amount
+    // Using "%'f" to include the locale-specific thousands separator
+    snprintf(buffer, 100, "%'.2f", amount);
+
+    // Allocate a result buffer for final formatted string
+    char *result = (char *)malloc(150 * sizeof(char)); // Increased size for currency symbols and formatting
+    if (!result) {
+        free(buffer);
+        return NULL; // Return NULL on allocation failure
+    }
+
+    // Use snprintf to create the final formatted currency string
+    snprintf(result, 150, "%s%s", currency, buffer); // Append the currency symbol
+
+    // Free the buffer and return the result
+    free(buffer);
     return result;
 }

@@ -9,5 +9,5 @@
 | JavaScript uniqueArray Number | 0.003          |
 | -                             | -              |
 | Nexium uniqueArray ArrObj     | 0.022          |
-| JavaScript uniqueArray ArrObj | 0.039          |
+| JavaScript uniqueArray ArrObj | 0.038          |
 | -                             | -              |

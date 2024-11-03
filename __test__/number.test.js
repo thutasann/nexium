@@ -106,3 +106,17 @@ describe('NNumber.toOrdinal', () => {
     expect(NNumber.toOrdinal(303)).toBe('303rd')
   })
 })
+
+describe('formatCurrency', () => {
+  test('formats currency correctly for en-US locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'en_US.UTF-8', '$')
+    expect(result).toBe('$1,234.56')
+  })
+
+  test('formats currency correctly for fr-FR locale', () => {
+    const amount = 1234.56
+    const result = NNumber.toCurrency(amount, 'fr_FR.UTF-8', '€')
+    expect(result).toBe('€1 234,56')
+  })
+})

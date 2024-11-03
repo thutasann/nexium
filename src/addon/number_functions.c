@@ -22,4 +22,8 @@ void InitNumberFunctions(napi_env env, napi_value exports) {
     napi_value convert_ordinal_fn;
     napi_create_function(env, NULL, 0, ConvertToOrdinal, NULL, &convert_ordinal_fn);
     napi_set_named_property(env, exports, "toOrdinal", convert_ordinal_fn);
+
+    napi_value convert_currency_fn;
+    napi_create_function(env, NULL, 0, ConvertToCurrency, NULL, &convert_currency_fn);
+    napi_set_named_property(env, exports, "toCurrency", convert_currency_fn);
 }
