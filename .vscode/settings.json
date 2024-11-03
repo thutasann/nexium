@@ -36,7 +36,12 @@
     "vector": "c",
     "cstring": "c",
     "array_helpers.h": "c",
-    "number_helpers.h": "c"
+    "number_helpers.h": "c",
+    "cstdio": "c",
+    "atomic": "c",
+    "ostream": "c",
+    "typeinfo": "c",
+    "new": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

@@ -11,6 +11,7 @@
     "minify": "find lib -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
     "build:gyp": "node-gyp rebuild",
     "build": "npm run build:gyp && npm run build:node",
+    "docs": "cd docs && npm run dev",
     "prebuild": "tsc --declaration --emitDeclarationOnly",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build"

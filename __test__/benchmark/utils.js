@@ -10,7 +10,13 @@ function benchmark(fn, iterations = 100000) {
   return (end - start) / iterations
 }
 
-/** benchmark with args util */
+/**
+ * Benchmarks a function by executing it multiple times and calculating the average execution time.
+ * @param {Function} fn - The function to benchmark.
+ * @param {Array<any>} args - The arguments to pass to the function.
+ * @param {number} [runs=1000] - The number of times to execute the function for the benchmark.
+ * @returns {number} - The average execution time in milliseconds.
+ */
 function benchmark_args(fn, args, runs = 1000) {
   const times = []
   for (let i = 0; i < runs; i++) {
@@ -93,6 +99,40 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max)
 }
 
+/**
+ * Generates a random integer between min and max, inclusive.
+ * @param {number} min - The minimum value.
+ * @param {number} max - The maximum value.
+ * @returns {number} - A random integer between min and max.
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+/**
+ * Converts a number to its ordinal form (e.g., 1 to 1st, 2 to 2nd, etc.)
+ * @param {number} number - The number to convert.
+ * @returns {string} - The ordinal form of the number.
+ */
+function toOrdinal(number) {
+  const suffixes = ['th', 'st', 'nd', 'rd']
+  const value = number % 100
+  return number + (suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0])
+}
+
+/**
+ * Converts a number to a currency string in a specified locale.
+ * @param {number} amount - The amount to format.
+ * @param {string} locale - The locale string (e.g., 'en-US', 'fr-FR').
+ * @param {string} currency - The currency code (e.g., 'USD', 'EUR').
+ * @returns {string} - The formatted currency string.
+ */
+function formatCurrency(amount, locale = 'en-US', currency = 'USD') {
+  return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount)
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -105,4 +145,7 @@ module.exports = {
   isPalindrome,
   uniqueArray,
   clamp,
+  getRandomInt,
+  toOrdinal,
+  formatCurrency,
 }
