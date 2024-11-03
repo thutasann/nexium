@@ -93,6 +93,18 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max)
 }
 
+/**
+ * Generates a random integer between min and max, inclusive.
+ * @param {number} min - The minimum value.
+ * @param {number} max - The maximum value.
+ * @returns {number} - A random integer between min and max.
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -105,4 +117,5 @@ module.exports = {
   isPalindrome,
   uniqueArray,
   clamp,
+  getRandomInt,
 }

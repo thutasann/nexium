@@ -1,7 +1,9 @@
 #include "../include/number_helpers.h"
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 /** Helper function for clamp */
 int clamp(int number, int min, int max) {
@@ -22,4 +24,15 @@ bool inRange(int number, int start, int end) {
         end = temp;
     }
     return (number >= start && number <= end);
+}
+
+/** Helper function for roundTo */
+double roundTo(double number, int decimalPlaces) {
+    double multiplier = pow(10.0, decimalPlaces);
+    return round((number + 1e-9) * multiplier) / multiplier;
+}
+
+/** Helper function to generate a random integer between min and max */
+int generateRandom(int min, int max) {
+    return min + rand() % (max - min + 1);
 }

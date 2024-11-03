@@ -1,4 +1,9 @@
-import { clamp as clampFn, inRange as inRangeFn } from '../../build/Release/nexium.node'
+import {
+  clamp as clampFn,
+  inRange as inRangeFn,
+  roundTo as roundToFn,
+  generateRandom as generateRandomFn,
+} from '../../build/Release/nexium.node'
 
 /** Number Methods */
 export class NNumber {
@@ -22,5 +27,26 @@ export class NNumber {
    */
   static inRange(num: number, start: number, end: number): boolean {
     return inRangeFn(num, start, end)
+  }
+
+  /**
+   * Function to round a number to a specific number of decimal places
+   * @param num - given number
+   * @param decimalPlaces - decimal places
+   * @example
+   * const result = NNumber.roundTo(3.14159, 2) // 3.14
+   */
+  static roundTo(num: number, decimalPlaces: number): number {
+    return roundToFn(num, decimalPlaces)
+  }
+
+  /**
+   *  Function to generate random number between min and max (inclusive)
+   * @param min - min number
+   * @param max - max number
+   * @returns random number
+   */
+  static generateRandom(min: number, max: number): number {
+    return generateRandomFn(min, max)
   }
 }

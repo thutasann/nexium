@@ -10,4 +10,12 @@ void InitNumberFunctions(napi_env env, napi_value exports) {
     napi_value inrange_fn;
     napi_create_function(env, NULL, 0, InRangeRunction, NULL, &inrange_fn);
     napi_set_named_property(env, exports, "inRange", inrange_fn);
+
+    napi_value roundto_fn;
+    napi_create_function(env, NULL, 0, RoundTo, NULL, &roundto_fn);
+    napi_set_named_property(env, exports, "roundTo", roundto_fn);
+
+    napi_value generate_random_fn;
+    napi_create_function(env, NULL, 0, GenerateRandomNumber, NULL, &generate_random_fn);
+    napi_set_named_property(env, exports, "generateRandom", generate_random_fn);
 }
