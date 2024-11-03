@@ -41,7 +41,8 @@
     "atomic": "c",
     "ostream": "c",
     "typeinfo": "c",
-    "new": "c"
+    "new": "c",
+    "stdint.h": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

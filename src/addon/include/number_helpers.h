@@ -2,6 +2,7 @@
 #define NUMBER_HELPERS
 
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 int clamp(int number, int min, int max);
