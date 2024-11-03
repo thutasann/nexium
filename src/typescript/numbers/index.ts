@@ -1,4 +1,4 @@
-import { clamp as clampFn, inRange as inRangeFn } from '../../build/Release/nexium.node'
+import { clamp as clampFn, inRange as inRangeFn, roundTo as roundToFn } from '../../build/Release/nexium.node'
 
 /** Number Methods */
 export class NNumber {
@@ -22,5 +22,15 @@ export class NNumber {
    */
   static inRange(num: number, start: number, end: number): boolean {
     return inRangeFn(num, start, end)
+  }
+
+  /**
+   * Function to round a number to a specific number of decimal places
+   * @param num - given number
+   * @param decimalPlaces - decimal places
+   * @returns
+   */
+  static roundTo(num: number, decimalPlaces: number): number {
+    return roundToFn(num, decimalPlaces)
   }
 }

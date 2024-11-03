@@ -1,4 +1,5 @@
 #include "../include/number_helpers.h"
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,4 +23,10 @@ bool inRange(int number, int start, int end) {
         end = temp;
     }
     return (number >= start && number <= end);
+}
+
+/** Helper function for roundTo */
+double roundTo(double number, int decimalPlaces) {
+    double multiplier = pow(10.0, decimalPlaces);
+    return round((number + 1e-9) * multiplier) / multiplier;
 }
