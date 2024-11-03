@@ -30,4 +30,8 @@ void InitNumberFunctions(napi_env env, napi_value exports) {
     napi_value fibonacci_fn;
     napi_create_function(env, NULL, 0, Fibonacci, NULL, &fibonacci_fn);
     napi_set_named_property(env, exports, "fibonacci", fibonacci_fn);
+
+    napi_value sum_fn;
+    napi_create_function(env, NULL, 0, Sum, NULL, &sum_fn);
+    napi_set_named_property(env, exports, "sum", sum_fn);
 }

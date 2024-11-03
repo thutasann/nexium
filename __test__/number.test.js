@@ -178,3 +178,25 @@ describe('Fibonacci Sequence', () => {
     expect(NNumber.fibonacci(50)).toBe(12586269025n) // Use BigInt for large numbers
   })
 })
+
+describe('NNumber.sum', () => {
+  test('sums an array of positive numbers', () => {
+    expect(NNumber.sum([1, 2, 3, 4, 5])).toBeCloseTo(15)
+  })
+
+  test('sums an array of mixed positive and negative numbers', () => {
+    expect(NNumber.sum([-1, -2, 3, 4, 5])).toBeCloseTo(9)
+  })
+
+  test('sums an array with a single number', () => {
+    expect(NNumber.sum([10])).toBeCloseTo(10)
+  })
+
+  test('sums an array of floating-point numbers', () => {
+    expect(NNumber.sum([1.1, 2.2, 3.3])).toBeCloseTo(6.6)
+  })
+
+  test('returns 0 for an empty array', () => {
+    expect(NNumber.sum([])).toBeCloseTo(0)
+  })
+})

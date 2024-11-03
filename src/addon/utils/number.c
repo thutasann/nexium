@@ -141,3 +141,47 @@ napi_value Fibonacci(napi_env env, napi_callback_info args) {
     }
     return output_result;
 }
+
+/** Function to calculate the sum of an array of doubles  */
+napi_value Sum(napi_env env, napi_callback_info args) {
+    size_t argc = 1;
+    napi_value argv[1];
+    napi_value sum_result;
+
+    napi_get_cb_info(env, args, &argc, argv, NULL, NULL);
+    bool is_array;
+    napi_is_array(env, argv[0], &is_array);
+
+    if (!is_array) {
+        napi_throw_type_error(env, NULL, "Argument must be an array");
+        return NULL;
+    }
+
+    // get array length
+    uint32_t array_length;
+    napi_get_array_length(env, argv[0], &array_length);
+
+    double *numbers = (double *)malloc(array_length * sizeof(double));
+    if (!numbers) {
+        napi_throw_error(env, NULL, "Memory allocation failed");
+        return NULL;
+    }
+
+    // Extract numbers from N-API array and store them in the C array
+    for (uint32_t i = 0; i < array_length; i++) {
+        napi_value element;
+        napi_get_element(env, argv[0], i, &element);
+
+        double num;
+        napi_get_value_double(env, element, &num);
+        numbers[i] = num;
+    }
+
+    // calculate the sum using the helper function
+    double sum = calculate_sum(numbers, array_length);
+
+    free(numbers);
+
+    napi_create_double(env, sum, &sum_result);
+    return sum_result;
+}

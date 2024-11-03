@@ -6,6 +6,7 @@ import {
   toOrdinal as toOrdinalFn,
   toCurrency as toCurrencyFn,
   fibonacci as fibonacciFn,
+  sum as sumFn,
 } from '../../build/Release/nexium.node'
 
 /** Number Methods */
@@ -89,5 +90,14 @@ export class NNumber {
    */
   static fibonacci(num: number): number {
     return fibonacciFn(num)
+  }
+
+  /**
+   * Function to calculate the sum of an array of numbers
+   * @param nums - numbers array
+   * @returns { number } - sum result
+   */
+  static sum(nums: number[]): number {
+    return sumFn(nums)
   }
 }

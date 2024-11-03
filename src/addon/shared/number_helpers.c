@@ -116,3 +116,12 @@ uint64_t fibonacci(int n) {
 
     return next;
 }
+
+/** helper function to calculate the sum of an array of doubles */
+double calculate_sum(const double *numbers, uint32_t length) {
+    double sum = 0.0;
+    for (uint32_t i = 0; i < length; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}

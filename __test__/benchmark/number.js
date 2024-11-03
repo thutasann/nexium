@@ -1,7 +1,7 @@
 // @ts-check
 const { NNumber } = require('../../lib')
 const { updateResult } = require('./update_readme')
-const { benchmark_args, clamp, getRandomInt, toOrdinal } = require('./utils')
+const { benchmark_args, clamp, getRandomInt, toOrdinal, sumArray } = require('./utils')
 
 /** iterations */
 const iterations = 1000
@@ -39,6 +39,13 @@ async function number_benchmark_test() {
   const jsFiboTime = benchmark_args(() => toOrdinal(50), [], iterations)
   results.push({ Method: 'Nexium Fibonacci', Time: nApiFiboTime.toFixed(3) })
   results.push({ Method: 'JavaScript Fibonacci', Time: jsFiboTime.toFixed(3) })
+  results.push({})
+
+  // ---------- Sum Num arrays Benchmark
+  const nApiSumNumsTime = benchmark_args(() => NNumber.sum([1, 2, 3, 4, 5]), [], iterations)
+  const jsSumNumsTime = benchmark_args(() => sumArray([1, 2, 3, 4, 5]), [], iterations)
+  results.push({ Method: 'Nexium Sum Nums Array', Time: nApiSumNumsTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Sum Nums Array', Time: jsSumNumsTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/number.md', 'Number Benchmark')

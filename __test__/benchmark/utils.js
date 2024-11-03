@@ -177,6 +177,15 @@ function fibonacci(n) {
   return result
 }
 
+/**
+ * Calculate the sum of array of numbers
+ * @param {number[]} numbers - the array of nubmers to sum
+ * @returns { number } the sum of numbers in the array
+ */
+function sumArray(numbers) {
+  return numbers.reduce((total, num) => total + num, 0)
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -193,4 +202,5 @@ module.exports = {
   toOrdinal,
   formatCurrency,
   fibonacci,
+  sumArray,
 }
