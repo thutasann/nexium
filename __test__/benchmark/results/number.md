@@ -6,5 +6,8 @@
 | JavaScript clampNumber           | 0.000          |
 | -                                | -              |
 | Nexium Random Genrate Number     | 0.000          |
-| JavaScript Random Genrate Number | 0.001          |
+| JavaScript Random Genrate Number | 0.000          |
+| -                                | -              |
+| Nexium Ordinal String            | 0.000          |
+| JavaScript Ordinal String        | 0.000          |
 | -                                | -              |
