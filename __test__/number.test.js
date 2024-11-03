@@ -56,3 +56,30 @@ describe('Number functions', () => {
     expect(NNumber.roundTo(1.005, 2)).toBeCloseTo(1.01, 2)
   })
 })
+
+describe('generateRandomNumber', () => {
+  test('generates a random number within the specified range', () => {
+    const min = 10
+    const max = 20
+    const result = NNumber.generateRandom(min, max)
+
+    expect(result).toBeGreaterThanOrEqual(min)
+    expect(result).toBeLessThanOrEqual(max)
+  })
+
+  test('generates a number within a single-value range', () => {
+    const min = 15
+    const max = 15
+    const result = NNumber.generateRandom(min, max)
+
+    expect(result).toBe(min)
+  })
+
+  test('benchmark test for generating 1000 random numbers', () => {
+    const min = 1
+    const max = 100
+    const result = NNumber.generateRandom(min, max)
+    expect(result).toBeGreaterThanOrEqual(min)
+    expect(result).toBeLessThanOrEqual(max)
+  })
+})
