@@ -156,3 +156,47 @@ describe('toOrdinal', () => {
 //     expect(result).toBe('$1,234,567,890.56')
 //   })
 // })
+
+describe('Fibonacci Sequence', () => {
+  test('calculates the 0th Fibonacci number', () => {
+    expect(NNumber.fibonacci(0)).toBe(0)
+  })
+
+  test('calculates the 1st Fibonacci number', () => {
+    expect(NNumber.fibonacci(1)).toBe(1)
+  })
+
+  test('calculates the 10th Fibonacci number', () => {
+    expect(NNumber.fibonacci(10)).toBe(55)
+  })
+
+  test('calculates the 20th Fibonacci number', () => {
+    expect(NNumber.fibonacci(20)).toBe(6765)
+  })
+
+  test('calculates the 50th Fibonacci number', () => {
+    expect(NNumber.fibonacci(50)).toBe(12586269025n) // Use BigInt for large numbers
+  })
+})
+
+describe('NNumber.sum', () => {
+  test('sums an array of positive numbers', () => {
+    expect(NNumber.sum([1, 2, 3, 4, 5])).toBeCloseTo(15)
+  })
+
+  test('sums an array of mixed positive and negative numbers', () => {
+    expect(NNumber.sum([-1, -2, 3, 4, 5])).toBeCloseTo(9)
+  })
+
+  test('sums an array with a single number', () => {
+    expect(NNumber.sum([10])).toBeCloseTo(10)
+  })
+
+  test('sums an array of floating-point numbers', () => {
+    expect(NNumber.sum([1.1, 2.2, 3.3])).toBeCloseTo(6.6)
+  })
+
+  test('returns 0 for an empty array', () => {
+    expect(NNumber.sum([])).toBeCloseTo(0)
+  })
+})
