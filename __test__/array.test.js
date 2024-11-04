@@ -60,4 +60,14 @@ describe('Array Functions', () => {
     const result = NArray.uniqueArray(array)
     expect(result).toEqual([{ id: 1 }, { id: 2 }])
   })
+
+  test('counts non-repeating integers in an array', () => {
+    expect(NArray.countNonRepeating([1, 2, 2, 3, 4, 4, 5], 'number')).toBe(3) // [1, 3, 5]
+    expect(NArray.countNonRepeating([10, 20, 30, 40, 50], 'number')).toBe(5) // All unique
+  })
+
+  test('counts non-repeating strings in an array', () => {
+    expect(NArray.countNonRepeating(['a', 'b', 'b', 'c', 'd', 'd', 'e'], 'string')).toBe(3) // ['a', 'c', 'e']
+    expect(NArray.countNonRepeating(['apple', 'banana', 'cherry'], 'string')).toBe(3) // All unique
+  })
 })

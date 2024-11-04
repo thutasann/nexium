@@ -42,6 +42,7 @@ declare module '*.node' {
   export function toCurrency(amount: number, locale: string, currency: string): string
   export function fibonacci(num: number): number
   export function sum(nums: number[]): number
+  export function countNonRepeating<T>(arr: T[], type: 'string' | 'number'): number
 
   // ----------- Array Functions
   export function chunkArray<T>(arr: T[], chunkLength: number): T[][]

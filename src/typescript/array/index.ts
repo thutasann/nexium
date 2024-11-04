@@ -1,4 +1,8 @@
-import { chunkArray as chunkArrayFn, uniqueArray as uniqueArrayFn } from '../../build/Release/nexium.node'
+import {
+  chunkArray as chunkArrayFn,
+  uniqueArray as uniqueArrayFn,
+  countNonRepeating as countNonRepeatingFn,
+} from '../../build/Release/nexium.node'
 
 /** Array Methods */
 export class NArray {
@@ -16,5 +20,12 @@ export class NArray {
    */
   static uniqueArray<T>(arr: T[]): T[] {
     return uniqueArrayFn(arr)
+  }
+
+  /**
+   * Function to count non-repeating elements in an array
+   */
+  static countNonRepeating<T>(arr: T[], type: 'string' | 'number'): number {
+    return countNonRepeatingFn(arr, type)
   }
 }

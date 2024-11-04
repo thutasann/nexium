@@ -54,5 +54,6 @@ napi_value Sum(napi_env env, napi_callback_info args);
 napi_value ChunkArray(napi_env env, napi_callback_info info);
 napi_value CreateUniqueArray(napi_env env, napi_callback_info info);
 napi_value RoundTo(napi_env env, napi_callback_info info);
+napi_value CountNonRepeating(napi_env env, napi_callback_info args);
 
 #endif

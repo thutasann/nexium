@@ -186,6 +186,28 @@ function sumArray(numbers) {
   return numbers.reduce((total, num) => total + num, 0)
 }
 
+/**
+ * Count non-repeating elements in an array
+ * @param {any[]} arr - The array to count non-repeating elements from
+ * @returns {number} - The number of non-repeating elements in the array
+ */
+function countNonRepeatingElements(arr) {
+  const elementCount = new Map()
+
+  for (const item of arr) {
+    elementCount.set(item, (elementCount.get(item) || 0) + 1)
+  }
+
+  let uniqueCount = 0
+  for (const count of elementCount.values()) {
+    if (count === 1) {
+      uniqueCount++
+    }
+  }
+
+  return uniqueCount
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -203,4 +225,5 @@ module.exports = {
   formatCurrency,
   fibonacci,
   sumArray,
+  countNonRepeatingElements,
 }

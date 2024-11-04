@@ -1,6 +1,6 @@
 // @ts-check
 const { NArray } = require('../../lib')
-const { chunkArrayJs, random_users, benchmark_args, uniqueArray } = require('./utils')
+const { chunkArrayJs, random_users, benchmark_args, uniqueArray, countNonRepeatingElements } = require('./utils')
 const { updateResult } = require('./update_readme')
 const { bigNestedArray } = require('./constants')
 
@@ -39,6 +39,17 @@ async function array_benchmark_test() {
   const jsUniqueArrayObjTime = benchmark_args(() => uniqueArray(bigNestedArray), [], iterations)
   results.push({ Method: 'Nexium uniqueArray ArrObj', Time: nApiUniqueArrObjTime.toFixed(3) })
   results.push({ Method: 'JavaScript uniqueArray ArrObj', Time: jsUniqueArrayObjTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Count Non Repeating (str, number) Benchmarks
+  const nApiCountNonRepeatingTime = benchmark_args(
+    () => NArray.countNonRepeating([1, 2, 2, 3, 4, 4, 5], 'number'),
+    [],
+    iterations,
+  )
+  const jsCountNonRepeatingTime = benchmark_args(() => countNonRepeatingElements([1, 2, 2, 3, 4, 4, 5]), [], iterations)
+  results.push({ Method: 'Nexium countNonRepeating Number', Time: nApiCountNonRepeatingTime.toFixed(3) })
+  results.push({ Method: 'JavaScript countNonRepeating Number', Time: jsCountNonRepeatingTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/array.md', 'Array Benchmark')
