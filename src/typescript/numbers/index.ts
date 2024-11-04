@@ -5,6 +5,8 @@ import {
   generateRandom as generateRandomFn,
   toOrdinal as toOrdinalFn,
   toCurrency as toCurrencyFn,
+  fibonacci as fibonacciFn,
+  sum as sumFn,
 } from '../../build/Release/nexium.node'
 
 /** Number Methods */
@@ -79,5 +81,23 @@ export class NNumber {
    */
   static toCurrency(amount: number, locale: string, currency: string): string {
     return toCurrencyFn(amount, locale, currency)
+  }
+
+  /**
+   * Fibonacci Sequence
+   * @param num - given number
+   * @returns {number} - fibonacci number
+   */
+  static fibonacci(num: number): number {
+    return fibonacciFn(num)
+  }
+
+  /**
+   * Function to calculate the sum of an array of numbers
+   * @param nums - numbers array
+   * @returns { number } - sum result
+   */
+  static sum(nums: number[]): number {
+    return sumFn(nums)
   }
 }

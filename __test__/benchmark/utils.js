@@ -15,17 +15,40 @@ function benchmark(fn, iterations = 100000) {
  * @param {Function} fn - The function to benchmark.
  * @param {Array<any>} args - The arguments to pass to the function.
  * @param {number} [runs=1000] - The number of times to execute the function for the benchmark.
- * @returns {number} - The average execution time in milliseconds.
+ * @returns {number | any} - The average execution time in milliseconds.
  */
-function benchmark_args(fn, args, runs = 1000) {
-  const times = []
+function benchmark_args(fn, args, runs = 1000, logResult = false) {
+  // Warm-up runs to stabilize any JIT effects
+  for (let i = 0; i < Math.min(10, runs); i++) {
+    try {
+      fn(...args)
+    } catch (error) {
+      console.error('Error during warm-up:', error)
+      return null
+    }
+  }
+
+  let totalDuration = 0n
+
   for (let i = 0; i < runs; i++) {
     const start = process.hrtime.bigint()
-    fn(...args)
+    try {
+      fn(...args)
+    } catch (error) {
+      console.error('Error during benchmarking:', error)
+      return null
+    }
     const end = process.hrtime.bigint()
-    times.push(Number(end - start) / 1e6) // convert to milliseconds
+    totalDuration += end - start
   }
-  return times.reduce((acc, curr) => acc + curr, 0) / runs
+
+  const averageDuration = Number(totalDuration / BigInt(runs)) / 1e6 // Convert to milliseconds
+
+  if (logResult) {
+    console.log(`Average execution time for ${fn.toString()} over ${runs} runs: ${averageDuration.toFixed(4)} ms`)
+  }
+
+  return averageDuration
 }
 
 /** Vanilla JavaScript UUID generator */
@@ -133,6 +156,36 @@ function formatCurrency(amount, locale = 'en-US', currency = 'USD') {
   return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount)
 }
 
+/**
+ * Fibonacci
+ * @param {number} n - number
+ * @returns {number} - fibonacci number
+ */
+function fibonacci(n) {
+  if (n <= 1) return n
+
+  let a = 0,
+    b = 1,
+    result = 0
+
+  for (let i = 2; i <= n; i++) {
+    result = a + b
+    a = b
+    b = result
+  }
+
+  return result
+}
+
+/**
+ * Calculate the sum of array of numbers
+ * @param {number[]} numbers - the array of nubmers to sum
+ * @returns { number } the sum of numbers in the array
+ */
+function sumArray(numbers) {
+  return numbers.reduce((total, num) => total + num, 0)
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -148,4 +201,6 @@ module.exports = {
   getRandomInt,
   toOrdinal,
   formatCurrency,
+  fibonacci,
+  sumArray,
 }

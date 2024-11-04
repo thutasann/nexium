@@ -57,6 +57,18 @@ yarn test
 yarn benchmark
 ```
 
+**Documentation Site**
+
+```bash
+yarn docs
+```
+
+**Examples Codes**
+
+```bash
+cd examples && yarn dev
+```
+
 ---
 
 ## 📦 **Installation**

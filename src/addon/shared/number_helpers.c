@@ -99,3 +99,29 @@ char *formatCurrency(double amount, const char *locale, const char *currency) {
     free(buffer);
     return result;
 }
+
+/* Helper function for `fibonacci` */
+uint64_t fibonacci(int n) {
+    if (n <= 0)
+        return 0;
+    if (n == 1)
+        return 1;
+
+    uint64_t a = 0, b = 1, next = 0;
+    for (int i = 2; i <= n; i++) {
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return next;
+}
+
+/** helper function to calculate the sum of an array of doubles */
+double calculate_sum(const double *numbers, uint32_t length) {
+    double sum = 0.0;
+    for (uint32_t i = 0; i < length; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}
