@@ -43,11 +43,15 @@ async function array_benchmark_test() {
 
   // ----------- Count Non Repeating (str, number) Benchmarks
   const nApiCountNonRepeatingTime = benchmark_args(
-    () => NArray.countNonRepeating([1, 2, 2, 3, 4, 4, 5], 'number'),
+    () => NArray.countNonRepeating(['a', 'b', 'b', 'c', 'd', 'd', 'e'], 'string'),
     [],
     iterations,
   )
-  const jsCountNonRepeatingTime = benchmark_args(() => countNonRepeatingElements([1, 2, 2, 3, 4, 4, 5]), [], iterations)
+  const jsCountNonRepeatingTime = benchmark_args(
+    () => countNonRepeatingElements(['a', 'b', 'b', 'c', 'd', 'd', 'e']),
+    [],
+    iterations,
+  )
   results.push({ Method: 'Nexium countNonRepeating Number', Time: nApiCountNonRepeatingTime.toFixed(3) })
   results.push({ Method: 'JavaScript countNonRepeating Number', Time: jsCountNonRepeatingTime.toFixed(3) })
   results.push({})
