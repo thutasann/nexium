@@ -23,4 +23,14 @@ typedef bool (*compare_func)(const void *, const void *);
 void **create_unique_array(void **arr, size_t size, size_t *new_size, compare_func cmp);
 napi_status remove_duplicates(napi_env env, napi_value input_array, napi_value *output_array);
 
+/**
+    ### Count non-repeating elements in an array
+    - define a pointer to a function named `compare_func_array`
+    - The function takes two parameters, both are void pointers
+ */
+typedef int (*compare_func_array)(const void *, const void *);
+int compare_int(const void *a, const void *b);
+int compare_string(const void *a, const void *b);
+int count_non_repeating(const void *arr, int length, size_t element_size, compare_func_array cmp);
+
 #endif

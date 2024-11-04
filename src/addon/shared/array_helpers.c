@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+/** Integer comparition function */
+bool int_cmp(const void *a, const void *b) {
+    return *(int *)a == *(int *)b;
+}
+
+/** String comparision function */
+bool str_cmp(const void *a, const void *b) {
+    return strcmp((char *)a, (char *)b) == 0;
+}
+
 /** Helper Function to chunk an array into smaller arrays (chunks) of specified size */
 Chunk *chunkArray(void *array, int elementSize, int totalElements, int chunkSize, int *chunkCount) {
     *chunkCount = (totalElements + chunkSize - 1) / chunkSize; // Calculate chunk count
@@ -111,4 +121,40 @@ napi_status remove_duplicates(napi_env env, napi_value input_array, napi_value *
 
     *output_array = result_array;
     return napi_ok;
+}
+
+/** Helper function to compare integers */
+int compare_int(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+
+/** Helper function to compare strings */
+int compare_string(const void *a, const void *b) {
+    return strcmp(*(const char **)a, *(const char **)b);
+}
+
+/** Generic Helper function to count non-repeating elements in an array */
+int count_non_repeating(const void *arr, int length, size_t element_size, compare_func_array cmp) {
+    int count = 0;
+
+    for (int i = 0; i < length; i++) {
+        int is_repeating = 0;
+        const void *current_element = (char *)arr + i * element_size;
+
+        for (int j = 0; j < length; j++) {
+            if (i != j) {
+                const void *other_element = (char *)arr + j * element_size;
+                if (cmp(current_element, other_element) == 0) {
+                    is_repeating = 1;
+                    break;
+                }
+            }
+        }
+
+        if (!is_repeating) {
+            count++;
+        }
+    }
+
+    return count;
 }
