@@ -2,10 +2,10 @@
 const { NSort } = require('../../lib')
 const { bigUnsortedArray } = require('./constants')
 const { updateResult } = require('./update_readme')
-const { benchmark_args, bubbleSort } = require('./utils')
+const { benchmark_args, bubbleSort, quickSort } = require('./utils')
 
 /** iterations */
-const iterations = 1000
+const iterations = 100
 
 /** Sort Benchmark Test */
 async function sort_benchmark_test() {
@@ -20,6 +20,10 @@ async function sort_benchmark_test() {
   results.push({ Method: 'Nexium Bubble Sort Number', Time: nApiBubbleSortTime.toFixed(3) })
   results.push({ Method: 'JavaScript Bubble Sort Number', Time: jsBubbleSortTime.toFixed(3) })
   results.push({})
+
+  // ----------- Quick Sort
+  const jsQuickSortTime = benchmark_args(() => quickSort(bigUnsortedArray), [], iterations)
+  results.push({ Method: 'JavaScript Quick Sort Number', Time: jsQuickSortTime.toFixed(3) })
 
   await updateResult(results, './results/sort.md', 'Sort Benchmark')
 }

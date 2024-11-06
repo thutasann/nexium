@@ -99,6 +99,6 @@ const bigNestedArray = [
 ]
 
 /** Big Unsorted Array */
-const bigUnsortedArray = Array.from({ length: 1000 }, () => Math.floor(Math.random() * 1000) + 1)
+const bigUnsortedArray = Array.from({ length: 100 }, () => Math.floor(Math.random() * 100) + 1)
 
 module.exports = { bigNestedArray, bigUnsortedArray }

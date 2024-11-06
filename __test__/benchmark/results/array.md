@@ -6,7 +6,7 @@
 | JavaScript chunkArray               | 0.001          |
 | -                                   | -              |
 | Nexium uniqueArray Number           | 0.004          |
-| JavaScript uniqueArray Number       | 0.005          |
+| JavaScript uniqueArray Number       | 0.006          |
 | -                                   | -              |
 | Nexium uniqueArray ArrObj           | 0.019          |
 | JavaScript uniqueArray ArrObj       | 0.034          |
