@@ -6,11 +6,11 @@
 | JavaScript chunkArray               | 0.001          |
 | -                                   | -              |
 | Nexium uniqueArray Number           | 0.004          |
-| JavaScript uniqueArray Number       | 0.006          |
+| JavaScript uniqueArray Number       | 0.005          |
 | -                                   | -              |
 | Nexium uniqueArray ArrObj           | 0.019          |
-| JavaScript uniqueArray ArrObj       | 0.034          |
+| JavaScript uniqueArray ArrObj       | 0.033          |
 | -                                   | -              |
 | Nexium countNonRepeating Number     | 0.001          |
-| JavaScript countNonRepeating Number | 0.002          |
+| JavaScript countNonRepeating Number | 0.001          |
 | -                                   | -              |
