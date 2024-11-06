@@ -47,4 +47,7 @@ declare module '*.node' {
   // ----------- Array Functions
   export function chunkArray<T>(arr: T[], chunkLength: number): T[][]
   export function uniqueArray<T>(arr: T[]): T[]
+
+  // ----------- Sort Functions
+  export function bubbleSort(arr: number[]): number[]
 }

@@ -1,5 +1,6 @@
 const { array_benchmark_test } = require('./array')
 const { number_benchmark_test } = require('./number')
+const { sort_benchmark_test } = require('./sort')
 const { string_benchmark_test } = require('./string')
 
 /** benchmark main fn */
@@ -7,4 +8,5 @@ const { string_benchmark_test } = require('./string')
   await string_benchmark_test()
   await array_benchmark_test()
   await number_benchmark_test()
+  await sort_benchmark_test()
 })()
