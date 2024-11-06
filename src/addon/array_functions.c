@@ -14,4 +14,9 @@ void InitArrayFunctions(napi_env env, napi_value exports) {
     napi_value count_non_repeating_fn;
     napi_create_function(env, NULL, 0, CountNonRepeating, NULL, &count_non_repeating_fn);
     napi_set_named_property(env, exports, "countNonRepeating", count_non_repeating_fn);
+
+    // ------ sort functions
+    napi_value bubble_sort_fn;
+    napi_create_function(env, NULL, 0, BubbleSort, NULL, &bubble_sort_fn);
+    napi_set_named_property(env, exports, "bubbleSort", bubble_sort_fn);
 }

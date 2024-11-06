@@ -208,6 +208,27 @@ function countNonRepeatingElements(arr) {
   return uniqueCount
 }
 
+/**
+ * bubble sort
+ * @param {number[]} arr
+ */
+function bubbleSort(arr) {
+  const n = arr.length
+  let swapped
+
+  do {
+    swapped = false
+    for (let i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+        swapped = true
+      }
+    }
+  } while (swapped)
+
+  return arr
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -226,4 +247,5 @@ module.exports = {
   fibonacci,
   sumArray,
   countNonRepeatingElements,
+  bubbleSort,
 }

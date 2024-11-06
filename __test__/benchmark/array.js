@@ -7,11 +7,6 @@ const { bigNestedArray } = require('./constants')
 /** iterations */
 const iterations = 100
 const num_arr = [1, 2, 3, 4, 3, 2, 1]
-const obj_arr = [
-  { id: 1, name: 'Alice' },
-  { id: 2, name: 'Bob' },
-  { id: 1, name: 'Alice' },
-]
 
 /** Array Benchmark Test */
 async function array_benchmark_test() {

@@ -33,4 +33,8 @@ int compare_int(const void *a, const void *b);
 int compare_string(const void *a, const void *b);
 int count_non_repeating(const void *arr, int length, size_t element_size, compare_func_array cmp);
 
+// ------------ Sorting Helpers ------------
+
+void bubble_sort(int *arr, size_t length);
+
 #endif
