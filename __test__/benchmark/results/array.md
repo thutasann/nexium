@@ -9,7 +9,7 @@
 | JavaScript uniqueArray Number       | 0.005          |
 | -                                   | -              |
 | Nexium uniqueArray ArrObj           | 0.020          |
-| JavaScript uniqueArray ArrObj       | 0.038          |
+| JavaScript uniqueArray ArrObj       | 0.041          |
 | -                                   | -              |
 | Nexium countNonRepeating Number     | 0.001          |
 | JavaScript countNonRepeating Number | 0.002          |

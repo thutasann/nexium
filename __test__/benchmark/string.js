@@ -1,6 +1,6 @@
 // @ts-check
 const { NUUId, NString } = require('../../lib')
-const { updateResult } = require('./update_readme')
+const { updateResult } = require('./utils/update_readme')
 const {
   generateUUIDVanilla,
   slugify,
