@@ -51,4 +51,7 @@ declare module '*.node' {
   // ----------- Sort Functions
   export function bubbleSort(arr: number[]): number[]
   export function quickSort(arr: number[]): number[]
+
+  // ----------- Leetcode Functions
+  export function twoSum(nums: number[], target: number): number[]
 }

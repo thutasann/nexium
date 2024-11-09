@@ -15,7 +15,7 @@ napi_value Init(napi_env env, napi_value exports) {
     InitUUIDFunctions(env, exports);
     InitArrayFunctions(env, exports);
     InitNumberFunctions(env, exports);
-    // InitLeetCodesFunctions(env, exports);
+    InitLeetCodesFunctions(env, exports);
     return exports;
 }
 

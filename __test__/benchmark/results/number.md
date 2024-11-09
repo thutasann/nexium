@@ -14,6 +14,6 @@
 | Nexium Fibonacci                 | 0.000          |
 | JavaScript Fibonacci             | 0.000          |
 | -                                | -              |
-| Nexium Sum Nums Array            | 0.001          |
+| Nexium Sum Nums Array            | 0.000          |
 | JavaScript Sum Nums Array        | 0.000          |
 | -                                | -              |

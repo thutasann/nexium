@@ -9,6 +9,7 @@
         "src/addon/array_functions.c",
         "src/addon/uuid_functions.c",
         "src/addon/number_functions.c",
+        "src/addon/leetcode_functions.c",
         "src/addon/utils/math.c",
         "src/addon/utils/string.c",
         "src/addon/utils/uuid.c",
