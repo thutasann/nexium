@@ -6,11 +6,13 @@ on:
       - master
       - feat/array
       - feat/number
+      - feat/leetcodes
   pull_request:
     branches:
       - master
       - feat/array
       - feat/number
+      - feat/leetcodes
 
 jobs:
   build:
