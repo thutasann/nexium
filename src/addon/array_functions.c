@@ -19,4 +19,8 @@ void InitArrayFunctions(napi_env env, napi_value exports) {
     napi_value bubble_sort_fn;
     napi_create_function(env, NULL, 0, BubbleSort, NULL, &bubble_sort_fn);
     napi_set_named_property(env, exports, "bubbleSort", bubble_sort_fn);
+
+    napi_value quick_sort_fn;
+    napi_create_function(env, NULL, 0, QuickSort, NULL, &quick_sort_fn);
+    napi_set_named_property(env, exports, "quickSort", quick_sort_fn);
 }

@@ -1,4 +1,4 @@
-import { bubbleSort as bubbleSortFn } from '../../build/Release/nexium.node'
+import { bubbleSort as bubbleSortFn, quickSort as quickSortFn } from '../../build/Release/nexium.node'
 
 /** Sorting Methods */
 export class NSort {
@@ -7,5 +7,12 @@ export class NSort {
    */
   static bubbleSort(arr: number[]): number[] {
     return bubbleSortFn(arr)
+  }
+
+  /**
+   * Function to quick sort the number array
+   */
+  static quickSort(arr: number[]): number[] {
+    return quickSortFn(arr)
   }
 }
