@@ -1,9 +1,8 @@
 // @ts-check
 const { NLeet } = require('../../lib')
-const { bigUnsortedArray } = require('./utils/constants')
 const { updateResult } = require('./utils/update_readme')
-const { benchmark_args, bubbleSort, quickSort } = require('./utils/index')
-const { twoSum, lengthOfLongestSubstring } = require('./utils/leetcodes')
+const { benchmark_args } = require('./utils/index')
+const { twoSum, lengthOfLongestSubstring, isValidParentheses } = require('./utils/leetcodes_utils')
 
 /** iterations */
 const iterations = 1000
@@ -27,6 +26,13 @@ async function leetcode_benchmark_test() {
   const jsLongestSubstringTime = benchmark_args(() => lengthOfLongestSubstring('abcabcbb'), [], iterations)
   results.push({ Method: 'Nexium Longest Substring', Time: nLongestSubstringTime.toFixed(3) })
   results.push({ Method: 'JavaScript Longest Substring', Time: jsLongestSubstringTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Valid Parentheses
+  const nValidParenthesesTime = benchmark_args(() => NLeet.isValidParentheses('()[]{}'), [], iterations)
+  const jsValidParenthesesTime = benchmark_args(() => isValidParentheses('()[]{}'), [], iterations)
+  results.push({ Method: 'Nexium Valid Parentheses', Time: nValidParenthesesTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Valid Parentheses', Time: jsValidParenthesesTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/leetcodes.md', 'Leetcode Benchmark')

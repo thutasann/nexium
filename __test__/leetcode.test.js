@@ -40,3 +40,22 @@ describe('Longest substring', () => {
     expect(NLeet.longestSubstring('a b c a b c')).toBe(3) // "a b"
   })
 })
+
+describe('isValidParentheses', () => {
+  test('valid parentheses', () => {
+    expect(NLeet.isValidParentheses('()')).toBe(true)
+    expect(NLeet.isValidParentheses('()[]{}')).toBe(true)
+    expect(NLeet.isValidParentheses('{[]}')).toBe(true)
+  })
+
+  test('invalid parentheses', () => {
+    expect(NLeet.isValidParentheses('(]')).toBe(false)
+    expect(NLeet.isValidParentheses('([)]')).toBe(false)
+    expect(NLeet.isValidParentheses('{[}')).toBe(false)
+    expect(NLeet.isValidParentheses('(')).toBe(false)
+  })
+
+  test('empty string', () => {
+    expect(NLeet.isValidParentheses('')).toBe(true)
+  })
+})

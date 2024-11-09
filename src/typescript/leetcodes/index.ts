@@ -1,4 +1,8 @@
-import { twoSum as twoSumFn, longestSubstring as longestSubstringFn } from '../../build/Release/nexium.node'
+import {
+  twoSum as twoSumFn,
+  longestSubstring as longestSubstringFn,
+  isValidParentheses as isValidParenthesesFn,
+} from '../../build/Release/nexium.node'
 
 /** Leetcode Solutions */
 export class NLeet {
@@ -10,5 +14,10 @@ export class NLeet {
   /** Longest Substring Without Repeating Characters  */
   static longestSubstring(str: string): number {
     return longestSubstringFn(str)
+  }
+
+  /** Is Valid  Parentheses  */
+  static isValidParentheses(str: string): boolean {
+    return isValidParenthesesFn(str)
   }
 }

@@ -65,5 +65,6 @@ napi_value QuickSort(napi_env env, napi_callback_info info);
 
 napi_value TwoSum(napi_env env, napi_callback_info info);
 napi_value LongestSubstring(napi_env env, napi_callback_info info);
+napi_value IsValidParentheses(napi_env env, napi_callback_info info);
 
 #endif
