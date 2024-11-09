@@ -51,7 +51,7 @@ async function updateResult(results = [], readmePath, topic = 'Benchmark') {
     // Format the file with Prettier
     const formatted = await prettier.format(content, { parser: 'markdown' })
     await fs.writeFile(readmePath, formatted, 'utf8')
-    console.log(`README updated and formatted with Prettier successfully with new ${topic} results. ✅\n`)
+    console.log(`README updated successfully with new ${topic} results. ✅\n`)
   } catch (error) {
     console.error('Error updating README:', error)
   }

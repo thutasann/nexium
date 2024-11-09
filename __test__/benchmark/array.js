@@ -1,6 +1,6 @@
 // @ts-check
 const { NArray } = require('../../lib')
-const { chunkArrayJs, random_users, benchmark_args, uniqueArray, countNonRepeatingElements } = require('./utils')
+const { chunkArrayJs, random_users, benchmark_args, uniqueArray, countNonRepeatingElements } = require('./utils/index')
 const { updateResult } = require('./update_readme')
 const { bigNestedArray } = require('./constants')
 

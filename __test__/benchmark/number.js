@@ -1,7 +1,7 @@
 // @ts-check
 const { NNumber } = require('../../lib')
 const { updateResult } = require('./update_readme')
-const { benchmark_args, clamp, getRandomInt, toOrdinal, sumArray } = require('./utils')
+const { benchmark_args, clamp, getRandomInt, toOrdinal, sumArray } = require('./utils/index')
 
 /** iterations */
 const iterations = 1000
