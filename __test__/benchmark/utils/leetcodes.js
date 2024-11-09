@@ -21,4 +21,28 @@ function twoSum(nums, target) {
   return null
 }
 
-module.exports = { twoSum }
+/**
+ * Longest Substring without repeating characters
+ * @param {string} s - given strign
+ * @returns { number } maxLength
+ */
+function lengthOfLongestSubstring(s) {
+  let maxLength = 0
+  let left = 0
+  const charSet = new Set()
+
+  for (let right = 0; right < s.length; right++) {
+    while (charSet.has(s[right])) {
+      charSet.delete(s[right])
+      left++
+    }
+
+    charSet.add(s[right])
+
+    maxLength = Math.max(maxLength, right - left + 1)
+  }
+
+  return maxLength
+}
+
+module.exports = { twoSum, lengthOfLongestSubstring }
