@@ -10,4 +10,8 @@ void InitLeetCodesFunctions(napi_env env, napi_value exports) {
     napi_value longest_substring_fn;
     napi_create_function(env, NULL, 0, LongestSubstring, NULL, &longest_substring_fn);
     napi_set_named_property(env, exports, "longestSubstring", longest_substring_fn);
+
+    napi_value isValidParentheses_fn;
+    napi_create_function(env, NULL, 0, IsValidParentheses, NULL, &isValidParentheses_fn);
+    napi_set_named_property(env, exports, "isValidParentheses", isValidParentheses_fn);
 }

@@ -45,4 +45,29 @@ function lengthOfLongestSubstring(s) {
   return maxLength
 }
 
-module.exports = { twoSum, lengthOfLongestSubstring }
+/**
+ * Is Valid Parentheses
+ * @param { string } s - given string
+ */
+function isValidParentheses(s) {
+  /** @type { string[] } */
+  const stack = []
+
+  const matchingBrackets = {
+    ')': '(',
+    ']': '[',
+    '}': '{',
+  }
+
+  for (const char of s) {
+    if (char === '(' || char === '[' || char === '{') {
+      stack.push(char)
+    } else if (matchingBrackets[char]) {
+      if (stack.pop() !== matchingBrackets[char]) {
+        return false
+      }
+    }
+  }
+}
+
+module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses }

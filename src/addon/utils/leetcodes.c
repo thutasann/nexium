@@ -138,3 +138,49 @@ napi_value LongestSubstring(napi_env env, napi_callback_info info) {
 
     return js_result;
 }
+
+/** Is valid Parentheses */
+napi_value IsValidParentheses(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_status status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+    if (status != napi_ok)
+        return NULL;
+
+    // Check if the argument is a string
+    napi_valuetype valuetype;
+    status = napi_typeof(env, args[0], &valuetype);
+    if (status != napi_ok || valuetype != napi_string) {
+        napi_throw_type_error(env, NULL, "Expected a string as the argument");
+        return NULL;
+    }
+
+    // Get the input string from the N-API value
+    size_t str_len;
+    status = napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len);
+    if (status != napi_ok)
+        return NULL;
+
+    char *str = (char *)malloc((str_len + 1) * sizeof(char));
+    if (!str) {
+        napi_throw_error(env, NULL, "Memory allocation failed");
+        return NULL;
+    }
+
+    status = napi_get_value_string_utf8(env, args[0], str, str_len + 1, &str_len);
+    if (status != napi_ok) {
+        free(str);
+        return NULL;
+    }
+
+    // call C function and get the result
+    bool result = is_valid_parentheses(str);
+    free(str);
+
+    napi_value js_result;
+    status = napi_get_boolean(env, result, &js_result);
+    if (status != napi_ok)
+        return NULL;
+
+    return js_result;
+}

@@ -1,6 +1,7 @@
 #include "../include/leetcode_helpers.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 
 /** Helper function for Two Sum */
 int *two_sum(int *numbers, int length, int target) {
@@ -50,4 +51,37 @@ int longest_substring(const char *str) {
         }
     }
     return max_len;
+}
+
+/** Helper stack function for is valid parentheses */
+bool is_valid_parentheses(const char *s) {
+    int n = strlen(s);
+    char *stack = (char *)malloc(n * sizeof(char)); // allocate stack
+    if (!stack)
+        return false;
+
+    int top = -1;
+
+    for (int i = 0; s[i] != '\0'; i++) {
+        char c = s[i];
+
+        // push opening brackets onto the stack
+        if (c == '(' || c == '{' || c == '[') {
+            stack[++top] = c;
+        }
+
+        // check for matching closing brackets
+        else if ((c == ')' && top >= 0 && stack[top] == '(') ||
+                 (c == '}' && top >= 0 && stack[top] == '{') ||
+                 (c == ']' && top >= 0 && stack[top] == '[')) {
+            top--; // Pop the matching opening bracket
+        } else {
+            free(stack);
+            return false;
+        }
+    }
+
+    bool result = top == -1; // if stack is empty, parentheses are valid;
+    free(stack);
+    return result;
 }
