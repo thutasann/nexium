@@ -54,4 +54,5 @@ declare module '*.node' {
 
   // ----------- Leetcode Functions
   export function twoSum(nums: number[], target: number): number[]
+  export function longestSubstring(str: string): number
 }

@@ -6,4 +6,8 @@ void InitLeetCodesFunctions(napi_env env, napi_value exports) {
     napi_value twosum_fn;
     napi_create_function(env, NULL, 0, TwoSum, NULL, &twosum_fn);
     napi_set_named_property(env, exports, "twoSum", twosum_fn);
+
+    napi_value longest_substring_fn;
+    napi_create_function(env, NULL, 0, LongestSubstring, NULL, &longest_substring_fn);
+    napi_set_named_property(env, exports, "longestSubstring", longest_substring_fn);
 }
