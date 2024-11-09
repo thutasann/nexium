@@ -2,7 +2,7 @@
 const { NLeet } = require('../../lib')
 const { updateResult } = require('./utils/update_readme')
 const { benchmark_args } = require('./utils/index')
-const { twoSum, lengthOfLongestSubstring, isValidParentheses } = require('./utils/leetcodes_utils')
+const { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram } = require('./utils/leetcodes_utils')
 
 /** iterations */
 const iterations = 1000
@@ -33,6 +33,13 @@ async function leetcode_benchmark_test() {
   const jsValidParenthesesTime = benchmark_args(() => isValidParentheses('()[]{}'), [], iterations)
   results.push({ Method: 'Nexium Valid Parentheses', Time: nValidParenthesesTime.toFixed(3) })
   results.push({ Method: 'JavaScript Valid Parentheses', Time: jsValidParenthesesTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Valid Anagram
+  const nValidAnagramTime = benchmark_args(() => NLeet.isValidAnagram('anagram', 'nagaram'), [], iterations)
+  const jsValidAnagramTime = benchmark_args(() => isValidAnagram('anagram', 'nagaram'), [], iterations)
+  results.push({ Method: 'Nexium Valid Anagram', Time: nValidAnagramTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Valid Anagram', Time: jsValidAnagramTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/leetcodes.md', 'Leetcode Benchmark')

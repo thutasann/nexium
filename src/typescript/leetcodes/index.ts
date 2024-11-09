@@ -2,6 +2,7 @@ import {
   twoSum as twoSumFn,
   longestSubstring as longestSubstringFn,
   isValidParentheses as isValidParenthesesFn,
+  isValidAnagram as isValidAnagramFn,
 } from '../../build/Release/nexium.node'
 
 /** Leetcode Solutions */
@@ -19,5 +20,17 @@ export class NLeet {
   /** Is Valid  Parentheses  */
   static isValidParentheses(str: string): boolean {
     return isValidParenthesesFn(str)
+  }
+
+  /**
+   * is valid anagram
+   * @param s1 - given string 1
+   * @param s2 - given string 2
+   * @returns { boolean }
+   * @example
+   * isValidAnagram("anagram", "nagaram") // true
+   */
+  static isValidAnagram(s1: string, s2: string): boolean {
+    return isValidAnagramFn(s1, s2)
   }
 }

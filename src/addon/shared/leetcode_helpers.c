@@ -85,3 +85,30 @@ bool is_valid_parentheses(const char *s) {
     free(stack);
     return result;
 }
+
+/** Helper function for checking if given two strings are anagram */
+bool is_valid_anagram(const char *s1, const char *s2) {
+    int len1 = strlen(s1);
+    int len2 = strlen(s2);
+
+    if (len1 != len2)
+        return false;
+
+    // frequency array for ASCII characters
+    int char_count[256] = {0};
+
+    // count characters in the first string
+    for (int i = 0; i < len1; i++) {
+        char_count[(unsigned char)s1[i]]++;
+    }
+
+    // subtract character counts using the second string
+    for (int i = 0; i < len2; i++) {
+        char_count[(unsigned char)s2[i]]--;
+        if (char_count[(unsigned char)s2[i]] < 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
