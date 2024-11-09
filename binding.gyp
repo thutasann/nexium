@@ -14,11 +14,13 @@
         "src/addon/utils/uuid.c",
         "src/addon/utils/array.c",
         "src/addon/utils/sort.c",
+        "src/addon/utils/leetcodes.c",
         "src/addon/utils/number.c",
         "src/addon/shared/string_helpers.c",
         "src/addon/shared/array_helpers.c",
         "src/addon/shared/number_helpers.c",
         "src/addon/shared/sort_helpers.c",
+        "src/addon/shared/leetcode_helpers.c",
       ],
       "include_dirs": [
         "<!@(node -e \"require('node-addon-api').include\")"
