@@ -1,8 +1,8 @@
 // @ts-check
 const { NArray } = require('../../lib')
-const { chunkArrayJs, random_users, benchmark_args, uniqueArray, countNonRepeatingElements } = require('./utils')
-const { updateResult } = require('./update_readme')
-const { bigNestedArray } = require('./constants')
+const { chunkArrayJs, random_users, benchmark_args, uniqueArray, countNonRepeatingElements } = require('./utils/index')
+const { updateResult } = require('./utils/update_readme')
+const { bigNestedArray } = require('./utils/constants')
 
 /** iterations */
 const iterations = 100

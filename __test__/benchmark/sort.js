@@ -1,8 +1,8 @@
 // @ts-check
 const { NSort } = require('../../lib')
-const { bigUnsortedArray } = require('./constants')
-const { updateResult } = require('./update_readme')
-const { benchmark_args, bubbleSort, quickSort } = require('./utils')
+const { bigUnsortedArray } = require('./utils/constants')
+const { updateResult } = require('./utils/update_readme')
+const { benchmark_args, bubbleSort, quickSort } = require('./utils/index')
 
 /** iterations */
 const iterations = 100
