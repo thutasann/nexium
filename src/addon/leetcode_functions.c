@@ -14,4 +14,8 @@ void InitLeetCodesFunctions(napi_env env, napi_value exports) {
     napi_value isValidParentheses_fn;
     napi_create_function(env, NULL, 0, IsValidParentheses, NULL, &isValidParentheses_fn);
     napi_set_named_property(env, exports, "isValidParentheses", isValidParentheses_fn);
+
+    napi_value isValidAnagram_fn;
+    napi_create_function(env, NULL, 0, IsValidAnagram, NULL, &isValidAnagram_fn);
+    napi_set_named_property(env, exports, "isValidAnagram", isValidAnagram_fn);
 }

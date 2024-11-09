@@ -59,3 +59,25 @@ describe('isValidParentheses', () => {
     expect(NLeet.isValidParentheses('')).toBe(true)
   })
 })
+
+describe('isValidAnagram', () => {
+  test('valid anagrams', () => {
+    expect(NLeet.isValidAnagram('listen', 'silent')).toBe(true)
+    expect(NLeet.isValidAnagram('anagram', 'nagaram')).toBe(true)
+    expect(NLeet.isValidAnagram('rat', 'tar')).toBe(true)
+  })
+
+  test('invalid anagrams', () => {
+    expect(NLeet.isValidAnagram('hello', 'world')).toBe(false)
+    expect(NLeet.isValidAnagram('rat', 'car')).toBe(false)
+    expect(NLeet.isValidAnagram('night', 'thingy')).toBe(false)
+  })
+
+  test('different lengths', () => {
+    expect(NLeet.isValidAnagram('abc', 'abcd')).toBe(false)
+  })
+
+  test('empty strings', () => {
+    expect(NLeet.isValidAnagram('', '')).toBe(true)
+  })
+})

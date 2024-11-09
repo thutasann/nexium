@@ -70,4 +70,29 @@ function isValidParentheses(s) {
   }
 }
 
-module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses }
+/**
+ * is anagram
+ * @param {string} s1 - given string 1
+ * @param {string} s2 - give string 2
+ * @returns { boolean }
+ */
+function isValidAnagram(s1, s2) {
+  if (s1.length !== s2.length) return false
+
+  const charCount = {}
+
+  for (const char of s1) {
+    charCount[char] = (charCount[char] || 0) + 1
+  }
+
+  for (const char of s2) {
+    // character not found or mismatched frequency
+    if (!charCount[char]) return false
+    charCount[char]--
+  }
+
+  // all character frequencies should be zero if they are anagrams
+  return true
+}
+
+module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram }

@@ -184,3 +184,54 @@ napi_value IsValidParentheses(napi_env env, napi_callback_info info) {
 
     return js_result;
 }
+
+/** Is valid Anagram */
+napi_value IsValidAnagram(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    napi_status status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+    if (status != napi_ok)
+        return NULL;
+
+    napi_valuetype valuetype0, valuetype1;
+    napi_typeof(env, args[0], &valuetype0);
+    napi_typeof(env, args[1], &valuetype1);
+
+    if (valuetype0 != napi_string || valuetype1 != napi_string) {
+        napi_throw_type_error(env, NULL, "Expected two strings as arguments");
+        return NULL;
+    }
+
+    // Get the first string
+    size_t str_len1;
+    napi_get_value_string_utf8(env, args[0], NULL, 0, &str_len1);
+    char *str1 = (char *)malloc((str_len1 + 1) * sizeof(char));
+    if (!str1) {
+        napi_throw_error(env, NULL, "Memory allocation failed");
+        return NULL;
+    }
+    napi_get_value_string_utf8(env, args[0], str1, str_len1 + 1, &str_len1);
+
+    // Get the second string
+    size_t str_len2;
+    napi_get_value_string_utf8(env, args[1], NULL, 0, &str_len2);
+    char *str2 = (char *)malloc((str_len2 + 1) * sizeof(char));
+    if (!str2) {
+        free(str1);
+        napi_throw_error(env, NULL, "Memory allocation failed");
+        return NULL;
+    }
+    napi_get_value_string_utf8(env, args[1], str2, str_len2 + 1, &str_len2);
+
+    bool result = is_valid_anagram(str1, str2);
+
+    free(str1);
+    free(str2);
+
+    napi_value js_result;
+    status = napi_get_boolean(env, result, &js_result);
+    if (status != napi_ok)
+        return NULL;
+
+    return js_result;
+}
