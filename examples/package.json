@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nexium": "^1.0.25"
+    "nexium": "^1.0.26"
   }
 }

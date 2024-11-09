@@ -10,7 +10,8 @@ function sortExamples() {
   const bubbleResult = NSort.bubbleSort(arr)
   console.log('bubbleResult', bubbleResult)
 
-  // const result = NSort(arr) // [1, 2, 5, 5, 6, 9]
+  const quickResult = NSort.quickSort(arr) // [1, 2, 5, 5, 6, 9]
+  console.log('quickResult', quickResult)
 }
 
 module.exports = { sortExamples }

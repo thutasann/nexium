@@ -1,5 +1,6 @@
 // @ts-check
 const { arrayExamples } = require('./src/array.example')
+const { leetcodeExamples } = require('./src/leetcodes.example')
 const { mathsExamples } = require('./src/maths.example')
 const { numberExamples } = require('./src/number.example')
 const { sortExamples } = require('./src/sort.example')
@@ -12,3 +13,4 @@ uuidExamples()
 arrayExamples()
 numberExamples()
 sortExamples()
+leetcodeExamples()
