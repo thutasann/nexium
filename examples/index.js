@@ -2,6 +2,7 @@
 const { arrayExamples } = require('./src/array.example')
 const { mathsExamples } = require('./src/maths.example')
 const { numberExamples } = require('./src/number.example')
+const { sortExamples } = require('./src/sort.example')
 const { stringExamples } = require('./src/string.example')
 const { uuidExamples } = require('./src/uuid.example')
 
@@ -10,3 +11,4 @@ stringExamples()
 uuidExamples()
 arrayExamples()
 numberExamples()
+sortExamples()
