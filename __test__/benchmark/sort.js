@@ -22,7 +22,9 @@ async function sort_benchmark_test() {
   results.push({})
 
   // ----------- Quick Sort
+  const nApiQuickSortTime = benchmark_args(() => NSort.quickSort(bigUnsortedArray), [], iterations)
   const jsQuickSortTime = benchmark_args(() => quickSort(bigUnsortedArray), [], iterations)
+  results.push({ Method: 'Nexium Quick Sort Number', Time: nApiQuickSortTime.toFixed(3) })
   results.push({ Method: 'JavaScript Quick Sort Number', Time: jsQuickSortTime.toFixed(3) })
 
   await updateResult(results, './results/sort.md', 'Sort Benchmark')

@@ -2,15 +2,15 @@
 
 | Method                              | Time (seconds) |
 | ----------------------------------- | -------------- |
-| Nexium chunkArray                   | 0.068          |
+| Nexium chunkArray                   | 0.074          |
 | JavaScript chunkArray               | 0.001          |
 | -                                   | -              |
-| Nexium uniqueArray Number           | 0.004          |
+| Nexium uniqueArray Number           | 0.006          |
 | JavaScript uniqueArray Number       | 0.005          |
 | -                                   | -              |
-| Nexium uniqueArray ArrObj           | 0.019          |
-| JavaScript uniqueArray ArrObj       | 0.033          |
+| Nexium uniqueArray ArrObj           | 0.020          |
+| JavaScript uniqueArray ArrObj       | 0.035          |
 | -                                   | -              |
 | Nexium countNonRepeating Number     | 0.001          |
-| JavaScript countNonRepeating Number | 0.001          |
+| JavaScript countNonRepeating Number | 0.002          |
 | -                                   | -              |
