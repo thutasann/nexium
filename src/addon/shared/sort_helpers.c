@@ -9,7 +9,7 @@ void bubble_sort(int *arr, size_t length) {
     if (length <= 1)
         return;
 
-    size_t lastSwap, newSwap;
+    size_t lastSwap;
     for (size_t end = length - 1; end > 0; end = lastSwap) {
         lastSwap = 0;
         for (size_t j = 0; j < end; j++) {
