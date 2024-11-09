@@ -59,5 +59,6 @@ napi_value CountNonRepeating(napi_env env, napi_callback_info args);
 // ------ Sorting Functions
 
 napi_value BubbleSort(napi_env env, napi_callback_info info);
+napi_value QuickSort(napi_env env, napi_callback_info info);
 
 #endif

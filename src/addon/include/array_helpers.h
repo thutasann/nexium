@@ -36,5 +36,6 @@ int count_non_repeating(const void *arr, int length, size_t element_size, compar
 // ------------ Sorting Helpers ------------
 
 void bubble_sort(int *arr, size_t length);
+void quick_sort(int arr[], int left, int right);
 
 #endif
