@@ -251,6 +251,22 @@ function quickSort(array) {
   return [...quickSort(left), pivot, ...quickSort(right)]
 }
 
+/**
+ * Generate password
+ * @param {number} length
+ */
+function generatePassword(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='
+  let password = ''
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    password += characters[randomIndex]
+  }
+
+  return password
+}
+
 module.exports = {
   generateUUIDVanilla,
   random_users,
@@ -271,4 +287,5 @@ module.exports = {
   countNonRepeatingElements,
   bubbleSort,
   quickSort,
+  generatePassword,
 }

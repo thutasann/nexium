@@ -6,7 +6,7 @@
 | JavaScript Two Sum Number    | 0.000          |
 | -                            | -              |
 | Nexium Longest Substring     | 0.000          |
-| JavaScript Longest Substring | 0.001          |
+| JavaScript Longest Substring | 0.002          |
 | -                            | -              |
 | Nexium Valid Parentheses     | 0.000          |
 | JavaScript Valid Parentheses | 0.001          |

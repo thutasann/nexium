@@ -18,6 +18,7 @@ import {
   replaceString as replaceStringFn,
   replaceDiacritics as replaceDiacriticsFn,
   generateRandomString as generateRandomStringFn,
+  generatePassword as generatePasswordFn,
 } from '../../build/Release/nexium.node'
 
 /** String Methods */
@@ -151,5 +152,16 @@ export class NString {
    */
   static generateRandomString(length: number, pattern: string): string {
     return generateRandomStringFn(length, pattern)
+  }
+
+  /**
+   * Generate Password
+   * @param length - given length
+   * @example
+   * const password1 = generatePassword(12);
+   * @returns { string } - random password
+   */
+  static generatePassword(length: number): string {
+    return generatePasswordFn(length)
   }
 }

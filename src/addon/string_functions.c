@@ -78,4 +78,8 @@ void InitStringFunctions(napi_env env, napi_value exports) {
     napi_value generateRandomStringFn;
     napi_create_function(env, NULL, 0, GenerateRandomString, NULL, &generateRandomStringFn);
     napi_set_named_property(env, exports, "generateRandomString", generateRandomStringFn);
+
+    napi_value generatePassword_fn;
+    napi_create_function(env, NULL, 0, GeneratePassword, NULL, &generatePassword_fn);
+    napi_set_named_property(env, exports, "generatePassword", generatePassword_fn);
 }

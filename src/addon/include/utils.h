@@ -31,6 +31,7 @@ napi_value EndsWith(napi_env env, napi_callback_info info);
 napi_value ReplaceString(napi_env env, napi_callback_info info);
 napi_value ReplaceDiacritics(napi_env env, napi_callback_info info);
 napi_value GenerateRandomString(napi_env env, napi_callback_info info);
+napi_value GeneratePassword(napi_env env, napi_callback_info info);
 
 // ------ UUID Functions
 
