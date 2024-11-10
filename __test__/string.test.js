@@ -205,3 +205,24 @@ describe('String Functions', () => {
     expect(alphanumeric.test(randomString)).toBe(true)
   })
 })
+
+describe('Password Generator', () => {
+  test('generates password of specified length', () => {
+    const length = 12
+    const password = NString.generatePassword(length)
+    expect(password.length).toBe(length)
+  })
+
+  test('handles minimum length', () => {
+    const password = NString.generatePassword(1)
+    expect(password.length).toBe(1)
+  })
+
+  test('generates passwords containing alphanumeric and special characters', () => {
+    const password = NString.generatePassword(15)
+    expect(/[A-Z]/.test(password)).toBe(true) // Uppercase letters
+    expect(/[a-z]/.test(password)).toBe(true) // Lowercase letters
+    expect(/[0-9]/.test(password)).toBe(true) // Digits
+    expect(/[!@#$%^&*()_\-+=<>?]/.test(password)).toBe(true) // Special characters
+  })
+})

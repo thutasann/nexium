@@ -6,6 +6,12 @@
 #include <string.h>
 #include <time.h>
 
+// Character set for password generation
+const char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                       "abcdefghijklmnopqrstuvwxyz"
+                       "0123456789"
+                       "!@#$%^&*()_-+=<>?";
+
 /** Helper function to check if a string a palindrome */
 bool is_palindrome(const char *str, size_t length) {
     size_t start = 0;
@@ -278,4 +284,24 @@ char *generate_random_string(int length, const char *pattern) {
     }
     result[length] = '\0';
     return result;
+}
+
+/** Helper function to generate password */
+char *generatePassword(int length) {
+    // seed the random number genrator
+    srand((unsigned int)time(NULL));
+
+    // allocate memory for the password
+    char *password = (char *)malloc((length + 1) * sizeof(char));
+
+    if (!password)
+        return NULL;
+
+    for (int i = 0; i < length; i++) {
+        int index = rand() % (sizeof(charset) - 1);
+        password[i] = charset[index];
+    }
+    password[length] = '\0';
+
+    return password;
 }

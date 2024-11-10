@@ -14,6 +14,7 @@ void to_kebab_case(const char *input, char *output);
 char *replace_string(const char *str, const char *pattern, const char *replacement);
 char *replace_diacritics(const char *str);
 char *generate_random_string(int length, const char *pattern);
+char *generatePassword(int length);
 
 /** Trim Start Function */
 napi_value TrimStart(napi_env env, napi_callback_info info) {
@@ -536,6 +537,36 @@ napi_value GenerateRandomString(napi_env env, napi_callback_info info) {
     napi_value result;
     napi_create_string_utf8(env, result_str, NAPI_AUTO_LENGTH, &result);
     free(result_str);
+
+    return result;
+}
+
+/** Function to generate a password */
+napi_value GeneratePassword(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_status status;
+
+    status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+    if (status != napi_ok || argc < 1)
+        return NULL;
+
+    int32_t length;
+    status = napi_get_value_int32(env, args[0], &length);
+    if (status != napi_ok || length <= 0)
+        return NULL;
+
+    char *password = generatePassword(length);
+    if (!password)
+        return NULL;
+
+    napi_value result;
+    status = napi_create_string_utf8(env, password, NAPI_AUTO_LENGTH, &result);
+
+    free(password);
+
+    if (status != napi_ok)
+        return NULL;
 
     return result;
 }

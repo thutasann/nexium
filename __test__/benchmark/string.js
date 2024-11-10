@@ -8,6 +8,7 @@ const {
   benchmark,
   benchmark_args,
   isPalindrome,
+  generatePassword,
 } = require('./utils/index')
 
 /** iterations */
@@ -46,6 +47,13 @@ async function string_benchmark_test() {
   const jsPalindromeTime = benchmark_args(() => isPalindrome('madam'), [], iterations)
   results.push({ Method: 'Nexium Palindrome', Time: nPalindromTime.toFixed(6) })
   results.push({ Method: 'JavaScript Palindrome', Time: jsPalindromeTime.toFixed(6) })
+  results.push({})
+
+  // ----------- Palindrome String Benchmarks
+  const nPasswordTime = benchmark_args(() => NString.generatePassword(12), [], iterations)
+  const jsPasswordTime = benchmark_args(() => generatePassword(12), [], iterations)
+  results.push({ Method: 'Nexium Password Time', Time: nPasswordTime.toFixed(6) })
+  results.push({ Method: 'JavaScript Password Time', Time: jsPasswordTime.toFixed(6) })
   results.push({})
 
   await updateResult(results, './results/string.md', 'String Benchmark')
