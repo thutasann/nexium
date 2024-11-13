@@ -14,3 +14,6 @@
 | Nexium Valid Anagram         | 0.000          |
 | JavaScript Valid Anagram     | 0.001          |
 | -                            | -              |
+| Nexium Reverse Integer       | 0.000          |
+| JavaScript Reverse Integer   | 0.001          |
+| -                            | -              |

@@ -3,6 +3,7 @@ import {
   longestSubstring as longestSubstringFn,
   isValidParentheses as isValidParenthesesFn,
   isValidAnagram as isValidAnagramFn,
+  reverseInteger as reverseIntegerFn,
 } from '../../build/Release/nexium.node'
 
 /** Leetcode Solutions */
@@ -32,5 +33,16 @@ export class NLeet {
    */
   static isValidAnagram(s1: string, s2: string): boolean {
     return isValidAnagramFn(s1, s2)
+  }
+
+  /**
+   * reverse integer
+   * @param num - given number
+   * @example
+   * reverseInteger(123) // 321
+   * reverseInteger(-123) // -321
+   */
+  static reverseInteger(num: number): number {
+    return reverseIntegerFn(num)
   }
 }

@@ -1,4 +1,5 @@
 #include "../include/leetcode_helpers.h"
+#include <limits.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
@@ -111,4 +112,24 @@ bool is_valid_anagram(const char *s1, const char *s2) {
     }
 
     return true;
+}
+
+/** Helper function to reverse integer */
+int reverse_integer(int x) {
+    int reversed = 0;
+    while (x != 0) {
+        int pop = x % 10;
+        x /= 10;
+
+        // Check for overflow/underflow before multiplying and adding
+        if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && pop > 7)) {
+            return 0; // Overflow
+        }
+        if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && pop < -8)) {
+            return 0; // Underflow
+        }
+
+        reversed = reversed * 10 + pop;
+    }
+    return reversed;
 }

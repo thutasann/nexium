@@ -81,3 +81,29 @@ describe('isValidAnagram', () => {
     expect(NLeet.isValidAnagram('', '')).toBe(true)
   })
 })
+
+describe('Reverse Integer', () => {
+  test('reverses a positive integer', () => {
+    expect(NLeet.reverseInteger(123)).toBe(321)
+  })
+
+  test('reverses a negative integer', () => {
+    expect(NLeet.reverseInteger(-123)).toBe(-321)
+  })
+
+  test('handles overflow for positive integer', () => {
+    expect(NLeet.reverseInteger(1534236469)).toBe(0) // Overflow case
+  })
+
+  test('handles overflow for negative integer', () => {
+    expect(NLeet.reverseInteger(-1534236469)).toBe(0) // Underflow case
+  })
+
+  test('reverses an integer ending with zero', () => {
+    expect(NLeet.reverseInteger(120)).toBe(21) // Removes trailing zero
+  })
+
+  test('returns 0 for input 0', () => {
+    expect(NLeet.reverseInteger(0)).toBe(0) // Edge case for zero
+  })
+})

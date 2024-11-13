@@ -95,4 +95,24 @@ function isValidAnagram(s1, s2) {
   return true
 }
 
-module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram }
+/**
+ * reverse integer
+ * @param {number} x - given number
+ */
+function reverseInteger(x) {
+  const limit = 2 ** 31 // 32-bit signed integer limit
+  let reversed = 0
+
+  while (x !== 0) {
+    const digit = x % 10
+    // @ts-ignore
+    x = parseInt(x / 10)
+
+    if (reversed > (limit - 1) / 10 || reversed < -limit / 10) return 0
+    reversed = reversed * 10 + digit
+  }
+
+  return reversed
+}
+
+module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram, reverseInteger }
