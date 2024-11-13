@@ -235,3 +235,19 @@ napi_value IsValidAnagram(napi_env env, napi_callback_info info) {
 
     return js_result;
 }
+
+/** Reverse Integer */
+napi_value ReverseInteger(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    int32_t input;
+    napi_get_value_int32(env, args[0], &input);
+
+    int32_t result = reverse_integer(input);
+
+    napi_value jsResult;
+    napi_create_int32(env, result, &jsResult);
+    return jsResult;
+}

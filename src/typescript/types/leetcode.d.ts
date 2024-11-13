@@ -5,4 +5,5 @@ declare module '*.node' {
   export function longestSubstring(str: string): number
   export function isValidParentheses(str: string): boolean
   export function isValidAnagram(s1: string, s2: string): boolean
+  export function reverseInteger(num: number): number
 }

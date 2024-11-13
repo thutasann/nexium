@@ -2,7 +2,13 @@
 const { NLeet } = require('../../lib')
 const { updateResult } = require('./utils/update_readme')
 const { benchmark_args } = require('./utils/index')
-const { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram } = require('./utils/leetcodes_utils')
+const {
+  twoSum,
+  lengthOfLongestSubstring,
+  isValidParentheses,
+  isValidAnagram,
+  reverseInteger,
+} = require('./utils/leetcodes_utils')
 
 /** iterations */
 const iterations = 1000
@@ -40,6 +46,13 @@ async function leetcode_benchmark_test() {
   const jsValidAnagramTime = benchmark_args(() => isValidAnagram('anagram', 'nagaram'), [], iterations)
   results.push({ Method: 'Nexium Valid Anagram', Time: nValidAnagramTime.toFixed(3) })
   results.push({ Method: 'JavaScript Valid Anagram', Time: jsValidAnagramTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Reverse Integer
+  const nReverseIntegerTime = benchmark_args(() => NLeet.reverseInteger(123), [], iterations)
+  const jsReverseIntegerTime = benchmark_args(() => reverseInteger(123), [], iterations)
+  results.push({ Method: 'Nexium Reverse Integer', Time: nReverseIntegerTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Reverse Integer', Time: jsReverseIntegerTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/leetcodes.md', 'Leetcode Benchmark')

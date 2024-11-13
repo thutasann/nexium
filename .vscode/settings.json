@@ -1,8 +1,8 @@
 {
   "files.associations": {
-    ".fantomasignore": "ignore",
     "*.mdx": "mdx",
     "*.jade": "jade",
+    ".fantomasignore": "ignore",
     "stdio.h": "c",
     "stdbool.h": "c",
     "string.h": "c",
@@ -42,7 +42,8 @@
     "ostream": "c",
     "typeinfo": "c",
     "new": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "leetcode_helpers.h": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

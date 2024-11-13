@@ -2,8 +2,8 @@
 
 | Method                        | Time (seconds) |
 | ----------------------------- | -------------- |
-| Nexium Bubble Sort Number     | 0.085          |
+| Nexium Bubble Sort Number     | 0.078          |
 | JavaScript Bubble Sort Number | 0.006          |
 | -                             | -              |
-| Nexium Quick Sort Number      | 0.085          |
-| JavaScript Quick Sort Number  | 1.980          |
+| Nexium Quick Sort Number      | 0.079          |
+| JavaScript Quick Sort Number  | 2.018          |
