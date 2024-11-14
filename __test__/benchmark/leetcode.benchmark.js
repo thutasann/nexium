@@ -8,6 +8,7 @@ const {
   isValidParentheses,
   isValidAnagram,
   reverseInteger,
+  isIntegerPalindrome,
 } = require('./utils/leetcodes_utils')
 
 /** iterations */
@@ -53,6 +54,13 @@ async function leetcode_benchmark_test() {
   const jsReverseIntegerTime = benchmark_args(() => reverseInteger(123), [], iterations)
   results.push({ Method: 'Nexium Reverse Integer', Time: nReverseIntegerTime.toFixed(3) })
   results.push({ Method: 'JavaScript Reverse Integer', Time: jsReverseIntegerTime.toFixed(3) })
+  results.push({})
+
+  // ----------- Palindrome Integer
+  const nPalindromeIntegerTime = benchmark_args(() => NLeet.isIntegerPalindrome(-121), [], iterations)
+  const jsPalindromeTime = benchmark_args(() => isIntegerPalindrome(-121), [], iterations)
+  results.push({ Method: 'Nexium Palindrome Integer', Time: nPalindromeIntegerTime.toFixed(3) })
+  results.push({ Method: 'JavaScript Palindrome Integer', Time: jsPalindromeTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/leetcodes.md', 'Leetcode Benchmark')

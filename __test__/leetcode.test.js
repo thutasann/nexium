@@ -107,3 +107,29 @@ describe('Reverse Integer', () => {
     expect(NLeet.reverseInteger(0)).toBe(0) // Edge case for zero
   })
 })
+
+describe('Palindrome Integer', () => {
+  test('returns true for positive palindrome number', () => {
+    expect(NLeet.isIntegerPalindrome(121)).toBe(true)
+  })
+
+  test('returns false for positive non-palindrome number', () => {
+    expect(NLeet.isIntegerPalindrome(123)).toBe(false)
+  })
+
+  test('returns false for negative number', () => {
+    expect(NLeet.isIntegerPalindrome(-121)).toBe(false)
+  })
+
+  test('returns true for single-digit number', () => {
+    expect(NLeet.isIntegerPalindrome(7)).toBe(true) // Single-digit numbers are palindromes
+  })
+
+  test('returns false for numbers ending in zero', () => {
+    expect(NLeet.isIntegerPalindrome(10)).toBe(false) // 10 is not a palindrome
+  })
+
+  test('returns true for zero', () => {
+    expect(NLeet.isIntegerPalindrome(0)).toBe(true) // Edge case for zero
+  })
+})
