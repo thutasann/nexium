@@ -115,4 +115,24 @@ function reverseInteger(x) {
   return reversed
 }
 
-module.exports = { twoSum, lengthOfLongestSubstring, isValidParentheses, isValidAnagram, reverseInteger }
+/**
+ * check if given number is palindrome or not
+ * @param {number} num
+ * @returns { boolean }
+ */
+function isIntegerPalindrome(num) {
+  if (num < 0) return false
+
+  const str = num.toString()
+  const reversed = str.split(' ').reverse().join('')
+  return str === reversed
+}
+
+module.exports = {
+  twoSum,
+  lengthOfLongestSubstring,
+  isValidParentheses,
+  isValidAnagram,
+  reverseInteger,
+  isIntegerPalindrome,
+}

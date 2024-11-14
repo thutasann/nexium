@@ -4,6 +4,7 @@ import {
   isValidParentheses as isValidParenthesesFn,
   isValidAnagram as isValidAnagramFn,
   reverseInteger as reverseIntegerFn,
+  isIntegerPalindrome as isIntegerPalindromeFn,
 } from '../../build/Release/nexium.node'
 
 /** Leetcode Solutions */
@@ -44,5 +45,14 @@ export class NLeet {
    */
   static reverseInteger(num: number): number {
     return reverseIntegerFn(num)
+  }
+
+  /**
+   * check if number is palindrome
+   * @param num - given numer
+   * isPalindrome(121) // true
+   */
+  static isIntegerPalindrome(num: number): boolean {
+    return isIntegerPalindromeFn(num)
   }
 }

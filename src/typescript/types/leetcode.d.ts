@@ -6,4 +6,5 @@ declare module '*.node' {
   export function isValidParentheses(str: string): boolean
   export function isValidAnagram(s1: string, s2: string): boolean
   export function reverseInteger(num: number): number
+  export function isIntegerPalindrome(num: number): boolean
 }

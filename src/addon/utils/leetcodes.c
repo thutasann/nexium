@@ -251,3 +251,19 @@ napi_value ReverseInteger(napi_env env, napi_callback_info info) {
     napi_create_int32(env, result, &jsResult);
     return jsResult;
 }
+
+/** Is Integer Palindrome */
+napi_value IsIntegerPalindrome(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    int32_t input;
+    napi_get_value_int32(env, args[0], &input);
+
+    bool result = is_int_palindrome(input);
+
+    napi_value jsResult;
+    napi_get_boolean(env, result, &jsResult);
+    return jsResult;
+}
