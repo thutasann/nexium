@@ -151,3 +151,47 @@ bool is_int_palindrome(int x) {
 
     return original == reversed;
 }
+
+/** Helper function to sort by frequency in descending order */
+int compare_frequent(const void *a, const void *b) {
+    return ((FrequencyMap *)b)->frequency - ((FrequencyMap *)a)->frequency;
+}
+
+/* Helper function to find the K Most frequent elements*/
+int *KMostFrequent_Helper(int *array, int size, int k, int *returnSize) {
+    FrequencyMap *hashmap = (FrequencyMap *)malloc(size * sizeof(FrequencyMap));
+    int mapSize = 0;
+
+    // build frequency map
+    for (int i = 0; i < size; i++) {
+        int found = 0;
+        for (int j = 0; j < mapSize; j++) {
+            if (hashmap[j].element == array[i]) {
+                hashmap[j].frequency++;
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
+            hashmap[mapSize].element = array[i];
+            hashmap[mapSize].frequency = 1;
+            mapSize++;
+        }
+    }
+
+    // sort the frequency map by frequency in decending order
+    qsort(hashmap, mapSize, sizeof(FrequencyMap), compare_frequent);
+
+    // allocation memory for the result arry
+    int *result = (int *)malloc(k * sizeof(int));
+    *returnSize = k;
+
+    // extract the top k elements
+    for (int i = 0; i < k; i++) {
+        result[i] = hashmap[i].element;
+    }
+
+    free(hashmap);
+
+    return result;
+}

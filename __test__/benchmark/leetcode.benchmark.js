@@ -9,6 +9,7 @@ const {
   isValidAnagram,
   reverseInteger,
   isIntegerPalindrome,
+  topKFrequent,
 } = require('./utils/leetcodes_utils')
 
 /** iterations */
@@ -61,6 +62,13 @@ async function leetcode_benchmark_test() {
   const jsPalindromeTime = benchmark_args(() => isIntegerPalindrome(-121), [], iterations)
   results.push({ Method: 'Nexium Palindrome Integer', Time: nPalindromeIntegerTime.toFixed(3) })
   results.push({ Method: 'JavaScript Palindrome Integer', Time: jsPalindromeTime.toFixed(3) })
+  results.push({})
+
+  // ----------- K Most Frequent Element
+  const nKmostFrequentTime = benchmark_args(() => NLeet.kMostFrequent([4, 4, 4, 5, 5, 6, 6, 6, 7], 3), [], iterations)
+  const jsKmostFrequentTime = benchmark_args(() => topKFrequent([4, 4, 4, 5, 5, 6, 6, 6, 7], 3), [], iterations)
+  results.push({ Method: 'Nexium K Most Frequent Number', Time: nKmostFrequentTime.toFixed(3) })
+  results.push({ Method: 'JavaScript K Most Frequent', Time: jsKmostFrequentTime.toFixed(3) })
   results.push({})
 
   await updateResult(results, './results/leetcodes.md', 'Leetcode Benchmark')

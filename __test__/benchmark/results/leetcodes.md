@@ -8,7 +8,7 @@
 | Nexium Longest Substring      | 0.000          |
 | JavaScript Longest Substring  | 0.001          |
 | -                             | -              |
-| Nexium Valid Parentheses      | 0.000          |
+| Nexium Valid Parentheses      | 0.001          |
 | JavaScript Valid Parentheses  | 0.001          |
 | -                             | -              |
 | Nexium Valid Anagram          | 0.000          |
@@ -19,4 +19,7 @@
 | -                             | -              |
 | Nexium Palindrome Integer     | 0.000          |
 | JavaScript Palindrome Integer | 0.000          |
+| -                             | -              |
+| Nexium K Most Frequent Number | 0.001          |
+| JavaScript K Most Frequent    | 0.002          |
 | -                             | -              |

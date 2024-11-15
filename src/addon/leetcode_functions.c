@@ -26,4 +26,8 @@ void InitLeetCodesFunctions(napi_env env, napi_value exports) {
     napi_value isIntegerPalindrome_fn;
     napi_create_function(env, NULL, 0, IsIntegerPalindrome, NULL, &isIntegerPalindrome_fn);
     napi_set_named_property(env, exports, "isIntegerPalindrome", isIntegerPalindrome_fn);
+
+    napi_value kMostFrequent_fn;
+    napi_create_function(env, NULL, 0, KMostFrequent, NULL, &kMostFrequent_fn);
+    napi_set_named_property(env, exports, "kMostFrequent", kMostFrequent_fn);
 }

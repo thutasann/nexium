@@ -133,3 +133,20 @@ describe('Palindrome Integer', () => {
     expect(NLeet.isIntegerPalindrome(0)).toBe(true) // Edge case for zero
   })
 })
+
+describe('K Most Frequent Elements', () => {
+  test('returns top 2 most frequent elements', () => {
+    const result = NLeet.kMostFrequent([1, 1, 1, 2, 2, 3], 2)
+    expect(result).toEqual([1, 2])
+  })
+
+  test('returns top 3 most frequent elements', () => {
+    const result = NLeet.kMostFrequent([4, 4, 4, 5, 5, 6, 6, 6, 7], 3)
+    expect(result).toEqual([4, 6, 5])
+  })
+
+  test('handles single element array', () => {
+    const result = NLeet.kMostFrequent([10], 1)
+    expect(result).toEqual([10])
+  })
+})
