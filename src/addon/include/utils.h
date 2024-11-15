@@ -70,5 +70,6 @@ napi_value IsValidParentheses(napi_env env, napi_callback_info info);
 napi_value IsValidAnagram(napi_env env, napi_callback_info info);
 napi_value ReverseInteger(napi_env env, napi_callback_info info);
 napi_value IsIntegerPalindrome(napi_env env, napi_callback_info info);
+napi_value KMostFrequent(napi_env env, napi_callback_info info);
 
 #endif

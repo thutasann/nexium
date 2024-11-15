@@ -5,6 +5,7 @@ import {
   isValidAnagram as isValidAnagramFn,
   reverseInteger as reverseIntegerFn,
   isIntegerPalindrome as isIntegerPalindromeFn,
+  kMostFrequent as kMostFrequentFn,
 } from '../../build/Release/nexium.node'
 
 /** Leetcode Solutions */
@@ -54,5 +55,16 @@ export class NLeet {
    */
   static isIntegerPalindrome(num: number): boolean {
     return isIntegerPalindromeFn(num)
+  }
+
+  /**
+   * function to find the k most frequent elements
+   * @param nums - give nums array
+   * @param k - k
+   * @example
+   * kMostFrequent([1, 1, 1, 2, 2, 3], 2) // [1,2]
+   */
+  static kMostFrequent(nums: number[], k: number): number[] {
+    return kMostFrequentFn(nums, k)
   }
 }

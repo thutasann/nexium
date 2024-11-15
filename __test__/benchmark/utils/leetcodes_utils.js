@@ -128,6 +128,23 @@ function isIntegerPalindrome(num) {
   return str === reversed
 }
 
+/**
+ *  K most frequent elements in an array,
+ * @param {Array<number>} nums
+ * @param {number} k
+ * @returns { number[] }
+ */
+function topKFrequent(nums, k) {
+  const freqMap = new Map()
+  for (const num of nums) {
+    freqMap.set(num, (freqMap.get(num) || 0) + 1)
+  }
+
+  const sorted = [...freqMap.entries()].sort((a, b) => b[1] - a[1])
+
+  return sorted.slice(0, k).map(([num]) => num)
+}
+
 module.exports = {
   twoSum,
   lengthOfLongestSubstring,
@@ -135,4 +152,5 @@ module.exports = {
   isValidAnagram,
   reverseInteger,
   isIntegerPalindrome,
+  topKFrequent,
 }

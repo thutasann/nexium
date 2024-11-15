@@ -267,3 +267,42 @@ napi_value IsIntegerPalindrome(napi_env env, napi_callback_info info) {
     napi_get_boolean(env, result, &jsResult);
     return jsResult;
 }
+
+/** Function to find the k most frequent elements */
+napi_value KMostFrequent(napi_env env, napi_callback_info info) {
+    size_t argc = 2;
+    napi_value args[2];
+    napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+
+    // get input array
+    uint32_t arrayLength;
+    napi_get_array_length(env, args[0], &arrayLength);
+
+    int *array = (int *)malloc(arrayLength * sizeof(int));
+    for (uint32_t i = 0; i < arrayLength; i++) {
+        napi_value element;
+        napi_get_element(env, args[0], i, &element);
+        napi_get_value_int32(env, element, &array[i]);
+    }
+
+    // get input k
+    int32_t k;
+    napi_get_value_int32(env, args[1], &k);
+
+    int returnSize;
+    int *result = KMostFrequent_Helper(array, arrayLength, k, &returnSize);
+
+    // result array
+    napi_value jsResult;
+    napi_create_array_with_length(env, returnSize, &jsResult);
+    for (int i = 0; i < returnSize; i++) {
+        napi_value num;
+        napi_create_int32(env, result[i], &num);
+        napi_set_element(env, jsResult, i, num);
+    }
+
+    free(array);
+    free(result);
+
+    return jsResult;
+}
